@@ -48,6 +48,6 @@ export async function spotifyAlbumToMusicBrainz(album_id: string) {
     const album = await getSpotifyAlbum(album_id);
     const metadata = prepareReleaseSearchMetadata(album);
     const response = await queryMusicBrainzRelease(metadata);
-    const id = await filterMusicBrainzResponse(response);
+    const id = filterMusicBrainzResponse(response);
     return id;
 }
