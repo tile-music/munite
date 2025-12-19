@@ -1,5 +1,8 @@
 import { createQueue, type Queue } from "./queue.ts";
 import { ReleaseSearchMetadata } from "./validate.ts";
+import * as log from "./log.ts";
+import type { ReleaseMetadata, TargetMetadata } from "./score.ts";
+import { scoreRelease } from "./score.ts";
 
 let music_brainz_queue: Queue | null = null;
 
@@ -9,16 +12,18 @@ type QueryParam = {
     modifier?: "exact" | "fuzzy";
 };
 
-type MinimalReleaseQueryResponse = {
+type ReleasesSearchResponse = {
     count: number;
-    releases: MinimalRelease[];
+    releases: MinimalSearchRelease[];
 };
 
-type MinimalRelease = {
+type MinimalSearchRelease = {
     id: string;
     score: number;
     title: string;
     date: string;
+    country: string | null;
+    disambiguation: string | null;
     "track-count": number;
     "artist-credit": {
         name: string;
@@ -28,22 +33,36 @@ type MinimalRelease = {
     };
 };
 
+type MinimalRelease = {
+    "release-group": {
+        id: string;
+        title: string;
+        disambiguation: string;
+        "primary-type": string;
+        "secondary-types": string[];
+        "first-release-date": string;
+    };
+    media: {
+        tracks: {
+            title: string;
+            length: number;
+        }[];
+    }[];
+};
+
 function assembleMusicBrainzRequestURL(
     endpoint: string,
     query_params: QueryParam[] = [],
 ): string {
-    // Base URL for MusicBrainz API
-    const base_url = "https://musicbrainz.org/ws/2/";
+    // create base url
+    const base_url = Deno.env.get("MUSICBRAINZ_API_URL");
     const url = new URL(endpoint, base_url);
     url.searchParams.append("fmt", "json");
-    url.searchParams.append("inc", "release-groups");
 
-    // Construct the query string
+    // assemble query
     let query = "";
     for (const param of query_params) {
-        if (query.length > 0) {
-            query += " AND ";
-        }
+        if (query.length > 0) query += " AND ";
         const escaped_value = escapeValue(param.value);
 
         let modified_value = escaped_value;
@@ -71,11 +90,12 @@ export function initializeMusicBrainzQueue(req_per_sec: number) {
     music_brainz_queue = createQueue();
     const interval = 1000 / req_per_sec;
     setInterval(music_brainz_queue.process, interval);
+    log.info("Initialized MusicBrainz queue");
 }
 
-export async function queryMusicBrainzRelease(
+export async function queryMusicBrainzReleases(
     metadata: ReleaseSearchMetadata,
-): Promise<MinimalRelease[]> {
+): Promise<MinimalSearchRelease[]> {
     if (!music_brainz_queue) {
         throw new Error("MusicBrainz queue is not initialized");
     }
@@ -99,7 +119,7 @@ export async function queryMusicBrainzRelease(
         },
         {
             name: "tracks",
-            value: metadata.track_titles.length.toString(),
+            value: metadata.tracks.length.toString(),
         },
         // {
         //   name: "country",
@@ -107,11 +127,10 @@ export async function queryMusicBrainzRelease(
         // },
     ];
 
-    let releases: MinimalRelease[] = [];
+    let releases: MinimalSearchRelease[] = [];
 
     while (releases.length == 0) {
         const url = assembleMusicBrainzRequestURL("release/", query_params);
-        console.log(url);
         const response = await music_brainz_queue.enqueue(url, {
             headers: {
                 "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
@@ -119,15 +138,20 @@ export async function queryMusicBrainzRelease(
         });
 
         if (!response.ok) {
-            console.error(`MusicBrainz API error: ${response.status}`);
+            log.error(`MusicBrainz API error: ${response.status}`);
             break;
         }
 
-        const data: MinimalReleaseQueryResponse = await response.json();
-        console.log(data);
+        const data: ReleasesSearchResponse = await response.json();
         releases = data.releases;
 
         if (releases.length == 0) {
+            log.debug(
+                `No results for query params: ${JSON.stringify(
+                    query_params,
+                )}, relaxing search...`,
+            );
+
             // first relax by removing track count
             const track_count_index = query_params.findIndex(
                 (param) => param.name === "tracks",
@@ -135,6 +159,7 @@ export async function queryMusicBrainzRelease(
             if (track_count_index !== -1) {
                 // remove track count filter
                 query_params.splice(track_count_index, 1);
+                log.debug("Removed track count filter");
                 continue;
             }
 
@@ -144,6 +169,7 @@ export async function queryMusicBrainzRelease(
             );
             if (artist_param && artist_param.modifier !== "fuzzy") {
                 artist_param.modifier = "fuzzy";
+                log.debug("Made artist fuzzy");
                 continue;
             }
 
@@ -153,11 +179,13 @@ export async function queryMusicBrainzRelease(
             );
             if (release_param && release_param.modifier !== "fuzzy") {
                 release_param.modifier = "fuzzy";
+                log.debug("Made release title fuzzy");
                 continue;
             }
 
             // if still no results, remove the last query param
             query_params.pop();
+            log.debug("Removed last query param to broaden search");
         } else {
             break;
         }
@@ -179,9 +207,14 @@ type FilterResponse =
           filter_store: number;
       };
 
-export function filterMusicBrainzResponse(
-    releases: MinimalRelease[],
-): FilterResponse {
+export async function filterMusicBrainzResponse(
+    releases: MinimalSearchRelease[],
+    metadata: ReleaseSearchMetadata,
+): Promise<FilterResponse> {
+    if (!music_brainz_queue) {
+        throw new Error("MusicBrainz queue is not initialized");
+    }
+
     if (releases.length === 0) {
         return {
             status: "error",
@@ -189,12 +222,82 @@ export function filterMusicBrainzResponse(
         };
     }
 
-    const release = releases[0];
+    const target_metadata: TargetMetadata = {
+        title: metadata.stripped_album_title,
+        artists: metadata.stripped_artists,
+        tracks: metadata.tracks,
+        release_date: metadata.release_date,
+    };
+
+    const scored_releases: {
+        release: MinimalSearchRelease;
+        score: number;
+    }[] = [];
+
+    for (const release of releases) {
+        let release_group_release_date: string | null = null;
+        let tracks: { name: string; duration_ms: number }[] | null = null;
+
+        if (Deno.env.get("QUERY_RELEASE") === "true") {
+            // query release
+            const url =
+                Deno.env.get("MUSICBRAINZ_API_URL") +
+                `release/${release.id}?fmt=json&inc=release-groups+recordings`;
+            const response = await music_brainz_queue.enqueue(url, {
+                headers: {
+                    "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
+                },
+            });
+
+            if (!response.ok) {
+                log.error(
+                    `MusicBrainz API error when fetching release ${release.id}: ${response.status}`,
+                );
+                continue;
+            }
+
+            const full_release: MinimalRelease = await response.json();
+            release_group_release_date =
+                full_release["release-group"]["first-release-date"];
+
+            tracks = [];
+            for (const medium of full_release.media) {
+                for (const track of medium.tracks) {
+                    tracks.push({
+                        name: track.title,
+                        duration_ms: track.length,
+                    });
+                }
+            }
+        }
+
+        // prepare metadata for scoring
+        const release_metadata: ReleaseMetadata = {
+            title: release.title,
+            artists: release["artist-credit"].map((artist) => artist.name),
+            track_count: release["track-count"],
+            country: release.country,
+            release_date: release.date,
+            release_group_release_date,
+            tracks: null,
+            disambiguation: release.disambiguation,
+        };
+
+        // score release
+        const score = scoreRelease(release_metadata, target_metadata);
+        scored_releases.push({ release, score });
+    }
+
+    // find best scored release
+    scored_releases.sort((a, b) => b.score - a.score);
+    const best_release = scored_releases[0];
+    const release = best_release.release;
+
     return {
         status: "success",
         release_id: release.id,
         release_group_id: release["release-group"].id,
         query_score: release.score,
-        filter_store: 0,
+        filter_store: best_release.score,
     };
 }

@@ -1,3 +1,5 @@
+import * as log from "./log.ts";
+
 /*
  * Create a message queue for processing API requests, to be executed
  * at a maximum rate to avoid rate limiting issues.
@@ -35,6 +37,7 @@ async function process(items: QueueItem[]) {
     const req = items.shift();
     if (!req) return;
     try {
+        log.debug(`Processing request to ${req.url}`, req.options);
         const response = await fetch(req.url, req.options);
         req.resolve(response);
     } catch (err) {

@@ -2,7 +2,9 @@ import { load } from "@std/dotenv";
 import { getSpotifyAlbum, initializeSpotifyQueue } from "./spotify.ts";
 import { initializeMusicBrainzQueue } from "./mb.ts";
 import { prepareReleaseSearchMetadata } from "./validate.ts";
-import { filterMusicBrainzResponse, queryMusicBrainzRelease } from "./mb.ts";
+import { filterMusicBrainzResponse, queryMusicBrainzReleases } from "./mb.ts";
+import * as log from "./log.ts";
+import type { LogLevel } from "./log.ts";
 await load({ export: true });
 
 function verifyEnvironmentVariables() {
@@ -12,6 +14,8 @@ function verifyEnvironmentVariables() {
         "SPOTIFY_CLIENT_ID",
         "SPOTIFY_CLIENT_SECRET",
         "MAX_SPOTIFY_REQUESTS_PER_SECOND",
+        "QUERY_RELEASE",
+        "LOG_LEVEL",
     ];
 
     for (const varName of requiredVars) {
@@ -30,6 +34,9 @@ export async function init() {
     await initializeSpotifyQueue(
         Number(Deno.env.get("MAX_SPOTIFY_REQUESTS_PER_SECOND")),
     );
+
+    log.setLevel((Deno.env.get("LOG_LEVEL") as LogLevel) || "info");
+    log.enable();
 }
 
 if (import.meta.main) {
@@ -47,7 +54,7 @@ if (import.meta.main) {
 export async function spotifyAlbumToMusicBrainz(album_id: string) {
     const album = await getSpotifyAlbum(album_id);
     const metadata = prepareReleaseSearchMetadata(album);
-    const response = await queryMusicBrainzRelease(metadata);
-    const id = filterMusicBrainzResponse(response);
+    const releases = await queryMusicBrainzReleases(metadata);
+    const id = await filterMusicBrainzResponse(releases, metadata);
     return id;
 }

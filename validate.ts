@@ -4,7 +4,11 @@
 export type ReleaseSearchMetadata = {
     stripped_album_title: string;
     stripped_artists: string[];
-    track_titles: string[];
+    release_date: string | null;
+    tracks: {
+        name: string;
+        duration_ms: number;
+    }[];
 };
 
 /**
@@ -39,6 +43,11 @@ export function prepareReleaseSearchMetadata(
         return artist["name"] as string;
     });
 
+    const release_date =
+        "release_date" in album && typeof album["release_date"] === "string"
+            ? (album["release_date"] as string)
+            : null;
+
     if (
         !("tracks" in album) ||
         typeof album["tracks"] !== "object" ||
@@ -62,13 +71,29 @@ export function prepareReleaseSearchMetadata(
             throw new Error("Track name is missing or invalid");
         }
 
-        return track["name"] as string;
+        if (
+            !("duration_ms" in track) ||
+            typeof track["duration_ms"] !== "number"
+        ) {
+            throw new Error("Track duration is missing or invalid");
+        }
+
+        return {
+            name: track["name"] as string,
+            duration_ms: track["duration_ms"] as number,
+        };
     });
 
     return {
         stripped_album_title: stripString(album_title),
         stripped_artists: artists.map(stripString),
-        track_titles: tracks.map(stripString),
+        release_date: release_date,
+        tracks: tracks.map((t) => {
+            return {
+                name: stripString(t.name),
+                duration_ms: t.duration_ms,
+            };
+        }),
     };
 }
 
@@ -79,6 +104,7 @@ export function prepareReleaseSearchMetadata(
  * - Normalizing to decompose combined characters
  * - Removing diacritics
  * - Trimming leading and trailing whitespace
+ * - Remove (Remastered), (Remaster), [Remastered], and [Remaster]
  *
  * @param input - The input string to be stripped and normalized.
  * @returns The stripped and normalized string.
@@ -89,5 +115,6 @@ function stripString(input: string): string {
         .replace(/\s+/g, " ") // Replace multiple spaces with a single space
         .normalize("NFD") // Normalize to decompose combined characters
         .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+        .replace(/\(remaster(ed)?\)|\[remaster(ed)?\]/g, "") // Remove (Remastered), (Remaster), [Remastered], [Remaster]
         .trim(); // Trim leading and trailing whitespace
 }

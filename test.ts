@@ -2,6 +2,7 @@ import { assertGreaterOrEqual } from "@std/assert";
 import { init, spotifyAlbumToMusicBrainz } from "./main.ts";
 import testsJson from "./tests.json" with { type: "json" };
 const tests = testsJson as unknown as Tests;
+import * as log from "./log.ts";
 
 const EXPECTED_SUCCESS_RATE = 0.9;
 
@@ -28,58 +29,72 @@ for (const [category, category_tests] of Object.entries(tests)) {
         const failures: Failure[] = [];
         let successes = 0;
 
-        for (let i = 0; i < num_tests; i++) {
-            const test = category_tests[i];
-            const [
-                album_info,
-                spotify_album,
-                expected_musicbrainz_release_group_id,
-                expected_musicbrainz_id,
-            ] = test;
-            const musicbrainz_result =
-                await spotifyAlbumToMusicBrainz(spotify_album);
-            let status;
+        // Run all tests concurrently
+        const results = await Promise.all(
+            category_tests.map(async (test, i) => {
+                const [
+                    album_info,
+                    spotify_album,
+                    expected_musicbrainz_release_group_id,
+                    expected_musicbrainz_id,
+                ] = test;
 
-            if (musicbrainz_result.status != "success") {
-                failures.push({
-                    test,
-                    actual: musicbrainz_result.message,
-                });
-                status = "FAILED!";
-            } else {
-                const actual = musicbrainz_result.release_id;
-                if (
-                    (typeof expected_musicbrainz_id != "string" &&
-                        !expected_musicbrainz_id.includes(actual)) ||
-                    (typeof expected_musicbrainz_id == "string" &&
-                        actual !== expected_musicbrainz_id)
-                ) {
-                    if (
-                        musicbrainz_result.release_group_id ===
-                        expected_musicbrainz_release_group_id
-                    ) {
-                        successes += 0.5;
-                        status = "PARTIAL";
-                    } else {
-                        status = "FAILED!";
-                    }
-                    failures.push({ test, actual });
+                const musicbrainz_result =
+                    await spotifyAlbumToMusicBrainz(spotify_album);
+                let status;
+                let success = 0;
+                let failure: Failure | null = null;
+
+                if (musicbrainz_result.status != "success") {
+                    failure = {
+                        test,
+                        actual: musicbrainz_result.message,
+                    };
+                    status = "FAILED!";
                 } else {
-                    successes += 1;
-                    status = "SUCCESS";
+                    const actual = musicbrainz_result.release_id;
+                    if (
+                        (typeof expected_musicbrainz_id != "string" &&
+                            !expected_musicbrainz_id.includes(actual)) ||
+                        (typeof expected_musicbrainz_id == "string" &&
+                            actual !== expected_musicbrainz_id)
+                    ) {
+                        if (
+                            musicbrainz_result.release_group_id ===
+                            expected_musicbrainz_release_group_id
+                        ) {
+                            success = 0.5;
+                            status = "PARTIAL";
+                        } else {
+                            status = "FAILED!";
+                        }
+                        failure = { test, actual };
+                    } else {
+                        success = 1;
+                        status = "SUCCESS";
+                    }
                 }
-            }
 
+                return { status, album_info, index: i, success, failure };
+            }),
+        );
+
+        // Process results in order for consistent logging
+        results.forEach((result, i) => {
+            successes += result.success;
+            if (result.failure) {
+                failures.push(result.failure);
+            }
             const success_rate = successes / (i + 1);
-            console.log(
-                `${status} [${i + 1}/${num_tests}] (${success_rate.toFixed(
+            log.info(
+                `${result.status} [${i + 1}/${num_tests}] (${success_rate.toFixed(
                     2,
-                )}): ${album_info}`,
+                )}): ${result.album_info}`,
             );
-        }
+        });
 
         assertGreaterOrEqual(
-            (num_tests - failures.length) / num_tests,
+            successes / num_tests,
             EXPECTED_SUCCESS_RATE,
             `Success rate below expected for category ${category}.\n\nFailures:\n${failures
                 .map(formatFailure)

@@ -1,4 +1,5 @@
 import { createQueue, type Queue } from "./queue.ts";
+import * as log from "./log.ts";
 
 let spotify_queue: Queue | null = null;
 let access_token: string | null = null;
@@ -54,7 +55,7 @@ async function requestAccessToken() {
 
     const data = await result.json();
     access_token = data.access_token;
-    console.log(access_token);
+    log.debug(access_token ?? "No access token obtained");
     setTimeout(requestAccessToken, (data.expires_in - 60) * 1000);
 }
 
