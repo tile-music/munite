@@ -110,21 +110,17 @@ export async function queryMusicBrainzReleases(
             value: metadata.stripped_album_title,
         },
         {
-            name: "primarytype",
-            value: "album",
-        },
-        {
             name: "format",
             value: "digitalmedia",
+        },
+        {
+            name: "status",
+            value: "official",
         },
         {
             name: "tracks",
             value: metadata.tracks.length.toString(),
         },
-        // {
-        //   name: "country",
-        //   value: "(XW || GB || US)",
-        // },
     ];
 
     let releases: MinimalSearchRelease[] = [];
