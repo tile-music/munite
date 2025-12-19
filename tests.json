@@ -378,7 +378,104 @@
             ]
         ]
     ],
-    "deluxe_albums": [],
-    "singles": [],
-    "eps": []
+    "deluxe_albums": [
+        [
+            "Kendrick Lamar - good kid, m.A.A.d city (Deluxe)",
+            "3DGQ1iZ9XKUQxAUWjfC34w",
+            "499c19c8-0dab-4824-884b-6191d145e95b",
+            "42b400fb-800b-49f3-88b4-be1fb8524220"
+        ],
+        [
+            "Lana Del Rey - Born To Die - The Paradise Edition",
+            "5PW8nAtvf2HV8RYZFd4IrX",
+            "4b16a1bc-8644-48ae-9b3e-8ae36aa30cfc",
+            "fd363ac5-5db0-471d-9968-652b7538830a"
+        ],
+        [
+            "Radiohead - OK Computer OKNOTOK 1997 2017",
+            "0tzfI6NFJqcJkWb23R3lRZ",
+            "b1392450-e666-3926-a536-22c65f834433",
+            [
+                "d7881c68-914a-4da3-8a7d-be89f0201307",
+                "a1ed87aa-2079-4e42-bbeb-6309b3b68674",
+                "8e2b5322-f9a6-4ab7-b3f4-f65e7ddbc9e4"
+            ]
+        ],
+        [
+            "Daft Punk - Random Access Memories (10th Anniversary Edition)",
+            "4mAhdh996uW5SnnFKXUmC0",
+            "aa997ea0-2936-40bd-884d-3af8a0e064dc",
+            "e65fcfb0-02dc-407c-ab28-8168dafcb999"
+        ],
+        [
+            "Caroline Polachek - Desire, I Want to Turn Into You: Everasking Edition",
+            "25ktFe8igqIwv9aRbkdnTS",
+            "20bbd8b3-35fa-4a29-9a94-13f4f01bf9ca",
+            "287ee0be-0e75-4d59-bc04-51c5140a790d"
+        ]
+    ],
+    "singles": [
+        [
+            "Radiohead - Creep",
+            "3RQlNKc08ikcuFmbg0luEw",
+            "c5bc370b-95c2-3634-bb89-51bb2dce97c3",
+            "d167d2cd-e579-4b09-a40e-68e833def38b"
+        ],
+        [
+            "Joy Division - Love Will Tear Us Apart",
+            "0u0CJa9zwFbGSU8JWQYS5G",
+            "d4e6c019-a6df-38fb-b6aa-7861d71b5543",
+            "55d3f975-dcc7-4af8-9b08-b0d3c73494f0"
+        ],
+        [
+            "underscores - Do It",
+            "3q2koL9KwKQxUue4hn8oWg",
+            "2dcc1ba9-1772-48c8-b429-2f6428a433d1",
+            "ab1a3f85-e0ea-470a-af5c-175447ae774c"
+        ],
+        [
+            "berryblue - Uh Oh (Single)",
+            "2apFraO1saHGTdEKLv0uw7",
+            "fba30ca6-4791-4a8f-88f4-0c0bae8abd0c",
+            "e612ed9d-1762-432b-956d-06eb09879e88"
+        ],
+        [
+            "Jane Remover - Magic I Want U",
+            "7vL60ZRnAY1KU4Az0CenAb",
+            "31962320-9bdf-4391-8d21-63325350e601",
+            "63e06452-a6d0-4f79-9afc-21848c730a3f"
+        ]
+    ],
+    "eps": [
+        [
+            "Radiohead - My Iron Lung",
+            "4GqinDAWUcJ20wfCaie6f8",
+            "99445a2b-578a-321e-851e-c6539bfbbd7f",
+            "bc9ceb91-2af5-4659-a7e2-7cf61b3ecd8b"
+        ],
+        [
+            "Pixies - Come On Pilgrim",
+            "79CvxovoFgGNuAMvQp9wul",
+            "2a251d31-9958-35f1-b2b1-a64d5541715d",
+            "83042107-9f2d-4ea0-950d-4e424b50ef1d"
+        ],
+        [
+            "Burial - Kindred",
+            "1sioWGJ5khckhIzKklgH6t",
+            "1c288979-ce2f-4e4b-90e4-845908cf7ffc",
+            "2b19f713-fd86-480f-aa71-84ca6f90f86d"
+        ],
+        [
+            "Boards of Canada - In a Beautiful Place Out in the Country",
+            "2U2WNneO3RdYEASjRI2OZx",
+            "c73833e3-384c-36fd-97a2-762a858dbff4",
+            "c5121f79-d6a3-4a07-876f-180f8bfe76d8"
+        ],
+        [
+            "Clarence Clarity - SAVE THYSELF EP",
+            "7zBESW7HGouSlQzJS9WRFR",
+            "e69c72a9-c142-4066-abcf-2d37dcc3b8fb",
+            "87cc75db-2d32-4fb4-a32b-40dc0d3cf2bc"
+        ]
+    ]
 }
