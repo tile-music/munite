@@ -1,4 +1,4 @@
-export type LogLevel = "debug" | "info" | "warn" | "error";
+import type { LogLevel } from "../types/logger.ts";
 
 const state = {
     level: "info" as LogLevel,
@@ -36,14 +36,14 @@ export function error(message: string, data?: unknown) {
     }
 }
 
-export function enable() {
+export function enableLogging() {
     state.enabled = true;
 }
 
-export function disable() {
+export function disableLogging() {
     state.enabled = false;
 }
 
-export function setLevel(level: LogLevel) {
+export function setLogLevel(level: LogLevel) {
     state.level = level;
 }

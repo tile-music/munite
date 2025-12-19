@@ -1,8 +1,8 @@
 import { assertGreaterOrEqual } from "@std/assert";
-import { init, spotifyAlbumToMusicBrainz } from "./main.ts";
-import testsJson from "./tests.json" with { type: "json" };
-const tests = testsJson as unknown as Tests;
-import * as log from "./log.ts";
+import { init, matchSpotifyAlbum } from "../../src/mod.ts";
+import albumsJson from "../fixtures/albums.json" with { type: "json" };
+const albums = albumsJson as unknown as Tests;
+import * as log from "../../src/mod.ts";
 
 const EXPECTED_SUCCESS_RATE = 0.9;
 
@@ -23,7 +23,7 @@ Deno.test.beforeAll(async () => {
     await init();
 });
 
-for (const [category, category_tests] of Object.entries(tests)) {
+for (const [category, category_tests] of Object.entries(albums)) {
     Deno.test(`Spotify Album to MusicBrainz ID - ${category}`, async () => {
         const num_tests = category_tests.length;
         const failures: Failure[] = [];
@@ -40,7 +40,7 @@ for (const [category, category_tests] of Object.entries(tests)) {
                 ] = test;
 
                 const musicbrainz_result =
-                    await spotifyAlbumToMusicBrainz(spotify_album);
+                    await matchSpotifyAlbum(spotify_album);
                 let status;
                 let success = 0;
                 let failure: Failure | null = null;

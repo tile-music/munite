@@ -1,5 +1,6 @@
-import { createQueue, type Queue } from "./queue.ts";
-import * as log from "./log.ts";
+import { createQueue } from "../utils/queue.ts";
+import * as log from "../utils/logger.ts";
+import type { Queue } from "../types/queue.ts";
 
 let spotify_queue: Queue | null = null;
 let access_token: string | null = null;
@@ -10,7 +11,7 @@ export async function initializeSpotifyQueue(req_per_sec: number) {
     spotify_queue = createQueue();
 
     const spotify_interval = 1000 / req_per_sec;
-    setInterval(spotify_queue.process, spotify_interval);
+    setInterval(spotify_queue!.process, spotify_interval);
 
     await requestAccessToken();
 }

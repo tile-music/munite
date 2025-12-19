@@ -1,54 +1,18 @@
-import { createQueue, type Queue } from "./queue.ts";
-import { ReleaseSearchMetadata } from "./validate.ts";
-import * as log from "./log.ts";
-import type { ReleaseMetadata, TargetMetadata } from "./score.ts";
-import { scoreRelease } from "./score.ts";
+import { createQueue } from "../utils/queue.ts";
+import * as log from "../utils/logger.ts";
+import { scoreRelease } from "../core/scorer.ts";
+import type { ReleaseSearchMetadata } from "../types/validator.ts";
+import type { ReleaseMetadata, TargetMetadata } from "../types/common.ts";
+import type { QueryParam } from "../types/musicbrainz.ts";
+import type { Queue } from "../types/queue.ts";
+import type {
+    MinimalSearchRelease,
+    MinimalRelease,
+    ReleasesSearchResponse,
+    FilterResponse,
+} from "../types/musicbrainz.ts";
 
 let music_brainz_queue: Queue | null = null;
-
-type QueryParam = {
-    name: string;
-    value: string;
-    modifier?: "exact" | "fuzzy";
-};
-
-type ReleasesSearchResponse = {
-    count: number;
-    releases: MinimalSearchRelease[];
-};
-
-type MinimalSearchRelease = {
-    id: string;
-    score: number;
-    title: string;
-    date: string;
-    country: string | null;
-    disambiguation: string | null;
-    "track-count": number;
-    "artist-credit": {
-        name: string;
-    }[];
-    "release-group": {
-        id: string;
-    };
-};
-
-type MinimalRelease = {
-    "release-group": {
-        id: string;
-        title: string;
-        disambiguation: string;
-        "primary-type": string;
-        "secondary-types": string[];
-        "first-release-date": string;
-    };
-    media: {
-        tracks: {
-            title: string;
-            length: number;
-        }[];
-    }[];
-};
 
 function assembleMusicBrainzRequestURL(
     endpoint: string,
@@ -89,7 +53,7 @@ export function initializeMusicBrainzQueue(req_per_sec: number) {
 
     music_brainz_queue = createQueue();
     const interval = 1000 / req_per_sec;
-    setInterval(music_brainz_queue.process, interval);
+    setInterval(music_brainz_queue!.process, interval);
     log.info("Initialized MusicBrainz queue");
 }
 
@@ -189,19 +153,6 @@ export async function queryMusicBrainzReleases(
 
     return releases;
 }
-
-type FilterResponse =
-    | {
-          status: "error";
-          message: string;
-      }
-    | {
-          status: "success";
-          release_id: string;
-          release_group_id: string;
-          query_score: number;
-          filter_store: number;
-      };
 
 export async function filterMusicBrainzResponse(
     releases: MinimalSearchRelease[],

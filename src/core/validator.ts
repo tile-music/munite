@@ -1,15 +1,4 @@
-/**
- * Release search metadata, used for searching releases in MusicBrainz.
- */
-export type ReleaseSearchMetadata = {
-    stripped_album_title: string;
-    stripped_artists: string[];
-    release_date: string | null;
-    tracks: {
-        name: string;
-        duration_ms: number;
-    }[];
-};
+import type { ReleaseSearchMetadata } from "../types/validator.ts";
 
 /**
  * Prepares release search metadata from the given album data.

@@ -1,10 +1,14 @@
 import { load } from "@std/dotenv";
-import { getSpotifyAlbum, initializeSpotifyQueue } from "./spotify.ts";
-import { initializeMusicBrainzQueue } from "./mb.ts";
-import { prepareReleaseSearchMetadata } from "./validate.ts";
-import { filterMusicBrainzResponse, queryMusicBrainzReleases } from "./mb.ts";
-import * as log from "./log.ts";
-import type { LogLevel } from "./log.ts";
+import { getSpotifyAlbum, initializeSpotifyQueue } from "../api/spotify.ts";
+import {
+    initializeMusicBrainzQueue,
+    filterMusicBrainzResponse,
+    queryMusicBrainzReleases,
+} from "../api/musicbrainz.ts";
+import { prepareReleaseSearchMetadata } from "../core/validator.ts";
+import * as log from "../utils/logger.ts";
+import type { LogLevel } from "../types/logger.ts";
+
 await load({ export: true });
 
 function verifyEnvironmentVariables() {
@@ -35,26 +39,14 @@ export async function init() {
         Number(Deno.env.get("MAX_SPOTIFY_REQUESTS_PER_SECOND")),
     );
 
-    log.setLevel((Deno.env.get("LOG_LEVEL") as LogLevel) || "info");
-    log.enable();
+    log.setLogLevel((Deno.env.get("LOG_LEVEL") as LogLevel) || "info");
+    log.enableLogging();
 }
 
-if (import.meta.main) {
-    await init();
-
-    const album_id = Deno.args[0];
-    if (!album_id) {
-        console.error("Please provide a Spotify album ID as an argument.");
-        Deno.exit(1);
-    }
-
-    await spotifyAlbumToMusicBrainz(album_id);
-}
-
-export async function spotifyAlbumToMusicBrainz(album_id: string) {
+export async function matchSpotifyAlbum(album_id: string) {
     const album = await getSpotifyAlbum(album_id);
     const metadata = prepareReleaseSearchMetadata(album);
     const releases = await queryMusicBrainzReleases(metadata);
-    const id = await filterMusicBrainzResponse(releases, metadata);
-    return id;
+    const response = await filterMusicBrainzResponse(releases, metadata);
+    return response;
 }
