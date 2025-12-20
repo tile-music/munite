@@ -4,22 +4,26 @@ A Deno-based library for matching Spotify albums with MusicBrainz releases. Muni
 
 It is **strongly recommended** to use this library in conjunction with a locally-hosted MusicBrainz instance, such as one created using [mbootstrap](https://github.com/tile-music/mbootstrap). This is to compensate for the aggressive rate limiting of the public MusicBrainz API (which is 1 request per second), especially when processing large numbers of albums. With release querying enabled, Munite sends a MusicBrainz query for each potential release, which may be as high as 30 for each album.
 
-## Features
-
-- Spotify Integration - Fetch album metadata directly from Spotify's API
-- MusicBrainz Matching - Find corresponding releases in the MusicBrainz database
-- Release Metadata Scoring - Release matching based on title, artists, tracks, and release date
-- Rate Limiting - Built-in queue system for API rate limit management
-- Logging - Configurable logging with multiple log levels
-- Modern Tooling - Built with Deno and TypeScript for type safety
-
 ## Installation
 
 This project uses Deno. Make sure you have [Deno installed](https://deno.land/manual/getting_started/installation).
 
-```sh
-# Import from local path or JSR (when published)
-import { init, matchSpotifyAlbum } from "./src/mod.ts";
+Import the library directly through JSR:
+```ts
+import { init, matchSpotifyAlbum } from "jsr@tile-music/munite@0";
+```
+
+Or, use an import map:
+```json
+{
+  "imports": {
++    "@tile-music/munite": "jsr:@tile-music/munite@0"
+  }
+}
+```
+
+```ts
+import { init, matchSpotifyAlbum } from "@tile-music/munite";
 ```
 
 ## Configuration
