@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "license": "MIT",
     "exports": "./src/mod.ts",
-    "exclude": ["tests/", ".env.sample", "deno.lock"],
+    "exclude": [".env.sample", "deno.lock"],
     "tasks": {
         "dev": "deno run --watch main.ts"
     },
