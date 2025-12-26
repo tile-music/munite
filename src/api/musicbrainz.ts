@@ -39,7 +39,7 @@ function assembleMusicBrainzRequestURL(
         query += `${param.name}:${modified_value}`;
     }
     url.searchParams.append("query", query.trim());
-
+    log.debug(`MusicBrainz request URL: ${url.toString()}`);
     return url.toString();
 }
 

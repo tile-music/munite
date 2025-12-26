@@ -376,6 +376,15 @@
                 "af823681-7f88-451e-96d2-2aa26585f6f3",
                 "19d8b6a2-51ed-4ed9-a9ce-d201e501e65d"
             ]
+        ],
+        [
+            "ESPRIT 空想 - 200% Electronica",
+            "6WgSCcRfaXuBVfM2TpV0Kl",
+            "7b456549-c339-4eaa-ae56-e67ae63acac4",
+            [
+                "69ffb11b-ebbb-45ae-8c95-1e1c08b39761",
+                "0ae1f6b6-b970-4e73-97c4-6cb8d4b97128"
+            ]
         ]
     ],
     "deluxe_albums": [
@@ -424,7 +433,14 @@
             "5oxUuHFJpJOouSzXqlnhyU",
             "8671a7a0-20b5-3634-8932-7d362d9075f1",
             "b3d61156-27ba-45c1-aa5a-ad465a302230"
+        ],
+        [
+            "Kesha - Animal + Canibal (15th Anniversary)",
+            "4cPVR1DcBZr2ANNvQ25Sjp",
+            "e90dc06b-40a0-4b71-a6b8-c5ed0fdd8c65",
+            "cbbad773-22b4-4c57-8813-950b24d38e70"
         ]
+
     ],
     "singles": [
         [
@@ -546,6 +562,12 @@
             "2ulrx76RxcL2JEVXh1igZI",
             "2ef72a6f-7020-4f21-b531-555d1be46a8b",
             "cd6cd6bb-7093-4553-aab0-46dabc764850"
+        ],
+        [
+            "George Clanton - Aurora Summer (ESPRIT 空想 Remix)",
+            "4kxusJC28RcSKpWfHgD4eK",
+            "93e99e92-fbea-4ace-902c-de8d55b4532b",
+            "20eb3a12-0024-4871-beb2-d6a7a16a1045"
         ]
     ],
     "eps": [
@@ -635,6 +657,51 @@
             "3nCowSpb8Ilc3NYrIqZH5k",
             "6ea1d1e5-a292-4282-b9d4-3eec18239b5f",
             "bd4d4600-b773-49e3-801f-14de8329e4b3"
+        ],
+        [
+            "Purity Filter - neo organic bioform",
+            "5vasloOV1T5IcaTkhrHHTU",
+            "cbf611e7-4155-4273-9f72-9b0c06d3270b",
+            "9ac8be8f-b84c-4ba4-bc1b-d1760ce8d8b2"
+        ],
+        [
+            "Machine Girl - SUPER FREQ",
+            "4fpeEq1qtV52td9M7WcKrp",
+            "f350fb67-4203-4348-b8ff-b0699f2f2eb7",
+            "5155413f-f357-4daf-a562-65f4150c74ed"
+        ],
+        [
+            "Loathe - Loathe | Audiotree From Nothing",
+            "63OMWvD8KjpOMdRmHZBQ1D",
+            "62be7821-f4ce-455b-8d0f-83598ee8ff19",
+            "5ec64060-b0ce-4bdb-bd46-ef3c46a6237d"
+        ],
+        [
+            "berryblue - GOT LIKE ME",
+            "2PQ1xBtvsvq68nJoOtUA2R",
+            "4a7c99ca-0635-4b6a-a4b1-e334ef809196",
+            "0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
+        ],
+        [
+            "Title Fight - Spring Songs",
+            "4cLYG7fp8Z7OyzlSEV6HED",
+            "09a068f3-5d87-46eb-b919-be18641917df",
+            [
+                "9db29abb-e0db-4ac4-beb6-5e64c421f63b",
+                "7a4dac06-2827-494c-9129-63d43b907edc"
+            ]
+        ],
+        [
+            "GnB Chili - Basement Popstar",
+            "3g6BGhwBDj0uRYIWV35iQ0",
+            "f8f397d6-7d85-4af6-a088-25c5458debbe",
+            "01d9d418-1177-4ed5-b0a9-fd168f5e9616"
+        ],
+        [
+            "Kesha - BOY CRAZY.(SMASH REMIXES)",
+            "0YdxI1nWj9oy7jDK8R9TPC",
+            "4d41db23-f8d8-4acd-9a4c-2082b59d0981",
+            "71f307eb-2315-4094-8f37-f8d7e52dab56"
         ]
     ]
 }
