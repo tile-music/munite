@@ -10,9 +10,26 @@ import type {
     MinimalRelease,
     ReleasesSearchResponse,
     FilterResponse,
+
 } from "../types/musicbrainz.ts";
 
 let music_brainz_queue: Queue | null = null;
+
+/**
+ * This function consumes the name of a track and returns whether that track
+ * name possibly contains leet speak
+ * @param name the name of a track
+ * @returns a boolean indicating if the track name possibly contains leet speak
+ */
+function isPossiblyLeet(name: string): boolean {
+  const LEET_CHARS =
+    /[0-9@#$!|\/\\<>\[\]_+\-.,:^~©¢£₤€ƒ¶₱ßΩΘØ∆√♪№¿?]/u;
+
+// Cyrillic + Greek homoglyphs commonly used in leet
+  const LEET_HOMOGLYPHS =
+    /[аАеЕоОрРсСнНмМиИвВьЬпПөӨөΩΘΔ]/u;
+  return LEET_CHARS.test(name) || LEET_HOMOGLYPHS.test(name);
+}
 
 function assembleMusicBrainzRequestURL(
     endpoint: string,
@@ -22,6 +39,9 @@ function assembleMusicBrainzRequestURL(
     const base_url = Deno.env.get("MUSICBRAINZ_API_URL");
     const url = new URL(endpoint, base_url);
     url.searchParams.append("fmt", "json");
+    url.searchParams.append("limit", "100");
+
+
 
     // assemble query
     let query = "";
@@ -64,7 +84,10 @@ export async function queryMusicBrainzReleases(
         throw new Error("MusicBrainz queue is not initialized");
     }
 
-    const query_params: QueryParam[] = [
+    let prefered_region = Deno.env.get("PREFERED_REGION");
+    if(!prefered_region) prefered_region = "US"
+
+    const base_params: QueryParam[] = [
         {
             name: "artist",
             value: metadata.stripped_artists.join(" "),
@@ -85,12 +108,32 @@ export async function queryMusicBrainzReleases(
             name: "tracks",
             value: metadata.tracks.length.toString(),
         },
+        // {
+        //     name: "country",
+        //     value: prefered_region
+        // }
     ];
 
-    let releases: MinimalSearchRelease[] = [];
+    // Track the same relaxation stages as the original loop
+    let stage = 0;
+    let pop_count = 0;
 
-    while (releases.length == 0) {
-        const url = assembleMusicBrainzRequestURL("release/", query_params);
+    while (true) {
+        const query_params = buildParamsForStage(
+            base_params,
+            stage,
+            pop_count,
+        );
+
+        if (query_params.length === 0) {
+            break;
+        }
+
+        const url = assembleMusicBrainzRequestURL(
+            "release/",
+            query_params,
+        );
+
         const response = await music_brainz_queue.enqueue(url, {
             headers: {
                 "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
@@ -103,55 +146,68 @@ export async function queryMusicBrainzReleases(
         }
 
         const data: ReleasesSearchResponse = await response.json();
-        releases = data.releases;
+        if (data.releases.length > 0) {
+            return data.releases;
+        }
 
-        if (releases.length == 0) {
-            log.debug(
-                `No results for query params: ${JSON.stringify(
-                    query_params,
-                )}, relaxing search...`,
-            );
+        log.debug(
+            `No results for query params: ${JSON.stringify(
+                query_params,
+            )}, relaxing search...`,
+        );
 
-            // first relax by removing track count
-            const track_count_index = query_params.findIndex(
-                (param) => param.name === "tracks",
-            );
-            if (track_count_index !== -1) {
-                // remove track count filter
-                query_params.splice(track_count_index, 1);
-                log.debug("Removed track count filter");
-                continue;
-            }
-
-            // then make artist fuzzy
-            const artist_param = query_params.find(
-                (param) => param.name === "artist",
-            );
-            if (artist_param && artist_param.modifier !== "fuzzy") {
-                artist_param.modifier = "fuzzy";
-                log.debug("Made artist fuzzy");
-                continue;
-            }
-
-            // finally make release title fuzzy
-            const release_param = query_params.find(
-                (param) => param.name === "release",
-            );
-            if (release_param && release_param.modifier !== "fuzzy") {
-                release_param.modifier = "fuzzy";
-                log.debug("Made release title fuzzy");
-                continue;
-            }
-
-            // if still no results, remove the last query param
-            query_params.pop();
-            log.debug("Removed last query param to broaden search");
+        // Advance relaxation state (exact same order as original)
+        if (stage < 3) {
+            stage++;
         } else {
-            break;
+            pop_count++;
         }
     }
 
-    return releases;
+    return [];
+}
+
+function buildParamsForStage(
+    base_params: QueryParam[],
+    stage: number,
+    pop_count: number,
+): QueryParam[] {
+    let params = base_params.map((p) => ({ ...p }));
+
+    // Stage 1: remove country preference
+    // if(stage >= 1) {
+    //     params = params.filter((p) => p.name !== "country")
+    // }
+
+    // stage 2: remove track count
+    if (stage >= 1) {
+        params = params.filter((p) => p.name !== "tracks");
+    }
+
+    // Stage 3: artist fuzzy
+    if (stage >= 2) {
+        params = params.map((p) =>
+            p.name === "artist"
+                ? { ...p, modifier: "fuzzy" }
+                : p,
+        );
+    }
+
+    // Stage 4: release fuzzy
+    if (stage >= 3) {
+        params = params.map((p) =>
+            p.name === "release"
+                ? { ...p, modifier: "fuzzy" }
+                : p,
+        );
+    }
+
+    // Stage 5+: pop last param repeatedly
+    if (stage >= 4 && pop_count > 0) {
+        params = params.slice(0, Math.max(0, params.length - pop_count));
+    }
+
+    return params;
 }
 
 export async function filterMusicBrainzResponse(
@@ -189,7 +245,7 @@ export async function filterMusicBrainzResponse(
             // query release
             const url =
                 Deno.env.get("MUSICBRAINZ_API_URL") +
-                `release/${release.id}?fmt=json&inc=release-groups+recordings`;
+                `release/${release.id}?fmt=json&inc=release-groups+recordings&limit=100`;
             const response = await music_brainz_queue.enqueue(url, {
                 headers: {
                     "User-Agent": "StreamBee/1.0 (mail@samranda.com)",

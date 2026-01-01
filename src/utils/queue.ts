@@ -1,5 +1,6 @@
 import * as log from "../utils/logger.ts";
 import type { Queue, QueueItem } from "../types/queue.ts";
+import fetchRetry from "../utils/fetch.ts";
 
 function enqueue(
     items: QueueItem[],
@@ -18,7 +19,7 @@ async function process(items: QueueItem[]) {
     if (!req) return;
     try {
         log.debug(`Processing request to ${req.url}`, req.options);
-        const response = await fetch(req.url, req.options);
+        const response = await fetchRetry(req.url, req.options);
         req.resolve(response);
     } catch (err) {
         req.reject(err);
