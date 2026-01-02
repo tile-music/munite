@@ -35,7 +35,7 @@ type MinimalRelease = {
         "first-release-date": string;
     };
     media: {
-        tracks: {
+        tracks?: {
             title: string;
             length: number;
         }[];

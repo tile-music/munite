@@ -1,6 +1,10 @@
 import { createQueue } from "../utils/queue.ts";
 import * as log from "../utils/logger.ts";
+import { matchAlbum } from "../core/matcher.ts";
+
 import type { Queue } from "../types/queue.ts";
+import type { ReleaseSearchMetadata } from "../types/common.ts";
+import type { SpotifyAlbum } from "../types/spotify.ts";
 
 let spotify_queue: Queue | null = null;
 let access_token: string | null = null;
@@ -76,22 +80,9 @@ async function testAccessToken() {
     return true;
 }
 
-export async function getSpotifyTrack(track_id: string): Promise<unknown> {
-    const url = `https://api.spotify.com/v1/tracks/${track_id}`;
-    const result = await spotify_queue!.enqueue(url, {
-        headers: {
-            Authorization: `Bearer ${access_token}`,
-        },
-    });
-
-    if (!result.ok) {
-        throw new Error(`Failed to fetch Spotify track: ${result.status}`);
-    }
-
-    return await result.json();
-}
-
-export async function getSpotifyAlbum(album_id: string): Promise<unknown> {
+async function getSpotifyAlbum(
+    album_id: string,
+): Promise<ReleaseSearchMetadata> {
     const url = `https://api.spotify.com/v1/albums/${album_id}`;
     const result = await spotify_queue!.enqueue(url, {
         headers: {
@@ -108,5 +99,45 @@ export async function getSpotifyAlbum(album_id: string): Promise<unknown> {
         throw new Error(`Failed to fetch Spotify album: ${result.status}`);
     }
 
-    return await result.json();
+    const spotify_album: SpotifyAlbum = await result.json();
+
+    return {
+        stripped_album_title: stripString(spotify_album.name),
+        stripped_artists: spotify_album.artists.map((artist) =>
+            stripString(artist.name),
+        ),
+        release_date: spotify_album.release_date ?? null,
+        tracks: spotify_album.tracks.items.map((track) => ({
+            name: stripString(track.name),
+            duration_ms: track.duration_ms,
+        })),
+    };
+}
+
+/**
+ * Strips and normalizes a string by:
+ * - Converting to lowercase
+ * - Replacing multiple spaces with a single space
+ * - Normalizing to decompose combined characters
+ * - Removing diacritics
+ * - Trimming leading and trailing whitespace
+ * - Remove (Remastered), (Remaster), [Remastered], and [Remaster]
+ *
+ * @param input - The input string to be stripped and normalized.
+ * @returns The stripped and normalized string.
+ */
+function stripString(input: string): string {
+    return input
+        .toLowerCase() // Make lowercase
+        .replace(/\s+/g, " ") // Replace multiple spaces with a single space
+        .normalize("NFD") // Normalize to decompose combined characters
+        .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+        .replace(/\(remaster(ed)?\)|\[remaster(ed)?\]/g, "") // Remove (Remastered), (Remaster), [Remastered], [Remaster]
+        .trim(); // Trim leading and trailing whitespace
+}
+
+export async function matchSpotifyAlbum(album_id: string) {
+    const metadata = await getSpotifyAlbum(album_id);
+    const result = await matchAlbum(metadata);
+    return result;
 }

@@ -1,14 +1,14 @@
 import { load } from "@std/dotenv";
-import { getSpotifyAlbum, initializeSpotifyQueue } from "../api/spotify.ts";
+import { initializeSpotifyQueue } from "../api/spotify.ts";
 import {
     initializeMusicBrainzQueue,
     filterMusicBrainzResponse,
     queryMusicBrainzReleases,
 } from "../api/musicbrainz.ts";
-import { prepareReleaseSearchMetadata } from "../core/validator.ts";
 import * as log from "../utils/logger.ts";
 import type { LogLevel } from "../types/logger.ts";
 import type { FilterResponse } from "../types/musicbrainz.ts";
+import type { ReleaseSearchMetadata } from "../types/common.ts";
 
 await load({ export: true });
 
@@ -44,11 +44,9 @@ export async function init() {
     log.enableLogging();
 }
 
-export async function matchSpotifyAlbum(
-    album_id: string,
+export async function matchAlbum(
+    metadata: ReleaseSearchMetadata,
 ): Promise<FilterResponse> {
-    const album = await getSpotifyAlbum(album_id);
-    const metadata = prepareReleaseSearchMetadata(album);
     const releases = await queryMusicBrainzReleases(metadata);
     const response = await filterMusicBrainzResponse(releases, metadata);
     return response;

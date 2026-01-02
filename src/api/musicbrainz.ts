@@ -1,7 +1,7 @@
 import { createQueue } from "../utils/queue.ts";
 import * as log from "../utils/logger.ts";
 import { scoreRelease } from "../core/scorer.ts";
-import type { ReleaseSearchMetadata } from "../types/validator.ts";
+import type { ReleaseSearchMetadata } from "../types/common.ts";
 import type { ReleaseMetadata, TargetMetadata } from "../types/common.ts";
 import type { QueryParam } from "../types/musicbrainz.ts";
 import type { Queue } from "../types/queue.ts";
@@ -10,7 +10,6 @@ import type {
     MinimalRelease,
     ReleasesSearchResponse,
     FilterResponse,
-
 } from "../types/musicbrainz.ts";
 
 let music_brainz_queue: Queue | null = null;
@@ -22,13 +21,11 @@ let music_brainz_queue: Queue | null = null;
  * @returns a boolean indicating if the track name possibly contains leet speak
  */
 function isPossiblyLeet(name: string): boolean {
-  const LEET_CHARS =
-    /[0-9@#$!|\/\\<>\[\]_+\-.,:^~©¢£₤€ƒ¶₱ßΩΘØ∆√♪№¿?]/u;
+    const LEET_CHARS = /[0-9@#$!|\/\\<>\[\]_+\-.,:^~©¢£₤€ƒ¶₱ßΩΘØ∆√♪№¿?]/u;
 
-// Cyrillic + Greek homoglyphs commonly used in leet
-  const LEET_HOMOGLYPHS =
-    /[аАеЕоОрРсСнНмМиИвВьЬпПөӨөΩΘΔ]/u;
-  return LEET_CHARS.test(name) || LEET_HOMOGLYPHS.test(name);
+    // Cyrillic + Greek homoglyphs commonly used in leet
+    const LEET_HOMOGLYPHS = /[аАеЕоОрРсСнНмМиИвВьЬпПөӨөΩΘΔ]/u;
+    return LEET_CHARS.test(name) || LEET_HOMOGLYPHS.test(name);
 }
 
 function assembleMusicBrainzRequestURL(
@@ -40,8 +37,6 @@ function assembleMusicBrainzRequestURL(
     const url = new URL(endpoint, base_url);
     url.searchParams.append("fmt", "json");
     url.searchParams.append("limit", "100");
-
-
 
     // assemble query
     let query = "";
@@ -85,7 +80,7 @@ export async function queryMusicBrainzReleases(
     }
 
     let prefered_region = Deno.env.get("PREFERED_REGION");
-    if(!prefered_region) prefered_region = "US"
+    if (!prefered_region) prefered_region = "US";
 
     const base_params: QueryParam[] = [
         {
@@ -119,20 +114,13 @@ export async function queryMusicBrainzReleases(
     let pop_count = 0;
 
     while (true) {
-        const query_params = buildParamsForStage(
-            base_params,
-            stage,
-            pop_count,
-        );
+        const query_params = buildParamsForStage(base_params, stage, pop_count);
 
         if (query_params.length === 0) {
             break;
         }
 
-        const url = assembleMusicBrainzRequestURL(
-            "release/",
-            query_params,
-        );
+        const url = assembleMusicBrainzRequestURL("release/", query_params);
 
         const response = await music_brainz_queue.enqueue(url, {
             headers: {
@@ -187,18 +175,14 @@ function buildParamsForStage(
     // Stage 3: artist fuzzy
     if (stage >= 2) {
         params = params.map((p) =>
-            p.name === "artist"
-                ? { ...p, modifier: "fuzzy" }
-                : p,
+            p.name === "artist" ? { ...p, modifier: "fuzzy" } : p,
         );
     }
 
     // Stage 4: release fuzzy
     if (stage >= 3) {
         params = params.map((p) =>
-            p.name === "release"
-                ? { ...p, modifier: "fuzzy" }
-                : p,
+            p.name === "release" ? { ...p, modifier: "fuzzy" } : p,
         );
     }
 
@@ -237,7 +221,8 @@ export async function filterMusicBrainzResponse(
         score: number;
     }[] = [];
 
-    for (const release of releases) {
+    const truncated_releases = releases.slice(0, 20);
+    for (const release of truncated_releases) {
         let release_group_release_date: string | null = null;
         let tracks: { name: string; duration_ms: number }[] | null = null;
 
@@ -265,6 +250,7 @@ export async function filterMusicBrainzResponse(
 
             tracks = [];
             for (const medium of full_release.media) {
+                if (!medium.tracks) continue;
                 for (const track of medium.tracks) {
                     tracks.push({
                         name: track.title,

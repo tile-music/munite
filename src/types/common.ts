@@ -14,6 +14,16 @@ type ReleaseMetadata = {
     disambiguation: string | null;
 };
 
+type ReleaseSearchMetadata = {
+    stripped_album_title: string;
+    stripped_artists: string[];
+    release_date: string | null;
+    tracks: {
+        name: string;
+        duration_ms: number;
+    }[];
+};
+
 type TargetMetadata = {
     title: string;
     artists: string[];
@@ -24,4 +34,4 @@ type TargetMetadata = {
     release_date: string | null;
 };
 
-export type { ReleaseMetadata, TargetMetadata };
+export type { ReleaseMetadata, ReleaseSearchMetadata, TargetMetadata };
