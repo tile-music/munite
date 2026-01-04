@@ -1,3 +1,5 @@
+import * as log from "../utils/logger.ts";
+
 type QueryParam = {
     name: string;
     value: string;
@@ -55,10 +57,145 @@ type FilterResponse =
           filter_store: number;
       };
 
+/* =========================
+ * Types (exact API shape)
+ * ========================= */
+
+type RelationRelease = {
+    id: string;
+    title: string;
+    disambiguation?: string;
+};
+
+export type Relation = {
+    type: string;
+    "type-id": string;
+    direction: string;
+    release?: RelationRelease;
+};
+
+
+type RelationListItem = {
+    relations: Relation[];
+};
+
+type UrlItem = {
+    id: string;
+    score: number;
+    resource: string;
+    "relation-list": RelationListItem[];
+};
+
+type AlbumUrlsResponse = {
+    created: string; // ISO date string
+    count: number;
+    offset: number;
+    urls: UrlItem[];
+};
+
+function isObject(value: unknown): value is Record<string, unknown> {
+    return typeof value === "object" && value !== null;
+}
+
+function assert(condition: unknown, message: string): asserts condition {
+    if (!condition) {
+        throw new Error(message);
+    }
+}
+
+/* =========================
+ * Assertion functions
+ * ========================= */
+
+export function assertRelationRelease(
+    value: unknown,
+): asserts value is RelationRelease {
+    assert(isObject(value), "RelationRelease must be an object");
+    assert(typeof value.id === "string", "RelationRelease.id must be a string");
+    assert(
+        typeof value.title === "string",
+        "RelationRelease.title must be a string",
+    );
+
+    if ("disambiguation" in value && value.disambiguation !== undefined) {
+        assert(
+            typeof value.disambiguation === "string",
+            "RelationRelease.disambiguation must be a string if present",
+        );
+    }
+}
+
+export function assertRelation(value: unknown): asserts value is Relation {
+    assert(isObject(value), "Relation must be an object");
+
+    assert(typeof value.type === "string", "Relation.type must be a string");
+    assert(
+        typeof value["type-id"] === "string",
+        "Relation.type-id must be a string",
+    );
+    assert(
+        typeof value.direction === "string",
+        "Relation.direction must be a string",
+    );
+
+    log.debug(`Relation.release: ${JSON.stringify(value.release)}`);
+    if ("release" in value && value.release !== undefined) {
+        assertRelationRelease(value.release);
+    }
+}
+
+export function assertRelationListItem(
+    value: unknown,
+): asserts value is RelationListItem {
+    assert(isObject(value), "RelationListItem must be an object");
+    assert(Array.isArray(value.relations), "relations must be an array");
+
+    for (const relation of value.relations) {
+        assertRelation(relation);
+    }
+}
+
+export function assertUrlItem(value: unknown): asserts value is UrlItem {
+    assert(isObject(value), "UrlItem must be an object");
+
+    assert(typeof value.id === "string", "UrlItem.id must be a string");
+    assert(typeof value.score === "number", "UrlItem.score must be a number");
+    assert(
+        typeof value.resource === "string",
+        "UrlItem.resource must be a string",
+    );
+
+    assert(
+        Array.isArray(value["relation-list"]),
+        "UrlItem.relation-list must be an array",
+    );
+
+    for (const item of value["relation-list"]) {
+        assertRelationListItem(item);
+    }
+}
+
+export function assertAlbumUrlsResponse(
+    value: unknown,
+): asserts value is AlbumUrlsResponse {
+    assert(isObject(value), "AlbumUrlsResponse must be an object");
+
+    assert(typeof value.created === "string", "created must be a string");
+    assert(typeof value.count === "number", "count must be a number");
+    assert(typeof value.offset === "number", "offset must be a number");
+
+    assert(Array.isArray(value.urls), "urls must be an array");
+    for (const url of value.urls) {
+        assertUrlItem(url);
+    }
+}
+
 export type {
     QueryParam,
     ReleasesSearchResponse,
     MinimalSearchRelease,
     MinimalRelease,
     FilterResponse,
+    AlbumUrlsResponse,
+    UrlItem,
 };

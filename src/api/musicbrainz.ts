@@ -10,7 +10,11 @@ import type {
     MinimalRelease,
     ReleasesSearchResponse,
     FilterResponse,
+    AlbumUrlsResponse,
+    UrlItem
 } from "../types/musicbrainz.ts";
+
+import { assertAlbumUrlsResponse } from "../types/musicbrainz.ts";
 
 let music_brainz_queue: Queue | null = null;
 
@@ -36,7 +40,7 @@ function assembleMusicBrainzRequestURL(
     const base_url = Deno.env.get("MUSICBRAINZ_API_URL");
     const url = new URL(endpoint, base_url);
     url.searchParams.append("fmt", "json");
-    url.searchParams.append("limit", "100");
+    url.searchParams.append("limit", "20");
 
     // assemble query
     let query = "";
@@ -63,6 +67,48 @@ function escapeValue(value: string): string {
     return value.replace(specialChars, "\\$1");
 }
 
+async function getReleaseByUrl(
+  metadata: ReleaseSearchMetadata
+): Promise<UrlItem[]> {
+  if (!music_brainz_queue) {
+    throw new Error("MusicBrainz queue is not initialized");
+  }
+
+  if (!(Object.hasOwn(metadata, "url") && metadata.url)) {
+    throw new Error("Invalid metadata");
+  }
+
+  const mb_url = Deno.env.get("MUSICBRAINZ_API_URL");
+  if (!mb_url) {
+    throw new Error("MUSICBRAINZ_API_URL environment variable is not set");
+  }
+
+  const url = new URL(mb_url + "url/");
+  url.searchParams.append("fmt", "json");
+  url.searchParams.append("query", metadata.url);
+  url.searchParams.append("limit", "3");
+
+  const mb_response = await music_brainz_queue.enqueue(url.toString());
+
+  const json: unknown = await mb_response.json();
+
+  log.debug(`MusicBrainz raw response: ${JSON.stringify(json, null, 2)}`);
+
+  assertAlbumUrlsResponse(json);
+
+  // json is now AlbumUrlsResponse
+  const filtered = json.urls.filter(
+    (u) => u.resource === metadata.url
+  );
+
+  log.debug(
+    `MusicBrainz filtered response: ${JSON.stringify(filtered, null, 2)}`
+  );
+
+  return filtered;
+}
+
+
 export function initializeMusicBrainzQueue(req_per_sec: number) {
     if (music_brainz_queue) return;
 
@@ -74,9 +120,45 @@ export function initializeMusicBrainzQueue(req_per_sec: number) {
 
 export async function queryMusicBrainzReleases(
     metadata: ReleaseSearchMetadata,
+    query_by_url: boolean = true
 ): Promise<MinimalSearchRelease[]> {
     if (!music_brainz_queue) {
         throw new Error("MusicBrainz queue is not initialized");
+    }
+
+    // if its the first time querying then check by url otherwise skip
+    const release_by_url =
+        query_by_url ? await getReleaseByUrl(metadata) : [];
+    log.debug(`MusicBrainz release by URL: ${JSON.stringify(release_by_url, null, 2)}`);
+    if (release_by_url.length > 0) {
+      const releaseId =
+        release_by_url
+          .flatMap(u => u["relation-list"])
+          .flatMap(rl => rl.relations)
+          .find(r => r.release)
+          ?.release!.id;
+
+      if (!releaseId) {
+        log.debug("No release found in MusicBrainz URL relations");
+        return [];
+      }
+
+      const url = assembleMusicBrainzRequestURL(
+        `release/${releaseId}?inc=artist-credits+release-groups`
+      );
+
+      const response = await music_brainz_queue.enqueue(url, {
+        headers: {
+          "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
+        },
+      });
+
+      const json = await response.json();
+      log.debug(
+        `MusicBrainz request sent for release ${JSON.stringify(json, null, 2)}`
+      );
+
+      return [json];
     }
 
     let prefered_region = Deno.env.get("PREFERED_REGION");
@@ -154,11 +236,25 @@ export async function queryMusicBrainzReleases(
 
     return [];
 }
+const removeTrackCount = (p : QueryParam[]): QueryParam[] =>
+    p.filter((p) => p.name !== "tracks");
+
+const makeArtistFuzzy = (p : QueryParam[]): QueryParam[] =>
+    p.map((p) =>
+        p.name === "artist" ? { ...p, modifier: "fuzzy" } : p,
+    );
+
+const makeTitleFuzzy = (p : QueryParam[]): QueryParam[] =>
+    p.map((p) =>
+        p.name === "release" ? { ...p, modifier: "fuzzy" } : p,
+    );
+
 
 function buildParamsForStage(
     base_params: QueryParam[],
     stage: number,
     pop_count: number,
+    try_count: number = 1
 ): QueryParam[] {
     let params = base_params.map((p) => ({ ...p }));
 
@@ -169,21 +265,17 @@ function buildParamsForStage(
 
     // stage 2: remove track count
     if (stage >= 1) {
-        params = params.filter((p) => p.name !== "tracks");
+        params = removeTrackCount(params);
     }
 
     // Stage 3: artist fuzzy
     if (stage >= 2) {
-        params = params.map((p) =>
-            p.name === "artist" ? { ...p, modifier: "fuzzy" } : p,
-        );
+        params = makeArtistFuzzy(params);
     }
 
     // Stage 4: release fuzzy
     if (stage >= 3) {
-        params = params.map((p) =>
-            p.name === "release" ? { ...p, modifier: "fuzzy" } : p,
-        );
+        params = makeTitleFuzzy(params);
     }
 
     // Stage 5+: pop last param repeatedly
@@ -230,7 +322,7 @@ export async function filterMusicBrainzResponse(
             // query release
             const url =
                 Deno.env.get("MUSICBRAINZ_API_URL") +
-                `release/${release.id}?fmt=json&inc=release-groups+recordings&limit=100`;
+                `release/${release.id}?fmt=json&inc=release-groups+recordings`;
             const response = await music_brainz_queue.enqueue(url, {
                 headers: {
                     "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
@@ -279,7 +371,11 @@ export async function filterMusicBrainzResponse(
 
     // find best scored release
     scored_releases.sort((a, b) => b.score - a.score);
+
     const best_release = scored_releases[0];
+    if(best_release.score <= 70)
+        log.info(`Release score is low:
+            ${JSON.stringify(best_release, null, 2)}`);
     const release = best_release.release;
 
     return {

@@ -16,11 +16,13 @@ type ReleaseMetadata = {
 
 type ReleaseSearchMetadata = {
     stripped_album_title: string;
+    url?: string;
     stripped_artists: string[];
     release_date: string | null;
     tracks: {
         name: string;
         duration_ms: number;
+        url?: string;
     }[];
 };
 
