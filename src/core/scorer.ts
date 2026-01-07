@@ -12,63 +12,105 @@ export function scoreRelease(
     }
 
     // Artist match
-    const release_artists = release.artists.map((artist) =>
-        artist.toLowerCase(),
-    );
-    const target_artists = target.artists.map((artist) => artist.toLowerCase());
-    const artist_matches = target_artists.filter((artist) =>
-        release_artists.includes(artist),
+    const release_artists = release.artists.map((a) => a.toLowerCase());
+    const target_artists = target.artists.map((a) => a.toLowerCase());
+
+    const artist_matches = target_artists.filter((a) =>
+        release_artists.includes(a),
     ).length;
+
     score += (artist_matches / target_artists.length) * 30;
 
     // Track count match
     if (release.track_count === target.tracks.length) {
         score += 20;
     } else {
-        const track_count_diff = Math.abs(
+        const diff = Math.abs(
             release.track_count - target.tracks.length,
         );
-        score += Math.max(0, 20 - track_count_diff * 5); // Deduct 5 points per track difference
+        score += Math.max(0, 20 - diff * 5);
     }
 
-    // Release group release date match
+    // Release-group date proximity
     if (release.release_group_release_date && target.release_date) {
-        const [target_year, target_month] = target.release_date
-            .split("-")
-            .map(Number);
-        const [release_year, release_month] = release.release_group_release_date
-            .split("-")
-            .map(Number);
+        const [ty, tm] = target.release_date.split("-").map(Number);
+        const [ry, rm] =
+            release.release_group_release_date.split("-").map(Number);
 
-        const month_delta = Math.abs(
-            (release_year - target_year) * 12 + (release_month - target_month),
-        );
+        const month_delta = Math.abs((ry - ty) * 12 + (rm - tm));
 
-        let month_multiplier = 0;
-        if (month_delta <= 3) {
-            month_multiplier = 1.0;
-        } else if (month_delta <= 6) {
-            month_multiplier = 0.8;
-        } else if (month_delta <= 12) {
-            month_multiplier = 0.5;
-        } else if (month_delta <= 24) {
-            month_multiplier = 0.2;
-        }
+        let multiplier = 0;
+        if (month_delta <= 3) multiplier = 1.0;
+        else if (month_delta <= 6) multiplier = 0.8;
+        else if (month_delta <= 12) multiplier = 0.5;
+        else if (month_delta <= 24) multiplier = 0.2;
 
-        score += 30 * month_multiplier;
+        score += 30 * multiplier;
     }
 
-    // Country is null or XW
+    // Country preference
     if (["XW", null].includes(release.country)) {
         score += 10;
     } else if (release.country && ["US", "GB"].includes(release.country)) {
         score += 5;
     }
 
-    // Disambiguation is empty
+    // Disambiguation bonus
     if (!release.disambiguation || release.disambiguation.trim() === "") {
         score += 10;
     }
 
+    // Track list matching
+    if (release.tracks && target.tracks.length > 0) {
+        const overlap = computeTrackOverlapRatio(
+            target.tracks,
+            release.tracks,
+        );
+
+        if (overlap > 0) {
+            const TRACK_MATCH_WEIGHT = 40;
+            score += Math.round(overlap * TRACK_MATCH_WEIGHT);
+        }
+
+        // High-confidence lock
+        if (overlap >= 0.8) {
+            score = Math.max(score, 95);
+        }
+    }
+
     return score;
+}
+
+function computeTrackOverlapRatio(
+    targetTracks: TargetMetadata["tracks"],
+    releaseTracks: ReleaseMetadata["tracks"],
+): number {
+
+    if (!targetTracks.length || !releaseTracks || !releaseTracks.length) return 0;
+
+    const targetSet = new Set(
+        targetTracks.map((t) => normalizeTrackTitle(t.name)),
+    );
+
+    const releaseSet = new Set(
+        releaseTracks.map((t) => normalizeTrackTitle(t.name)),
+    );
+
+    let matches = 0;
+    for (const t of targetSet) {
+        if (releaseSet.has(t)) matches++;
+    }
+
+    return matches / Math.max(targetSet.size, releaseSet.size);
+}
+
+function normalizeTrackTitle(title: string): string {
+    return title
+        .toLowerCase()
+        .replace(/\(.*?\)/g, "")
+        .replace(/\[.*?\]/g, "")
+        .replace(/feat\.?.*/g, "")
+        .replace(/[^a-z0-9\s]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
 }

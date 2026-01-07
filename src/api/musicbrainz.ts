@@ -108,6 +108,71 @@ async function getReleaseByUrl(
   return filtered;
 }
 
+const removeTrackCount = (p : QueryParam[]): QueryParam[] =>
+    p.filter((p) => p.name !== "tracks");
+
+const makeArtistFuzzy = (p : QueryParam[]): QueryParam[] =>
+    p.map((p) =>
+        p.name === "artist" ? { ...p, modifier: "fuzzy" } : p,
+    );
+
+const makeTitleFuzzy = (p : QueryParam[]): QueryParam[] =>
+    p.map((p) =>
+        p.name === "release" ? { ...p, modifier: "fuzzy" } : p,
+    );
+
+
+function buildParamsForStage(
+    base_params: QueryParam[],
+    stage: number,
+    pop_count: number,
+    try_count: number = 1
+): QueryParam[] {
+    let params = base_params.map((p) => ({ ...p }));
+
+    // Stage 1: remove country preference
+    // if(stage >= 1) {
+    //     params = params.filter((p) => p.name !== "country")
+    // }
+
+    // stage 2: remove track count
+    if (stage >= 1) {
+        params = removeTrackCount(params);
+    }
+
+    // Stage 3: artist fuzzy
+    if (stage >= 2) {
+        params = makeArtistFuzzy(params);
+    }
+
+    // Stage 4: release fuzzy
+    if (stage >= 3) {
+        params = makeTitleFuzzy(params);
+    }
+
+    // Stage 5+: pop last param repeatedly
+    if (stage >= 4 && pop_count > 0) {
+        params = params.slice(0, Math.max(0, params.length - pop_count));
+    }
+
+    return params;
+}
+
+function applyFuzzinessByTry(
+    params: QueryParam[],
+    try_count: number
+): QueryParam[] {
+    return params.map((p) => {
+        if (p.name === "artist" && try_count >= 2) {
+            return { ...p, modifier: "fuzzy" };
+        }
+        if (p.name === "release" && try_count >= 3) {
+            return { ...p, modifier: "fuzzy" };
+        }
+        return p;
+    });
+}
+
 
 export function initializeMusicBrainzQueue(req_per_sec: number) {
     if (music_brainz_queue) return;
@@ -236,55 +301,7 @@ export async function queryMusicBrainzReleases(
 
     return [];
 }
-const removeTrackCount = (p : QueryParam[]): QueryParam[] =>
-    p.filter((p) => p.name !== "tracks");
 
-const makeArtistFuzzy = (p : QueryParam[]): QueryParam[] =>
-    p.map((p) =>
-        p.name === "artist" ? { ...p, modifier: "fuzzy" } : p,
-    );
-
-const makeTitleFuzzy = (p : QueryParam[]): QueryParam[] =>
-    p.map((p) =>
-        p.name === "release" ? { ...p, modifier: "fuzzy" } : p,
-    );
-
-
-function buildParamsForStage(
-    base_params: QueryParam[],
-    stage: number,
-    pop_count: number,
-    try_count: number = 1
-): QueryParam[] {
-    let params = base_params.map((p) => ({ ...p }));
-
-    // Stage 1: remove country preference
-    // if(stage >= 1) {
-    //     params = params.filter((p) => p.name !== "country")
-    // }
-
-    // stage 2: remove track count
-    if (stage >= 1) {
-        params = removeTrackCount(params);
-    }
-
-    // Stage 3: artist fuzzy
-    if (stage >= 2) {
-        params = makeArtistFuzzy(params);
-    }
-
-    // Stage 4: release fuzzy
-    if (stage >= 3) {
-        params = makeTitleFuzzy(params);
-    }
-
-    // Stage 5+: pop last param repeatedly
-    if (stage >= 4 && pop_count > 0) {
-        params = params.slice(0, Math.max(0, params.length - pop_count));
-    }
-
-    return params;
-}
 
 export async function filterMusicBrainzResponse(
     releases: MinimalSearchRelease[],

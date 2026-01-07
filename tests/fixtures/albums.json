@@ -1,13 +1,19 @@
 {
-    "singleton":[
+    "singleton": [
         [
-            "Kendrick Lamar - good kid, m.A.A.d city (Deluxe)",
-            "3DGQ1iZ9XKUQxAUWjfC34w",
+            "Weezer - Weezer (Green Album)",
+            "2OBSz5Nlto0Q5CtYPzPY7c",
+            "923d5ba6-7eee-3bce-bcb2-c913b2bd69d4",
+            "9111abad-6d93-467e-95fa-9d583886398f"
+        ],
+        [
+            "Weezer - Weezer (Blue Album)",
+            "1xpGyKyV26uPstk1Elgp9Q",
+            "c7b245c9-8099-32ea-af95-893acedde2cf",
             [
-                "499c19c8-0dab-4824-884b-6191d145e95b",
-                "712928ae-a147-4c62-b597-12e14accaba3"
-            ],
-            "42b400fb-800b-49f3-88b4-be1fb8524220"
+                "73698ebd-069e-4bed-9fd6-9b196be45e0d",
+                "e8414dbf-c343-4e06-80c7-393f1c680254"
+            ]
         ]
     ],
     "albums": [
@@ -36,7 +42,7 @@
             "Imogen Heap - Speak for Yourself",
             "4Is0raRF9P6wWFZjXO6P9K",
             "a100260d-0576-372f-a07b-4b22db1a77e2",
-            "9e66f00f-7a29-4023-a2f3-1ada20fca013"
+            "e76a46a6-8ee5-40d2-8966-cdbed42250c9"
         ],
         [
             "Clarence Clarity - NO NOW",
@@ -454,7 +460,6 @@
             "e90dc06b-40a0-4b71-a6b8-c5ed0fdd8c65",
             "cbbad773-22b4-4c57-8813-950b24d38e70"
         ]
-
     ],
     "singles": [
         [
