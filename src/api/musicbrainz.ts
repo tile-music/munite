@@ -18,19 +18,6 @@ import { assertAlbumUrlsResponse } from "../types/musicbrainz.ts";
 
 let music_brainz_queue: Queue | null = null;
 
-/**
- * This function consumes the name of a track and returns whether that track
- * name possibly contains leet speak
- * @param name the name of a track
- * @returns a boolean indicating if the track name possibly contains leet speak
- */
-function isPossiblyLeet(name: string): boolean {
-    const LEET_CHARS = /[0-9@#$!|\/\\<>\[\]_+\-.,:^~©¢£₤€ƒ¶₱ßΩΘØ∆√♪№¿?]/u;
-
-    // Cyrillic + Greek homoglyphs commonly used in leet
-    const LEET_HOMOGLYPHS = /[аАеЕоОрРсСнНмМиИвВьЬпПөӨөΩΘΔ]/u;
-    return LEET_CHARS.test(name) || LEET_HOMOGLYPHS.test(name);
-}
 
 function assembleMusicBrainzRequestURL(
     endpoint: string,
@@ -157,22 +144,6 @@ function buildParamsForStage(
 
     return params;
 }
-
-function applyFuzzinessByTry(
-    params: QueryParam[],
-    try_count: number
-): QueryParam[] {
-    return params.map((p) => {
-        if (p.name === "artist" && try_count >= 2) {
-            return { ...p, modifier: "fuzzy" };
-        }
-        if (p.name === "release" && try_count >= 3) {
-            return { ...p, modifier: "fuzzy" };
-        }
-        return p;
-    });
-}
-
 
 export function initializeMusicBrainzQueue(req_per_sec: number) {
     if (music_brainz_queue) return;

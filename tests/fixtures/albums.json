@@ -1,21 +1,4 @@
 {
-    "singleton": [
-        [
-            "Weezer - Weezer (Green Album)",
-            "2OBSz5Nlto0Q5CtYPzPY7c",
-            "923d5ba6-7eee-3bce-bcb2-c913b2bd69d4",
-            "9111abad-6d93-467e-95fa-9d583886398f"
-        ],
-        [
-            "Weezer - Weezer (Blue Album)",
-            "1xpGyKyV26uPstk1Elgp9Q",
-            "c7b245c9-8099-32ea-af95-893acedde2cf",
-            [
-                "73698ebd-069e-4bed-9fd6-9b196be45e0d",
-                "e8414dbf-c343-4e06-80c7-393f1c680254"
-            ]
-        ]
-    ],
     "albums": [
         [
             "JPEGMAFIA & Danny Brown - SCARING THE HOES",
