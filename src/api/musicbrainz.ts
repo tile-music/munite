@@ -274,6 +274,28 @@ export async function queryMusicBrainzReleases(
 }
 
 
+/**
+ * Filters and scores MusicBrainz search results to find the best matching release.
+ * 
+ * This function takes a list of minimal release search results and compares them against
+ * target metadata to find the highest-scoring match. Optionally queries the MusicBrainz API
+ * for full release details to improve scoring accuracy.
+ * 
+ * @param releases - Array of minimal release search results from MusicBrainz
+ * @param metadata - Target metadata containing album title, artists, tracks, and release date to match against
+ * @returns Promise resolving to a FilterResponse containing either the best matching release details or an error status
+ * @throws Error if the MusicBrainz queue is not initialized
+ * 
+ * @example
+ * ```typescript
+ * const releases = await searchMusicBrainz("The Dark Side of the Moon");
+ * const metadata = { stripped_album_title: "Dark Side", stripped_artists: ["Pink Floyd"], tracks: [...], release_date: "1973" };
+ * const result = await filterMusicBrainzResponse(releases, metadata);
+ * if (result.status === "success") {
+ *   console.log(result.release_id);
+ * }
+ * ```
+ */
 export async function filterMusicBrainzResponse(
     releases: MinimalSearchRelease[],
     metadata: ReleaseSearchMetadata,
