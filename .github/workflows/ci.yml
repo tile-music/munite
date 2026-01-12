@@ -1,7 +1,12 @@
 name: Build
 
 on:
+  pull_request:
+    branches:
+    - main
   push:
+    branches:
+    - main
 
 jobs:
   build:
@@ -12,14 +17,14 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
-
-      # Check formatting
-      #- run: deno fmt --check
-
-      # Lint the code 
-      #  maybe not?
-      # - run: deno lint
-
+      - name: Setup env
+        env:
+          ENV_SH_CONTENT: ${{ secrets.ENV_SH }}
+        run: |
+          echo "$ENV_SH_CONTENT" > env.sh
+          chmod +x env.sh
+          ./env.sh
+        shell: bash
       # Run tests and collect coverage
       - run: deno test --allow-net --allow-read --allow-env --coverage=cov/
 

@@ -1,3 +1,5 @@
 .env
 .zed
-*/DS_Store
+*/.DS_Store
+*.txt
+env.sh
