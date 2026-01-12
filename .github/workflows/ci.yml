@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      # Check formatting
+      #- run: deno fmt --check
+
+      # Lint the code 
+      #  maybe not?
+      # - run: deno lint
+
+      # Run tests and collect coverage
+      - run: deno test --allow-net --allow-read --allow-env --coverage=cov/
+
+      # Generate lcov report
+      - run: deno coverage --lcov cov/ > cov.lcov
