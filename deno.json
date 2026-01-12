@@ -1,6 +1,6 @@
 {
     "name": "@tile-music/munite",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
     "exports": "./src/mod.ts",
     "exclude": [".env.sample", "deno.lock"],
