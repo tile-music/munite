@@ -3,8 +3,10 @@ import * as log from "../utils/logger.ts";
 import { matchAlbum } from "../core/matcher.ts";
 
 import type { Queue } from "../types/queue.ts";
-import type { ReleaseSearchMetadata } from "../types/common.ts";
+import type {
+    ReleaseSearchMetadata } from "../types/common.ts";
 import type { SpotifyAlbum } from "../types/spotify.ts";
+import type { FilterResponse } from "../types/musicbrainz.ts";
 
 let spotify_queue: Queue | null = null;
 let access_token: string | null = null;
@@ -164,7 +166,9 @@ function stripString(input: string): string {
         .trim(); // Trim leading and trailing whitespace
 }
 
-export async function matchSpotifyAlbum(album_id: string) {
+export async function matchSpotifyAlbum(
+    album_id: string
+): Promise<FilterResponse> {
     const metadata = await getSpotifyAlbum(album_id);
     const result = await matchAlbum(metadata);
     return result;
