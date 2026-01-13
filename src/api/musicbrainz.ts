@@ -1,7 +1,10 @@
 import { createQueue } from "../utils/queue.ts";
 import * as log from "../utils/logger.ts";
 import { scoreRelease } from "../core/scorer.ts";
-import type { ReleaseSearchMetadata } from "../types/common.ts";
+import type {
+    ReleaseSearchMetadata,
+    Recording
+} from "../types/common.ts";
 import type { ReleaseMetadata, TargetMetadata } from "../types/common.ts";
 import type { QueryParam } from "../types/musicbrainz.ts";
 import type { Queue } from "../types/queue.ts";
@@ -11,7 +14,8 @@ import type {
     ReleasesSearchResponse,
     FilterResponse,
     AlbumUrlsResponse,
-    UrlItem
+    UrlItem,
+
 } from "../types/musicbrainz.ts";
 
 import { assertAlbumUrlsResponse } from "../types/musicbrainz.ts";
@@ -113,7 +117,6 @@ function buildParamsForStage(
     base_params: QueryParam[],
     stage: number,
     pop_count: number,
-    try_count: number = 1
 ): QueryParam[] {
     let params = base_params.map((p) => ({ ...p }));
 
@@ -276,16 +279,16 @@ export async function queryMusicBrainzReleases(
 
 /**
  * Filters and scores MusicBrainz search results to find the best matching release.
- * 
+ *
  * This function takes a list of minimal release search results and compares them against
  * target metadata to find the highest-scoring match. Optionally queries the MusicBrainz API
  * for full release details to improve scoring accuracy.
- * 
+ *
  * @param releases - Array of minimal release search results from MusicBrainz
  * @param metadata - Target metadata containing album title, artists, tracks, and release date to match against
  * @returns Promise resolving to a FilterResponse containing either the best matching release details or an error status
  * @throws Error if the MusicBrainz queue is not initialized
- * 
+ *
  * @example
  * ```typescript
  * const releases = await searchMusicBrainz("The Dark Side of the Moon");
@@ -319,46 +322,42 @@ export async function filterMusicBrainzResponse(
     };
 
     const scored_releases: {
-        release: MinimalSearchRelease;
+        release: ReleaseMetadata;
         score: number;
     }[] = [];
 
     const truncated_releases = releases.slice(0, 20);
     for (const release of truncated_releases) {
-        let release_group_release_date: string | null = null;
-        let tracks: { name: string; duration_ms: number }[] | null = null;
+        let tracks: Recording[] | null = null;
+        // query release
+        const url =
+            Deno.env.get("MUSICBRAINZ_API_URL") +
+            `release/${release.id}?fmt=json&inc=release-groups+recordings`;
+        const response = await music_brainz_queue.enqueue(url, {
+            headers: {
+                "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
+            },
+        });
 
-        if (Deno.env.get("QUERY_RELEASE") === "true") {
-            // query release
-            const url =
-                Deno.env.get("MUSICBRAINZ_API_URL") +
-                `release/${release.id}?fmt=json&inc=release-groups+recordings`;
-            const response = await music_brainz_queue.enqueue(url, {
-                headers: {
-                    "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
-                },
-            });
+        if (!response.ok) {
+            log.error(
+                `MusicBrainz API error when fetching release ${release.id}: ${response.status}`,
+            );
+            continue;
+        }
 
-            if (!response.ok) {
-                log.error(
-                    `MusicBrainz API error when fetching release ${release.id}: ${response.status}`,
-                );
-                continue;
-            }
-
-            const full_release: MinimalRelease = await response.json();
-            release_group_release_date =
-                full_release["release-group"]["first-release-date"];
-
-            tracks = [];
-            for (const medium of full_release.media) {
-                if (!medium.tracks) continue;
-                for (const track of medium.tracks) {
-                    tracks.push({
-                        name: track.title,
-                        duration_ms: track.length,
-                    });
-                }
+        const full_release: MinimalRelease = await response.json();
+        tracks = [];
+        for (const medium of full_release.media) {
+            if (!medium.tracks) continue;
+            for (const track of medium.tracks) {
+                tracks.push({
+                    title: track.title,
+                    duration_ms: track.length,
+                    id: track.recording.id,
+                    first_release_date: track.recording["first-release-date"],
+                    track_num: Number(track.number)
+                });
             }
         }
 
@@ -369,30 +368,35 @@ export async function filterMusicBrainzResponse(
             track_count: release["track-count"],
             country: release.country,
             release_date: release.date,
-            release_group_release_date,
-            tracks: null,
+            release_group: {
+                type: full_release["release-group"]["primary-type"],
+                release_date: full_release["release-group"]["first-release-date"],
+                title: full_release["release-group"].title,
+                id: full_release["release-group"].id,
+            },
+            tracks: tracks,
             disambiguation: release.disambiguation,
+            id: release.id,
+            cover_art: full_release["cover-art-archive"]
         };
 
         // score release
         const score = scoreRelease(release_metadata, target_metadata);
-        scored_releases.push({ release, score });
+        scored_releases.push({ release: release_metadata, score });
     }
 
     // find best scored release
     scored_releases.sort((a, b) => b.score - a.score);
 
     const best_release = scored_releases[0];
-    if(best_release.score <= 70)
-        log.info(`Release score is low:
+    if(best_release.score <= 50)
+        log.debug(`Release score is low:
             ${JSON.stringify(best_release, null, 2)}`);
-    const release = best_release.release;
-
-    return {
+    const ret : FilterResponse = {
         status: "success",
-        release_id: release.id,
-        release_group_id: release["release-group"].id,
-        query_score: release.score,
-        filter_store: best_release.score,
+        release: best_release.release,
+        filter_score: best_release.score,
     };
+
+    return ret;
 }

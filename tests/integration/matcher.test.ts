@@ -52,7 +52,7 @@ for (const [category, category_tests] of Object.entries(albums)) {
                     };
                     status = "FAILED!";
                 } else {
-                    const actual = musicbrainz_result.release_id;
+                    const actual = musicbrainz_result.release.id;
                     if (
                         (typeof expected_musicbrainz_id != "string" &&
                             !expected_musicbrainz_id.includes(actual)) ||
@@ -60,7 +60,7 @@ for (const [category, category_tests] of Object.entries(albums)) {
                             actual !== expected_musicbrainz_id)
                     ) {
                         if (
-                            musicbrainz_result.release_group_id ===
+                            musicbrainz_result.release.release_group.id ===
                             expected_musicbrainz_release_group_id
                         ) {
                             success = 0.5;

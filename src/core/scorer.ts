@@ -32,10 +32,10 @@ export function scoreRelease(
     }
 
     // Release-group date proximity
-    if (release.release_group_release_date && target.release_date) {
+    if (release.release_group.release_date && target.release_date) {
         const [ty, tm] = target.release_date.split("-").map(Number);
         const [ry, rm] =
-            release.release_group_release_date.split("-").map(Number);
+            release.release_group.release_date.split("-").map(Number);
 
         const month_delta = Math.abs((ry - ty) * 12 + (rm - tm));
 
@@ -93,7 +93,7 @@ function computeTrackOverlapRatio(
     );
 
     const releaseSet = new Set(
-        releaseTracks.map((t) => normalizeTrackTitle(t.name)),
+        releaseTracks.map((t) => normalizeTrackTitle(t.title)),
     );
 
     let matches = 0;

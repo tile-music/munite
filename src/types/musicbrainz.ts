@@ -1,4 +1,10 @@
 import * as log from "../utils/logger.ts";
+import {
+    Recording,
+    ReleaseMetadata,
+    ReleaseGroup,
+    CoverArt
+} from "../types/common.ts";
 
 type QueryParam = {
     name: string;
@@ -27,6 +33,24 @@ type MinimalSearchRelease = {
     };
 };
 
+export type TrackRecording = {
+  id: string;
+  title: string;
+  disambiguation: string;
+  "first-release-date": string;
+  length: number;
+  video: boolean;
+};
+
+export type Track = {
+  id: string;
+  number: string;   // note: this is a string in the data ("12")
+  title: string;
+  position: number;
+  length: number;
+  recording: TrackRecording;
+};
+
 type MinimalRelease = {
     "release-group": {
         id: string;
@@ -37,11 +61,9 @@ type MinimalRelease = {
         "first-release-date": string;
     };
     media: {
-        tracks?: {
-            title: string;
-            length: number;
-        }[];
+        tracks?: Track[];
     }[];
+    "cover-art-archive": CoverArt;
 };
 
 type FilterResponse =
@@ -51,10 +73,10 @@ type FilterResponse =
       }
     | {
           status: "success";
-          release_id: string;
-          release_group_id: string;
-          query_score: number;
-          filter_store: number;
+          release: ReleaseMetadata;
+          //release_group: ReleaseGroup;
+          //query_score: number;
+          filter_score: number;
       };
 
 /* =========================
@@ -198,4 +220,6 @@ export type {
     FilterResponse,
     AlbumUrlsResponse,
     UrlItem,
+    Recording,
+    CoverArt
 };
