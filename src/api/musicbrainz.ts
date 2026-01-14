@@ -1,10 +1,7 @@
 import { createQueue } from "../utils/queue.ts";
 import * as log from "../utils/logger.ts";
 import { scoreRelease } from "../core/scorer.ts";
-import type {
-    ReleaseSearchMetadata,
-    Recording
-} from "../types/common.ts";
+import type { ReleaseSearchMetadata, Recording } from "../types/common.ts";
 import type { ReleaseMetadata, TargetMetadata } from "../types/common.ts";
 import type { QueryParam } from "../types/musicbrainz.ts";
 import type { Queue } from "../types/queue.ts";
@@ -13,15 +10,12 @@ import type {
     MinimalRelease,
     ReleasesSearchResponse,
     FilterResponse,
-    AlbumUrlsResponse,
     UrlItem,
-
 } from "../types/musicbrainz.ts";
 
 import { assertAlbumUrlsResponse } from "../types/musicbrainz.ts";
 
 let music_brainz_queue: Queue | null = null;
-
 
 function assembleMusicBrainzRequestURL(
     endpoint: string,
@@ -59,59 +53,52 @@ function escapeValue(value: string): string {
 }
 
 async function getReleaseByUrl(
-  metadata: ReleaseSearchMetadata
+    metadata: ReleaseSearchMetadata,
 ): Promise<UrlItem[]> {
-  if (!music_brainz_queue) {
-    throw new Error("MusicBrainz queue is not initialized");
-  }
+    if (!music_brainz_queue) {
+        throw new Error("MusicBrainz queue is not initialized");
+    }
 
-  if (!(Object.hasOwn(metadata, "url") && metadata.url)) {
-    throw new Error("Invalid metadata");
-  }
+    if (!(Object.hasOwn(metadata, "url") && metadata.url)) {
+        throw new Error("Invalid metadata");
+    }
 
-  const mb_url = Deno.env.get("MUSICBRAINZ_API_URL");
-  if (!mb_url) {
-    throw new Error("MUSICBRAINZ_API_URL environment variable is not set");
-  }
+    const mb_url = Deno.env.get("MUSICBRAINZ_API_URL");
+    if (!mb_url) {
+        throw new Error("MUSICBRAINZ_API_URL environment variable is not set");
+    }
 
-  const url = new URL(mb_url + "url/");
-  url.searchParams.append("fmt", "json");
-  url.searchParams.append("query", metadata.url);
-  url.searchParams.append("limit", "3");
+    const url = new URL(mb_url + "url/");
+    url.searchParams.append("fmt", "json");
+    url.searchParams.append("query", metadata.url);
+    url.searchParams.append("limit", "3");
 
-  const mb_response = await music_brainz_queue.enqueue(url.toString());
+    const mb_response = await music_brainz_queue.enqueue(url.toString());
 
-  const json: unknown = await mb_response.json();
+    const json: unknown = await mb_response.json();
 
-  log.debug(`MusicBrainz raw response: ${JSON.stringify(json, null, 2)}`);
+    log.debug(`MusicBrainz raw response: ${JSON.stringify(json, null, 2)}`);
 
-  assertAlbumUrlsResponse(json);
+    assertAlbumUrlsResponse(json);
 
-  // json is now AlbumUrlsResponse
-  const filtered = json.urls.filter(
-    (u) => u.resource === metadata.url
-  );
+    // json is now AlbumUrlsResponse
+    const filtered = json.urls.filter((u) => u.resource === metadata.url);
 
-  log.debug(
-    `MusicBrainz filtered response: ${JSON.stringify(filtered, null, 2)}`
-  );
+    log.debug(
+        `MusicBrainz filtered response: ${JSON.stringify(filtered, null, 2)}`,
+    );
 
-  return filtered;
+    return filtered;
 }
 
-const removeTrackCount = (p : QueryParam[]): QueryParam[] =>
+const removeTrackCount = (p: QueryParam[]): QueryParam[] =>
     p.filter((p) => p.name !== "tracks");
 
-const makeArtistFuzzy = (p : QueryParam[]): QueryParam[] =>
-    p.map((p) =>
-        p.name === "artist" ? { ...p, modifier: "fuzzy" } : p,
-    );
+const makeArtistFuzzy = (p: QueryParam[]): QueryParam[] =>
+    p.map((p) => (p.name === "artist" ? { ...p, modifier: "fuzzy" } : p));
 
-const makeTitleFuzzy = (p : QueryParam[]): QueryParam[] =>
-    p.map((p) =>
-        p.name === "release" ? { ...p, modifier: "fuzzy" } : p,
-    );
-
+const makeTitleFuzzy = (p: QueryParam[]): QueryParam[] =>
+    p.map((p) => (p.name === "release" ? { ...p, modifier: "fuzzy" } : p));
 
 function buildParamsForStage(
     base_params: QueryParam[],
@@ -159,45 +146,45 @@ export function initializeMusicBrainzQueue(req_per_sec: number) {
 
 export async function queryMusicBrainzReleases(
     metadata: ReleaseSearchMetadata,
-    query_by_url: boolean = true
+    query_by_url: boolean = true,
 ): Promise<MinimalSearchRelease[]> {
     if (!music_brainz_queue) {
         throw new Error("MusicBrainz queue is not initialized");
     }
 
     // if its the first time querying then check by url otherwise skip
-    const release_by_url =
-        query_by_url ? await getReleaseByUrl(metadata) : [];
-    log.debug(`MusicBrainz release by URL: ${JSON.stringify(release_by_url, null, 2)}`);
+    const release_by_url = query_by_url ? await getReleaseByUrl(metadata) : [];
+    log.debug(
+        `MusicBrainz release by URL: ${JSON.stringify(release_by_url, null, 2)}`,
+    );
     if (release_by_url.length > 0) {
-      const releaseId =
-        release_by_url
-          .flatMap(u => u["relation-list"])
-          .flatMap(rl => rl.relations)
-          .find(r => r.release)
-          ?.release!.id;
+        const relations = release_by_url
+            .flatMap((u) => u["relation-list"])
+            .flatMap((rl) => rl.relations);
+        const possibleRelease = relations.find((r) => r.release !== undefined);
+        const releaseId = possibleRelease?.release;
 
-      if (!releaseId) {
-        log.debug("No release found in MusicBrainz URL relations");
-        return [];
-      }
+        if (!releaseId) {
+            log.debug("No release found in MusicBrainz URL relations");
+            return [];
+        }
 
-      const url = assembleMusicBrainzRequestURL(
-        `release/${releaseId}?inc=artist-credits+release-groups`
-      );
+        const url = assembleMusicBrainzRequestURL(
+            `release/${releaseId}?inc=artist-credits+release-groups`,
+        );
 
-      const response = await music_brainz_queue.enqueue(url, {
-        headers: {
-          "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
-        },
-      });
+        const response = await music_brainz_queue.enqueue(url, {
+            headers: {
+                "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
+            },
+        });
 
-      const json = await response.json();
-      log.debug(
-        `MusicBrainz request sent for release ${JSON.stringify(json, null, 2)}`
-      );
+        const json = await response.json();
+        log.debug(
+            `MusicBrainz request sent for release ${JSON.stringify(json, null, 2)}`,
+        );
 
-      return [json];
+        return [json];
     }
 
     let prefered_region = Deno.env.get("PREFERED_REGION");
@@ -275,7 +262,6 @@ export async function queryMusicBrainzReleases(
 
     return [];
 }
-
 
 /**
  * Filters and scores MusicBrainz search results to find the best matching release.
@@ -356,7 +342,7 @@ export async function filterMusicBrainzResponse(
                     duration_ms: track.length,
                     id: track.recording.id,
                     first_release_date: track.recording["first-release-date"],
-                    track_num: Number(track.number)
+                    track_num: Number(track.number),
                 });
             }
         }
@@ -370,14 +356,15 @@ export async function filterMusicBrainzResponse(
             release_date: release.date,
             release_group: {
                 type: full_release["release-group"]["primary-type"],
-                release_date: full_release["release-group"]["first-release-date"],
+                release_date:
+                    full_release["release-group"]["first-release-date"],
                 title: full_release["release-group"].title,
                 id: full_release["release-group"].id,
             },
             tracks: tracks,
             disambiguation: release.disambiguation,
             id: release.id,
-            cover_art: full_release["cover-art-archive"]
+            cover_art: full_release["cover-art-archive"],
         };
 
         // score release
@@ -389,10 +376,10 @@ export async function filterMusicBrainzResponse(
     scored_releases.sort((a, b) => b.score - a.score);
 
     const best_release = scored_releases[0];
-    if(best_release.score <= 50)
+    if (best_release.score <= 50)
         log.debug(`Release score is low:
             ${JSON.stringify(best_release, null, 2)}`);
-    const ret : FilterResponse = {
+    const ret: FilterResponse = {
         status: "success",
         release: best_release.release,
         filter_score: best_release.score,

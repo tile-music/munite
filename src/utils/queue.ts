@@ -5,7 +5,7 @@ import fetchRetry from "../utils/fetch.ts";
 function enqueue(
     items: QueueItem[],
     url: string,
-    options?: RequestInit,
+    options?: Parameters<typeof fetch>[1],
 ): Promise<Response> {
     return new Promise((resolve, reject) => {
         items.push({ url, options, resolve, reject });
@@ -31,7 +31,7 @@ export function createQueue(): Queue {
     return {
         items,
         process: () => process(items),
-        enqueue: (url: string, options?: RequestInit) =>
+        enqueue: (url: string, options?: Parameters<typeof fetch>[1]) =>
             enqueue(items, url, options),
     };
 }

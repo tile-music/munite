@@ -1,10 +1,5 @@
 import * as log from "../utils/logger.ts";
-import {
-    Recording,
-    ReleaseMetadata,
-    ReleaseGroup,
-    CoverArt
-} from "../types/common.ts";
+import type { Recording, ReleaseMetadata, CoverArt } from "../types/common.ts";
 
 type QueryParam = {
     name: string;
@@ -34,21 +29,21 @@ type MinimalSearchRelease = {
 };
 
 export type TrackRecording = {
-  id: string;
-  title: string;
-  disambiguation: string;
-  "first-release-date": string;
-  length: number;
-  video: boolean;
+    id: string;
+    title: string;
+    disambiguation: string;
+    "first-release-date": string;
+    length: number;
+    video: boolean;
 };
 
 export type Track = {
-  id: string;
-  number: string;   // note: this is a string in the data ("12")
-  title: string;
-  position: number;
-  length: number;
-  recording: TrackRecording;
+    id: string;
+    number: string; // note: this is a string in the data ("12")
+    title: string;
+    position: number;
+    length: number;
+    recording: TrackRecording;
 };
 
 type MinimalRelease = {
@@ -95,7 +90,6 @@ export type Relation = {
     direction: string;
     release?: RelationRelease;
 };
-
 
 type RelationListItem = {
     relations: Relation[];
@@ -221,5 +215,5 @@ export type {
     AlbumUrlsResponse,
     UrlItem,
     Recording,
-    CoverArt
+    CoverArt,
 };
