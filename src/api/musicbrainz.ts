@@ -158,11 +158,13 @@ export async function queryMusicBrainzReleases(
         `MusicBrainz release by URL: ${JSON.stringify(release_by_url, null, 2)}`,
     );
     if (release_by_url.length > 0) {
-        const relations = release_by_url
-            .flatMap((u) => u["relation-list"])
-            .flatMap((rl) => rl.relations);
-        const possibleRelease = relations.find((r) => r.release !== undefined);
-        const releaseId = possibleRelease?.release;
+        const releaseId =
+          release_by_url
+            .flatMap(u => u["relation-list"])
+            .flatMap(rl => rl.relations)
+            .map(r => r.release)
+            .find((r): r is NonNullable<typeof r> => r !== undefined)
+            ?.id;
 
         if (!releaseId) {
             log.debug("No release found in MusicBrainz URL relations");
