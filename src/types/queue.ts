@@ -5,7 +5,10 @@
 type Queue = {
     items: QueueItem[];
     process: () => void;
-    enqueue: (url: string, options?: RequestInit) => Promise<Response>;
+    enqueue: (
+        url: string,
+        options?: Parameters<typeof fetch>[1],
+    ) => Promise<Response>;
 };
 
 /**
@@ -13,7 +16,7 @@ type Queue = {
  */
 type QueueItem = {
     url: string;
-    options?: RequestInit;
+    options?: Parameters<typeof fetch>[1];
     resolve: (value: Response) => void;
     reject: (reason?: unknown) => void;
 };

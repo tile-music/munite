@@ -3,8 +3,7 @@ import * as log from "../utils/logger.ts";
 import { matchAlbum } from "../core/matcher.ts";
 
 import type { Queue } from "../types/queue.ts";
-import type {
-    ReleaseSearchMetadata } from "../types/common.ts";
+import type { ReleaseSearchMetadata } from "../types/common.ts";
 import type { SpotifyAlbum } from "../types/spotify.ts";
 import type { FilterResponse } from "../types/musicbrainz.ts";
 
@@ -82,67 +81,65 @@ async function testAccessToken() {
     return true;
 }
 
-
 async function getSpotifyAlbum(
-  album_id: string,
+    album_id: string,
 ): Promise<ReleaseSearchMetadata> {
-  const album_url = `https://api.spotify.com/v1/albums/${album_id}`;
+    const album_url = `https://api.spotify.com/v1/albums/${album_id}`;
 
-  const album_res = await spotify_queue!.enqueue(album_url, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  });
-
-  if (!album_res.ok) {
-    if (album_res.status === 404) {
-      throw new Error(`Spotify album not found: ${album_id}`);
-    } else if (album_res.status === 400) {
-      throw new Error(`Invalid Spotify album ID: ${album_id}`);
-    }
-    throw new Error(`Failed to fetch Spotify album: ${album_res.status}`);
-  }
-
-  const spotify_album: SpotifyAlbum = await album_res.json();
-
-  /* paginate using tracks.href! */
-  const tracks: SpotifyAlbum["tracks"]["items"] = [];
-  let url: string | null = spotify_album.tracks.href;
-
-  while (url) {
-    const res = await spotify_queue!.enqueue(url, {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
+    const album_res = await spotify_queue!.enqueue(album_url, {
+        headers: {
+            Authorization: `Bearer ${access_token}`,
+        },
     });
 
-    if (!res.ok) {
-      throw new Error(
-        `Spotify error ${res.status} while fetching album tracks: ${album_id}`,
-      );
+    if (!album_res.ok) {
+        if (album_res.status === 404) {
+            throw new Error(`Spotify album not found: ${album_id}`);
+        } else if (album_res.status === 400) {
+            throw new Error(`Invalid Spotify album ID: ${album_id}`);
+        }
+        throw new Error(`Failed to fetch Spotify album: ${album_res.status}`);
     }
 
-    const page: SpotifyAlbum["tracks"] = await res.json();
+    const spotify_album: SpotifyAlbum = await album_res.json();
 
-    tracks.push(...page.items);
-    url = page.next;
-  }
+    /* paginate using tracks.href! */
+    const tracks: SpotifyAlbum["tracks"]["items"] = [];
+    let url: string | null = spotify_album.tracks.href;
 
-  return {
-    stripped_album_title: stripString(spotify_album.name),
-    stripped_artists: spotify_album.artists.map((artist) =>
-      stripString(artist.name),
-    ),
-    url: spotify_album.external_urls.spotify,
-    release_date: spotify_album.release_date ?? null,
-    tracks: tracks.map((track) => ({
-      name: stripString(track.name),
-      duration_ms: track.duration_ms,
-      url: track.external_urls.spotify,
-    })),
-  };
+    while (url) {
+        const res = await spotify_queue!.enqueue(url, {
+            headers: {
+                Authorization: `Bearer ${access_token}`,
+            },
+        });
+
+        if (!res.ok) {
+            throw new Error(
+                `Spotify error ${res.status} while fetching album tracks: ${album_id}`,
+            );
+        }
+
+        const page: SpotifyAlbum["tracks"] = await res.json();
+
+        tracks.push(...page.items);
+        url = page.next;
+    }
+
+    return {
+        stripped_album_title: stripString(spotify_album.name),
+        stripped_artists: spotify_album.artists.map((artist) =>
+            stripString(artist.name),
+        ),
+        url: spotify_album.external_urls.spotify,
+        release_date: spotify_album.release_date ?? null,
+        tracks: tracks.map((track) => ({
+            name: stripString(track.name),
+            duration_ms: track.duration_ms,
+            url: track.external_urls.spotify,
+        })),
+    };
 }
-
 
 /**
  * Strips and normalizes a string by:
@@ -167,7 +164,7 @@ function stripString(input: string): string {
 }
 
 export async function matchSpotifyAlbum(
-    album_id: string
+    album_id: string,
 ): Promise<FilterResponse> {
     const metadata = await getSpotifyAlbum(album_id);
     const result = await matchAlbum(metadata);
