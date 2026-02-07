@@ -1,11 +1,13 @@
 {
-    "albums": [
-        [
+    "one":      [
+            [
             "JPEGMAFIA & Danny Brown - SCARING THE HOES",
             "3u20OXh03DjCUzbf8XcGTq",
-            "6bb871f4-08ec-4a70-9fb3-c1c2b481e090",
-            "56d7440e-dba2-413d-9d11-6a14d80d4f94"
-        ],
+                "6bb871f4-08ec-4a70-9fb3-c1c2b481e090",
+                "56d7440e-dba2-413d-9d11-6a14d80d4f94"
+            ]
+    ],
+    "albums": [
         [
             "M.I.A. - /\\/\\ /\\ Y /\\",
             "7BIbGgOmGMhLscZqowMSDV",

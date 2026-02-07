@@ -5,7 +5,7 @@
     "exports": "./src/mod.ts",
     "exclude": [".env.sample", "deno.lock"],
     "tasks": {
-        "dev": "deno run --watch main.ts"
+        "test": "deno test --allow-env --allow-read --allow-net"
     },
     "imports": {
         "@std/assert": "jsr:@std/assert@1",
