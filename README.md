@@ -28,6 +28,10 @@ import { init, matchSpotifyAlbum } from "@tile-music/munite";
 
 ## Configuration
 
+To configure Munite, pass a config object to the init function.
+
+It might look something like this. A sample env will still be provided with the project for easy copy and pasting, but an env file at the project root is no longer required.
+
 Create a `.env` file in the project root with the following variables:
 
 ```env
@@ -54,6 +58,8 @@ cp .env.sample .env
 ```
 
 ### Getting Spotify API Credentials
+
+Unfortunately Spotify recently disabled creation of new developer tokens. Using this project with Spotify is not possible unless you already have 
 
 1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
 2. Create a new app
@@ -93,9 +99,9 @@ disableLogging();
 
 ## API Reference
 
-### `init()`
+### `init(config: MuniteConfig)`
 
-Initializes the Spotify and MusicBrainz API clients, sets up rate limiting queues, and configures logging. Must be called before using `matchSpotifyAlbum()`.
+Initializes the Spotify and MusicBrainz API clients, sets up rate limiting queues, and configures logging and the environment. Must be called before using `matchSpotifyAlbum()`. It also sets up.
 
 **Returns:** `Promise<void>`
 

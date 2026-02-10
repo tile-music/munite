@@ -1,5 +1,5 @@
 import { assertGreaterOrEqual } from "@std/assert";
-import { init, matchSpotifyAlbum } from "../../src/mod.ts";
+import { init, matchSpotifyAlbum, LogLevel } from "../../src/mod.ts";
 import albumsJson from "../fixtures/albums.json" with { type: "json" };
 const albums = albumsJson as unknown as Tests;
 import * as log from "../../src/mod.ts";
@@ -20,7 +20,24 @@ type Failure = {
 };
 
 Deno.test.beforeAll(async () => {
-    await init();
+    const config = {
+        musicbrainz_api_url: Deno.env.get("MUSICBRAINZ_API_URL")!,
+        max_musicbrainz_requests_per_second: Number(
+            Deno.env.get("MAX_MUSICBRAINZ_REQUESTS_PER_SECOND") ?? 1,
+        ),
+
+        spotify_client_id: Deno.env.get("SPOTIFY_CLIENT_ID") ?? "",
+        spotify_client_secret: Deno.env.get("SPOTIFY_CLIENT_SECRET") ?? "",
+        max_spotify_requests_per_second: Number(
+            Deno.env.get("MAX_SPOTIFY_REQUESTS_PER_SECOND") ?? 10,
+        ),
+
+        query_release: Deno.env.get("QUERY_RELEASE") ?? "true",
+        log_level: Deno.env.get("LOG_LEVEL") as LogLevel | undefined,
+        preferred_region: Deno.env.get("PREFERED_REGION") ?? "US",
+    };
+
+    await init(config);
 });
 
 for (const [category, category_tests] of Object.entries(albums)) {

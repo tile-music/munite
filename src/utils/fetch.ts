@@ -1,6 +1,6 @@
 import * as log from "../utils/logger.ts";
+import { getConfig } from "../core/config.ts";
 
-const RETRY_COUNT: number = Number(Deno.env.get("RETRY_COUNT")) || 5;
 const INITIAL_BACKOFF_MS = 100;
 
 function sleep(ms: number): Promise<void> {
@@ -18,11 +18,12 @@ function isRetryableStatus(status: number): boolean {
 async function fetchRetry(
   ...args: Parameters<typeof fetch>
 ): Promise<Response> {
-  let attemptsLeft = RETRY_COUNT;
+  const retry_count = Number(getConfig().retry_count) || 5;
+  let attempts_left = retry_count;
   let backoff = INITIAL_BACKOFF_MS;
-  let lastError: unknown;
+  let last_error: unknown;
 
-  while (attemptsLeft > 0) {
+  while (attempts_left > 0) {
     try {
       const response = await fetch(...args);
 
@@ -39,13 +40,13 @@ async function fetchRetry(
 
       return response;
     } catch (error) {
-      lastError = error;
-      attemptsLeft -= 1;
+      last_error = error;
+      attempts_left -= 1;
 
-      if (attemptsLeft === 0) break;
+      if (attempts_left === 0) break;
 
       log.debug(
-        `fetch failed, retrying in ${backoff}ms (${attemptsLeft} attempts left)`,
+        `fetch failed, retrying in ${backoff}ms (${attempts_left} attempts left)`,
         error
       );
 
@@ -55,7 +56,7 @@ async function fetchRetry(
   }
 
   throw new Error(
-    `Request retried too many times: ${args[0]}\nLast error: ${String(lastError)}`
+    `Request retried too many times: ${args[0]}\nLast error: ${String(last_error)}`
   );
 }
 

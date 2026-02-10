@@ -1,7 +1,11 @@
 import { createQueue } from "../utils/queue.ts";
 import * as log from "../utils/logger.ts";
 import { scoreRelease } from "../core/scorer.ts";
-import type { ReleaseSearchMetadata, Recording } from "../types/common.ts";
+import { getConfig } from "../core/config.ts";
+import type {
+    ReleaseSearchMetadata,
+    Recording
+} from "../types/common.ts";
 import type { ReleaseMetadata, TargetMetadata } from "../types/common.ts";
 import type { QueryParam } from "../types/musicbrainz.ts";
 import type { Queue } from "../types/queue.ts";
@@ -22,7 +26,7 @@ function assembleMusicBrainzRequestURL(
     query_params: QueryParam[] = [],
 ): string {
     // create base url
-    const base_url = Deno.env.get("MUSICBRAINZ_API_URL");
+    const base_url = getConfig().musicbrainz_api_url;
     const url = new URL(endpoint, base_url);
     url.searchParams.append("fmt", "json");
     url.searchParams.append("limit", "20");
@@ -63,10 +67,7 @@ async function getReleaseByUrl(
         throw new Error("Invalid metadata");
     }
 
-    const mb_url = Deno.env.get("MUSICBRAINZ_API_URL");
-    if (!mb_url) {
-        throw new Error("MUSICBRAINZ_API_URL environment variable is not set");
-    }
+  const mb_url = getConfig().musicbrainz_api_url;
 
     const url = new URL(mb_url + "url/");
     url.searchParams.append("fmt", "json");
@@ -189,8 +190,7 @@ export async function queryMusicBrainzReleases(
         return [json];
     }
 
-    let prefered_region = Deno.env.get("PREFERED_REGION");
-    if (!prefered_region) prefered_region = "US";
+    const preferred_region = getConfig().preferred_region ?? "US";
 
     const base_params: QueryParam[] = [
         {
@@ -215,7 +215,7 @@ export async function queryMusicBrainzReleases(
         },
         // {
         //     name: "country",
-        //     value: prefered_region
+        //     value: preferred_region
         // }
     ];
 
@@ -319,7 +319,7 @@ export async function filterMusicBrainzResponse(
         let tracks: Recording[] | null = null;
         // query release
         const url =
-            Deno.env.get("MUSICBRAINZ_API_URL") +
+            getConfig().musicbrainz_api_url +
             `release/${release.id}?fmt=json&inc=release-groups+recordings`;
         const response = await music_brainz_queue.enqueue(url, {
             headers: {

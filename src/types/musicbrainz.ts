@@ -1,5 +1,9 @@
 import * as log from "../utils/logger.ts";
-import type { Recording, ReleaseMetadata, CoverArt } from "../types/common.ts";
+import {
+    Recording,
+    ReleaseMetadata,
+    CoverArt
+} from "../types/common.ts";
 
 type QueryParam = {
     name: string;

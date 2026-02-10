@@ -1,6 +1,7 @@
 import { createQueue } from "../utils/queue.ts";
 import * as log from "../utils/logger.ts";
 import { matchAlbum } from "../core/matcher.ts";
+import { getConfig } from "../core/config.ts";
 
 import type { Queue } from "../types/queue.ts";
 import type { ReleaseSearchMetadata } from "../types/common.ts";
@@ -26,8 +27,9 @@ async function requestAccessToken() {
     if (access_token) return;
 
     // Check if a valid access token was supplied via environment variable
-    if (Deno.env.get("SPOTIFY_ACCESS_TOKEN")) {
-        access_token = Deno.env.get("SPOTIFY_ACCESS_TOKEN")!;
+    const config = getConfig();
+    if (config.spotify_access_token) {
+        access_token = config.spotify_access_token;
 
         // Make sure the token is still valid by making a test request
         const valid = await testAccessToken();
@@ -37,8 +39,8 @@ async function requestAccessToken() {
     }
 
     // Otherwise, request a new access token using client credentials
-    const client_id = Deno.env.get("SPOTIFY_CLIENT_ID")!;
-    const client_secret = Deno.env.get("SPOTIFY_CLIENT_SECRET")!;
+    const client_id = config.spotify_client_id;
+    const client_secret = config.spotify_client_secret;
     const credentials = btoa(`${client_id}:${client_secret}`);
 
     const result = await spotify_queue!.enqueue(

@@ -1,46 +1,46 @@
-import { load } from "@std/dotenv";
 import { initializeSpotifyQueue } from "../api/spotify.ts";
 import {
     initializeMusicBrainzQueue,
     filterMusicBrainzResponse,
     queryMusicBrainzReleases,
 } from "../api/musicbrainz.ts";
+import { setConfig } from "./config.ts";
 import * as log from "../utils/logger.ts";
 import type { LogLevel } from "../types/logger.ts";
 import type { FilterResponse } from "../types/musicbrainz.ts";
 import type { ReleaseSearchMetadata } from "../types/common.ts";
+import type { MuniteConfig } from "./config.ts";
 
-await load({ export: true });
-
-function verifyEnvironmentVariables() {
-    const requiredVars = [
-        "MUSICBRAINZ_API_URL",
-        "MAX_MUSICBRAINZ_REQUESTS_PER_SECOND",
-        "SPOTIFY_CLIENT_ID",
-        "SPOTIFY_CLIENT_SECRET",
-        "MAX_SPOTIFY_REQUESTS_PER_SECOND",
-        "QUERY_RELEASE",
-        "LOG_LEVEL",
+function verifyConfig(config: MuniteConfig) {
+    const requiredFields: Array<keyof MuniteConfig> = [
+        "musicbrainz_api_url",
+        "max_musicbrainz_requests_per_second",
+        "spotify_client_id",
+        "spotify_client_secret",
+        "max_spotify_requests_per_second",
+        "query_release",
     ];
 
-    for (const varName of requiredVars) {
-        if (!Deno.env.get(varName)) {
-            throw new Error(`Environment variable ${varName} is not set.`);
+    for (const fieldName of requiredFields) {
+        const value = config[fieldName];
+        if (value === undefined || value === null || value === "") {
+            throw new Error(`Config field ${String(fieldName)} is not set.`);
         }
     }
 }
 
-export async function init() {
-    verifyEnvironmentVariables();
+export async function init(config: MuniteConfig) {
+    verifyConfig(config);
+    setConfig(config);
 
     initializeMusicBrainzQueue(
-        Number(Deno.env.get("MAX_MUSICBRAINZ_REQUESTS_PER_SECOND")),
+        Number(config.max_musicbrainz_requests_per_second),
     );
     await initializeSpotifyQueue(
-        Number(Deno.env.get("MAX_SPOTIFY_REQUESTS_PER_SECOND")),
+        Number(config.max_spotify_requests_per_second),
     );
 
-    log.setLogLevel((Deno.env.get("LOG_LEVEL") as LogLevel) || "info");
+    log.setLogLevel((config.log_level as LogLevel) || "info");
     log.enableLogging();
 }
 
