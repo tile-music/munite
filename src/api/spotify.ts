@@ -2,6 +2,7 @@ import { createQueue } from "../utils/queue.ts";
 import * as log from "../utils/logger.ts";
 import { matchAlbum } from "../core/matcher.ts";
 import { getConfig } from "../core/config.ts";
+import { stripString } from "../utils/stripString.ts";
 
 import type { Queue } from "../types/queue.ts";
 import type { ReleaseSearchMetadata } from "../types/common.ts";
@@ -141,28 +142,6 @@ async function getSpotifyAlbum(
             url: track.external_urls.spotify,
         })),
     };
-}
-
-/**
- * Strips and normalizes a string by:
- * - Converting to lowercase
- * - Replacing multiple spaces with a single space
- * - Normalizing to decompose combined characters
- * - Removing diacritics
- * - Trimming leading and trailing whitespace
- * - Remove (Remastered), (Remaster), [Remastered], and [Remaster]
- *
- * @param input - The input string to be stripped and normalized.
- * @returns The stripped and normalized string.
- */
-function stripString(input: string): string {
-    return input
-        .toLowerCase() // Make lowercase
-        .replace(/\s+/g, " ") // Replace multiple spaces with a single space
-        .normalize("NFD") // Normalize to decompose combined characters
-        .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
-        .replace(/\(remaster(ed)?\)|\[remaster(ed)?\]/g, "") // Remove (Remastered), (Remaster), [Remastered], [Remaster]
-        .trim(); // Trim leading and trailing whitespace
 }
 
 export async function matchSpotifyAlbum(

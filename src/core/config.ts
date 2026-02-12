@@ -10,6 +10,8 @@ export type MuniteConfig = {
     log_level?: LogLevel;
     preferred_region?: string;
     spotify_access_token?: string;
+    apple_music_developer_token: string;
+    apple_music_storefront?: string; // e.g. "us"
     retry_count?: number;
 };
 

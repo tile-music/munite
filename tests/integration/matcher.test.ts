@@ -1,5 +1,10 @@
 import { assertGreaterOrEqual } from "@std/assert";
-import { init, matchSpotifyAlbum, LogLevel } from "../../src/mod.ts";
+import {
+    init,
+    matchSpotifyAlbum,
+    matchAppleMusicAlbum,
+    LogLevel,
+} from "../../src/mod.ts";
 import albumsJson from "../fixtures/albums.json" with { type: "json" };
 const albums = albumsJson as unknown as Tests;
 import * as log from "../../src/mod.ts";
@@ -13,11 +18,22 @@ type Tests = {
     eps: Test[];
 };
 
-type Test = [string, string, string, string | string[]];
+type Test = {
+    song_name: string;
+    release_group: string;
+    apple: SourceRelease;
+    spotify: SourceRelease;
+};
+type SourceRelease = {
+    id: string;
+    release: string | string[];
+};
 type Failure = {
     test: Test;
+    source: Source;
     actual: string;
 };
+type Source = "spotify" | "apple";
 
 Deno.test.beforeAll(async () => {
     const config = {
@@ -35,94 +51,122 @@ Deno.test.beforeAll(async () => {
         query_release: Deno.env.get("QUERY_RELEASE") ?? "true",
         log_level: Deno.env.get("LOG_LEVEL") as LogLevel | undefined,
         preferred_region: Deno.env.get("PREFERED_REGION") ?? "US",
+        apple_music_developer_token: Deno.env.get("APPLE_MUSIC_DEV_TOKEN")!,
+        apple_music_storefront: Deno.env.get("PREFERED_REGION") ?? "US", // e.g. "us"
+
     };
 
     await init(config);
 });
 
 for (const [category, category_tests] of Object.entries(albums)) {
-    Deno.test(`Spotify Album to MusicBrainz ID - ${category}`, async () => {
-        const num_tests = category_tests.length;
-        const failures: Failure[] = [];
-        let successes = 0;
+    for (const source of ["spotify", "apple"] as const) {
+        Deno.test(
+            `${source} Album to MusicBrainz ID - ${category}`,
+            async () => {
+                const testsForSource = category_tests.filter((test) =>
+                    test[source].id.trim() !== ""
+                );
 
-        // Run all tests concurrently
-        const results = await Promise.all(
-            category_tests.map(async (test, i) => {
-                const [
-                    album_info,
-                    spotify_album,
-                    expected_musicbrainz_release_group_id,
-                    expected_musicbrainz_id,
-                ] = test;
-
-                const musicbrainz_result =
-                    await matchSpotifyAlbum(spotify_album);
-                let status;
-                let success = 0;
-                let failure: Failure | null = null;
-
-                if (musicbrainz_result.status != "success") {
-                    failure = {
-                        test,
-                        actual: musicbrainz_result.message,
-                    };
-                    status = "FAILED!";
-                } else {
-                    const actual = musicbrainz_result.release.id;
-                    if (
-                        (typeof expected_musicbrainz_id != "string" &&
-                            !expected_musicbrainz_id.includes(actual)) ||
-                        (typeof expected_musicbrainz_id == "string" &&
-                            actual !== expected_musicbrainz_id)
-                    ) {
-                        if (
-                            musicbrainz_result.release.release_group.id ===
-                            expected_musicbrainz_release_group_id
-                        ) {
-                            success = 0.5;
-                            status = "PARTIAL";
-                        } else {
-                            status = "FAILED!";
-                        }
-                        failure = { test, actual };
-                    } else {
-                        success = 1;
-                        status = "SUCCESS";
-                    }
+                if (testsForSource.length === 0) {
+                    log.info(`SKIP [0/0]: no ${source} IDs in ${category}`);
+                    return;
                 }
 
-                return { status, album_info, index: i, success, failure };
-            }),
-        );
+                const num_tests = testsForSource.length;
+                const failures: Failure[] = [];
+                let successes = 0;
 
-        // Process results in order for consistent logging
-        results.forEach((result, i) => {
-            successes += result.success;
-            if (result.failure) {
-                failures.push(result.failure);
-            }
-            const success_rate = successes / (i + 1);
-            log.info(
-                `${result.status} [${i + 1}/${num_tests}] (${success_rate.toFixed(
-                    2,
-                )}): ${result.album_info}`,
-            );
-        });
+                // Run all tests concurrently
+                const results = await Promise.all(
+                    testsForSource.map(async (test) => {
+                        const id = test[source].id;
+                        const expected_musicbrainz_release_group_id =
+                            test.release_group;
+                        const expected_musicbrainz_id = test[source].release;
 
-        assertGreaterOrEqual(
-            successes / num_tests,
-            EXPECTED_SUCCESS_RATE,
-            `Success rate below expected for category ${category}.\n\nFailures:\n${failures
-                .map(formatFailure)
-                .join("\n")}`,
+                        const musicbrainz_result = source === "spotify"
+                            ? await matchSpotifyAlbum(id)
+                            : await matchAppleMusicAlbum(id);
+                        let status;
+                        let success = 0;
+                        let failure: Failure | null = null;
+
+                        if (musicbrainz_result.status != "success") {
+                            failure = {
+                                source,
+                                test,
+                                actual: musicbrainz_result.message,
+                            };
+                            status = "FAILED!";
+                        } else {
+                            const actual = musicbrainz_result.release.id;
+                            if (
+                                (typeof expected_musicbrainz_id != "string" &&
+                                    !expected_musicbrainz_id.includes(actual)) ||
+                                (typeof expected_musicbrainz_id == "string" &&
+                                    actual !== expected_musicbrainz_id)
+                            ) {
+                                if (
+                                    musicbrainz_result.release.release_group.id ===
+                                        expected_musicbrainz_release_group_id
+                                ) {
+                                    success = 0.5;
+                                    status = "PARTIAL";
+                                } else {
+                                    status = "FAILED!";
+                                }
+                                failure = { source, test, actual };
+                            } else {
+                                success = 1;
+                                status = "SUCCESS";
+                            }
+                        }
+
+                        return { status, song_name: test.song_name, success, failure };
+                    }),
+                );
+
+                // Process results in order for consistent logging
+                results.forEach((result, i) => {
+                    successes += result.success;
+                    if (result.failure) {
+                        failures.push(result.failure);
+                    }
+                    const success_rate = successes / (i + 1);
+                    log.info(
+                        `${result.status} [${i + 1}/${num_tests}] (${
+                            success_rate.toFixed(
+                                2,
+                            )
+                        }): ${result.song_name}`,
+                    );
+                });
+
+                assertGreaterOrEqual(
+                    successes / num_tests,
+                    EXPECTED_SUCCESS_RATE,
+                    `Success rate below expected for ${source} category ${category}.\n\nFailures:\n${failures
+                        .map(formatFailure)
+                        .join("\n")}`,
+                );
+            },
         );
-    });
+    }
 }
 
 function formatFailure(f: Failure): string {
-    const info = `${f.test[0]} (https://open.spotify.com/album/${f.test[1]})`;
+    const source_release = f.test[f.source];
+    const info = `${f.test.song_name} (${sourceUrl(f.source, source_release.id)})`;
     const expected =
-        typeof f.test[3] == "string" ? f.test[3] : f.test[3].join(" | ");
+        typeof source_release.release == "string"
+            ? source_release.release
+            : source_release.release.join(" | ");
     return `${info}:\n    Expected: ${expected}\n    Actual: ${f.actual}`;
+}
+
+function sourceUrl(source: Source, id: string): string {
+    return source === "spotify"
+        ? `https://open.spotify.com/album/${id}`
+        : `https://music.apple.com/us/album/${id}`;
 }

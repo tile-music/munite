@@ -1,4 +1,5 @@
 import { initializeSpotifyQueue } from "../api/spotify.ts";
+import { initializeAppleMusicQueue } from "../api/appleMusic.ts";
 import {
     initializeMusicBrainzQueue,
     filterMusicBrainzResponse,
@@ -19,6 +20,8 @@ function verifyConfig(config: MuniteConfig) {
         "spotify_client_secret",
         "max_spotify_requests_per_second",
         "query_release",
+        "apple_music_developer_token",
+        "apple_music_storefront"
     ];
 
     for (const fieldName of requiredFields) {
@@ -37,6 +40,9 @@ export async function init(config: MuniteConfig) {
         Number(config.max_musicbrainz_requests_per_second),
     );
     await initializeSpotifyQueue(
+        Number(config.max_spotify_requests_per_second),
+    );
+    await initializeAppleMusicQueue(
         Number(config.max_spotify_requests_per_second),
     );
 
