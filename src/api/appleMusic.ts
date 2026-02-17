@@ -77,11 +77,17 @@ async function getAppleMusicAlbum(
     const trackData = album.relationships.tracks;
     let next: string | null = trackData?.next ?? null;
 
+    const normalizeAppleMusicAlbumUrl = (url: string): string =>
+        url.replace(
+            /^(https:\/\/music\.apple\.com\/[^/]+\/(album|song))\/[^/]+\/(\d+)$/,
+            "$1/$3",
+        );
+
     for (const track of trackData?.data ?? []) {
         tracks.push({
             name: stripString(track.attributes.name),
             duration_ms: track.attributes.durationInMillis,
-            url: track.attributes.url ?? null,
+            url: normalizeAppleMusicAlbumUrl(track.attributes.url ?? null),
         });
     }
 
@@ -108,7 +114,7 @@ async function getAppleMusicAlbum(
             tracks.push({
                 name: stripString(track.attributes.name),
                 duration_ms: track.attributes.durationInMillis,
-                url: track.attributes.url ?? null,
+                url: normalizeAppleMusicAlbumUrl(track.attributes.url ?? null),
             });
         }
 
@@ -118,9 +124,9 @@ async function getAppleMusicAlbum(
     return {
         stripped_album_title: stripString(attrs.name),
         stripped_artists: [stripString(attrs.artistName)],
-        url: attrs.url ?? undefined,
+        url: normalizeAppleMusicAlbumUrl(attrs.url ?? null),
         release_date: attrs.releaseDate ?? null,
-        tracks
+        tracks,
     };
 }
 

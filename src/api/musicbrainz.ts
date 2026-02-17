@@ -14,10 +14,13 @@ import type {
     MinimalRelease,
     ReleasesSearchResponse,
     FilterResponse,
-    UrlItem,
+    UrlLookupResponse
 } from "../types/musicbrainz.ts";
 
-import { assertAlbumUrlsResponse } from "../types/musicbrainz.ts";
+import {
+    assertUrlLookupResponse,
+    isMusicBrainzErrorResponse
+} from "../types/musicbrainz.ts";
 
 let music_brainz_queue: Queue | null = null;
 
@@ -51,45 +54,54 @@ function assembleMusicBrainzRequestURL(
     return url.toString();
 }
 
-function escapeValue(value: string): string {
-    const specialChars = /([+\-!(){}\[\]^"~*?:\\\/])/g;
-    return value.replace(specialChars, "\\$1");
-}
-
 async function getReleaseByUrl(
     metadata: ReleaseSearchMetadata,
-): Promise<UrlItem[]> {
+): Promise<UrlLookupResponse | null> {
     if (!music_brainz_queue) {
         throw new Error("MusicBrainz queue is not initialized");
     }
 
-    if (!(Object.hasOwn(metadata, "url") && metadata.url)) {
+    if (!metadata.url) {
         throw new Error("Invalid metadata");
     }
 
-  const mb_url = getConfig().musicbrainz_api_url;
+    const baseUrl = getConfig().musicbrainz_api_url;
+    const url = new URL("url", baseUrl);
 
-    const url = new URL(mb_url + "url/");
+    url.searchParams.append("resource", metadata.url);
+    url.searchParams.append("inc", "release-rels");
     url.searchParams.append("fmt", "json");
-    url.searchParams.append("query", metadata.url);
-    url.searchParams.append("limit", "3");
 
-    const mb_response = await music_brainz_queue.enqueue(url.toString());
+    const response = await music_brainz_queue.enqueue(url.toString());
 
-    const json: unknown = await mb_response.json();
+    if (response.status === 404) {
+        log.debug("MusicBrainz URL not found (404)");
+        await response.body?.cancel();
+        return null;
+    }
 
-    log.debug(`MusicBrainz raw response: ${JSON.stringify(json, null, 2)}`);
+    const json: unknown = await response.json();
 
-    assertAlbumUrlsResponse(json);
+    if (isMusicBrainzErrorResponse(json)) {
+        if (json.error === "Not Found") {
+            log.debug("MusicBrainz URL not found (error response)");
+            return null;
+        }
 
-    // json is now AlbumUrlsResponse
-    const filtered = json.urls.filter((u) => u.resource === metadata.url);
+        // Unexpected MB error — surface it
+        throw new Error(
+            `MusicBrainz error: ${json.error} (${json.help ?? "no help provided"})`,
+        );
+    }
 
-    log.debug(
-        `MusicBrainz filtered response: ${JSON.stringify(filtered, null, 2)}`,
-    );
+    assertUrlLookupResponse(json);
 
-    return filtered;
+    return json;
+}
+
+function escapeValue(value: string): string {
+    const specialChars = /([+\-!(){}\[\]^"~*?:\\\/])/g;
+    return value.replace(specialChars, "\\$1");
 }
 
 const removeTrackCount = (p: QueryParam[]): QueryParam[] =>
@@ -153,41 +165,43 @@ export async function queryMusicBrainzReleases(
         throw new Error("MusicBrainz queue is not initialized");
     }
 
-    // if its the first time querying then check by url otherwise skip
-    const release_by_url = query_by_url ? await getReleaseByUrl(metadata) : [];
-    log.debug(
-        `MusicBrainz release by URL: ${JSON.stringify(release_by_url, null, 2)}`,
-    );
-    if (release_by_url.length > 0) {
-        const releaseId =
-          release_by_url
-            .flatMap(u => u["relation-list"])
-            .flatMap(rl => rl.relations)
-            .map(r => r.release)
+    if (query_by_url) {
+        const urlLookup = await getReleaseByUrl(metadata);
+
+        log.debug(
+            `MusicBrainz URL lookup: ${JSON.stringify(urlLookup, null, 2)}`,
+        );
+
+        const releaseId = urlLookup?.relations
+            ?.map(rel => rel.release)
             .find((r): r is NonNullable<typeof r> => r !== undefined)
             ?.id;
 
-        if (!releaseId) {
-            log.debug("No release found in MusicBrainz URL relations");
-            return [];
+        if (releaseId) {
+            const url = assembleMusicBrainzRequestURL(
+                `release/${releaseId}?inc=artist-credits+release-groups`,
+            );
+
+            const response = await music_brainz_queue.enqueue(url, {
+                headers: {
+                    "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
+                },
+            });
+
+            const json = await response.json();
+
+            log.debug(
+                `MusicBrainz release resolved via URL: ${JSON.stringify(
+                    json,
+                    null,
+                    2,
+                )}`,
+            );
+
+            return [json];
         }
 
-        const url = assembleMusicBrainzRequestURL(
-            `release/${releaseId}?inc=artist-credits+release-groups`,
-        );
-
-        const response = await music_brainz_queue.enqueue(url, {
-            headers: {
-                "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
-            },
-        });
-
-        const json = await response.json();
-        log.debug(
-            `MusicBrainz request sent for release ${JSON.stringify(json, null, 2)}`,
-        );
-
-        return [json];
+        log.debug("URL lookup did not resolve to a release, falling back to search");
     }
 
     const preferred_region = getConfig().preferred_region ?? "US";
@@ -213,22 +227,15 @@ export async function queryMusicBrainzReleases(
             name: "tracks",
             value: metadata.tracks.length.toString(),
         },
-        // {
-        //     name: "country",
-        //     value: preferred_region
-        // }
     ];
 
-    // Track the same relaxation stages as the original loop
     let stage = 0;
     let pop_count = 0;
 
     while (true) {
         const query_params = buildParamsForStage(base_params, stage, pop_count);
 
-        if (query_params.length === 0) {
-            break;
-        }
+        if (query_params.length === 0) break;
 
         const url = assembleMusicBrainzRequestURL("release/", query_params);
 
@@ -244,6 +251,7 @@ export async function queryMusicBrainzReleases(
         }
 
         const data: ReleasesSearchResponse = await response.json();
+
         if (data.releases.length > 0) {
             return data.releases;
         }
@@ -254,7 +262,6 @@ export async function queryMusicBrainzReleases(
             )}, relaxing search...`,
         );
 
-        // Advance relaxation state (exact same order as original)
         if (stage < 3) {
             stage++;
         } else {
@@ -264,6 +271,7 @@ export async function queryMusicBrainzReleases(
 
     return [];
 }
+
 
 /**
  * Filters and scores MusicBrainz search results to find the best matching release.

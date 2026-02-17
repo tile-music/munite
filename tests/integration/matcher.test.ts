@@ -60,7 +60,8 @@ Deno.test.beforeAll(async () => {
 });
 
 for (const [category, category_tests] of Object.entries(albums)) {
-    for (const source of ["spotify", "apple"] as const) {
+    //for (const source of ["spotify", "apple"] as const) {
+    for (const source of [ "apple", "spotify"] as const) {
         Deno.test(
             `${source} Album to MusicBrainz ID - ${category}`,
             async () => {

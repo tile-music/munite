@@ -1,1419 +1,1419 @@
 {
-  "one": [
-    {
-      "song_name": "JPEGMAFIA & Danny Brown - SCARING THE HOES",
-      "release_group": "6bb871f4-08ec-4a70-9fb3-c1c2b481e090",
-      "apple": {
-        "id": "",
-        "release": "56d7440e-dba2-413d-9d11-6a14d80d4f94"
-      },
-      "spotify": {
-        "id": "3u20OXh03DjCUzbf8XcGTq",
-        "release": "56d7440e-dba2-413d-9d11-6a14d80d4f94"
-      }
-    }
-  ],
-  "albums": [
-    {
-      "song_name": "JPEGMAFIA & Danny Brown - SCARING THE HOES",
-      "release_group": "6bb871f4-08ec-4a70-9fb3-c1c2b481e090",
-      "apple": {
-        "id": "",
-        "release": "56d7440e-dba2-413d-9d11-6a14d80d4f94"
-      },
-      "spotify": {
-        "id": "3u20OXh03DjCUzbf8XcGTq",
-        "release": "56d7440e-dba2-413d-9d11-6a14d80d4f94"
-      }
-    },
-    {
-      "song_name": "M.I.A. - /\\/\\ /\\ Y /\\",
-      "release_group": "78e297b2-f72c-4bc9-929e-da64f5a4619a",
-      "apple": {
-        "id": "",
-        "release": "5f24a203-f56c-4996-b91b-78ed2d1f4f37"
-      },
-      "spotify": {
-        "id": "7BIbGgOmGMhLscZqowMSDV",
-        "release": "5f24a203-f56c-4996-b91b-78ed2d1f4f37"
-      }
-    },
-    {
-      "song_name": "Cocteau Twins - Heaven or Las Vegas",
-      "release_group": "12fab6b9-4eaf-33b0-963e-cae03ac332fe",
-      "apple": {
-        "id": "",
-        "release": [
-          "a2661deb-a790-4bfb-b6b9-c57e1cb65baf",
-          "151d2e60-8dad-4934-a8a3-6cccbd2f5d31"
-        ]
-      },
-      "spotify": {
-        "id": "5lEphbceIgaK1XxWeSrC9E",
-        "release": [
-          "a2661deb-a790-4bfb-b6b9-c57e1cb65baf",
-          "151d2e60-8dad-4934-a8a3-6cccbd2f5d31"
-        ]
-      }
-    },
-    {
-      "song_name": "Imogen Heap - Speak for Yourself",
-      "release_group": "a100260d-0576-372f-a07b-4b22db1a77e2",
-      "apple": {
-        "id": "",
-        "release": "e76a46a6-8ee5-40d2-8966-cdbed42250c9"
-      },
-      "spotify": {
-        "id": "4Is0raRF9P6wWFZjXO6P9K",
-        "release": "e76a46a6-8ee5-40d2-8966-cdbed42250c9"
-      }
-    },
-    {
-      "song_name": "Clarence Clarity - NO NOW",
-      "release_group": "6a1f1391-463f-48ad-a4f1-783f1b8f0fd7",
-      "apple": {
-        "id": "",
-        "release": "8ff56617-a9a5-4079-a3fb-27487d24d298"
-      },
-      "spotify": {
-        "id": "2u5TtrM2q61VepuKI8lHdu",
-        "release": "8ff56617-a9a5-4079-a3fb-27487d24d298"
-      }
-    },
-    {
-      "song_name": "Magdalena Bay - Mercurial World",
-      "release_group": "fda72ebb-16e5-4a19-8be5-8e41906e3c86",
-      "apple": {
-        "id": "",
-        "release": "e24b8995-129d-4174-b3b5-a95297bd79fc"
-      },
-      "spotify": {
-        "id": "1ERrUvG31thFCxdwWUoJrY",
-        "release": "e24b8995-129d-4174-b3b5-a95297bd79fc"
-      }
-    },
-    {
-      "song_name": "goreshit - stankface",
-      "release_group": "a2f999f9-207f-44d9-9719-d6cc0ca6d370",
-      "apple": {
-        "id": "",
-        "release": "fa725360-f461-4ab8-8236-33c10a0b68a7"
-      },
-      "spotify": {
-        "id": "6HhZOg2vJaXQxlWKbtcnvO",
-        "release": "fa725360-f461-4ab8-8236-33c10a0b68a7"
-      }
-    },
-    {
-      "song_name": "Candelabro - Deseo, Carne y Voluntad",
-      "release_group": "1c25ea45-9e71-44f9-b58a-4380fa6b4b52",
-      "apple": {
-        "id": "",
-        "release": "f1f97dd1-d4fd-48f3-80e9-4fdfbc99d511"
-      },
-      "spotify": {
-        "id": "4XqjkJmo5IHFQEOm8PsGut",
-        "release": "f1f97dd1-d4fd-48f3-80e9-4fdfbc99d511"
-      }
-    },
-    {
-      "song_name": "Barrie - Barbara",
-      "release_group": "723bba96-706c-432f-92d3-4c6532f06f24",
-      "apple": {
-        "id": "",
-        "release": "6780f551-7963-4c01-805b-d2593ac4b5e3"
-      },
-      "spotify": {
-        "id": "5eieb3BvJUgPIzE5VkdyWL",
-        "release": "6780f551-7963-4c01-805b-d2593ac4b5e3"
-      }
-    },
-    {
-      "song_name": "weed420 - amor de encava",
-      "release_group": "f8089164-f464-47fe-b2fd-bfe67e4c07cd",
-      "apple": {
-        "id": "",
-        "release": "765bfd74-5531-46a4-9e10-c075b316e46d"
-      },
-      "spotify": {
-        "id": "2i3zldfKOB2cpiY5S1g0HO",
-        "release": "765bfd74-5531-46a4-9e10-c075b316e46d"
-      }
-    },
-    {
-      "song_name": "Daft Punk - Discovery",
-      "release_group": "48117b90-a16e-34ca-a514-19c702df1158",
-      "apple": {
-        "id": "",
-        "release": "6cd30d99-4923-4d5e-8e51-9d87506976f1"
-      },
-      "spotify": {
-        "id": "2noRn2Aes5aoNVsU6iWThc",
-        "release": "6cd30d99-4923-4d5e-8e51-9d87506976f1"
-      }
-    },
-    {
-      "song_name": "Weezer - Weezer (Green Album)",
-      "release_group": "923d5ba6-7eee-3bce-bcb2-c913b2bd69d4",
-      "apple": {
-        "id": "",
-        "release": "9111abad-6d93-467e-95fa-9d583886398f"
-      },
-      "spotify": {
-        "id": "2OBSz5Nlto0Q5CtYPzPY7c",
-        "release": "9111abad-6d93-467e-95fa-9d583886398f"
-      }
-    },
-    {
-      "song_name": "The Beatles - The Beatles",
-      "release_group": "055be730-dcad-31bf-b550-45ba9c202aa3",
-      "apple": {
-        "id": "",
-        "release": "df3a1cec-5ee0-4aa8-afb2-fe92423f9432"
-      },
-      "spotify": {
-        "id": "1klALx0u4AavZNEvC4LrTL",
-        "release": "df3a1cec-5ee0-4aa8-afb2-fe92423f9432"
-      }
-    },
-    {
-      "song_name": "Bjork - Post",
-      "release_group": "b2a6e057-087d-3ae5-a6e5-7f5fa39808ff",
-      "apple": {
-        "id": "",
-        "release": "e5abf212-58b3-4119-a5d5-d2509d56158a"
-      },
-      "spotify": {
-        "id": "2Ul7B1LEHxXzYubtkTMENs",
-        "release": "e5abf212-58b3-4119-a5d5-d2509d56158a"
-      }
-    },
-    {
-      "song_name": "Kanye West - The Life Of Pablo",
-      "release_group": "8c18657a-6338-490d-a952-897663596b96",
-      "apple": {
-        "id": "",
-        "release": "03f03619-385a-4ed9-9974-cdcdf6404cf5"
-      },
-      "spotify": {
-        "id": "7gsWAHLeT0w7es6FofOXk1",
-        "release": "03f03619-385a-4ed9-9974-cdcdf6404cf5"
-      }
-    },
-    {
-      "song_name": "Radiohead - OK Computer",
-      "release_group": "b1392450-e666-3926-a536-22c65f834433",
-      "apple": {
-        "id": "",
-        "release": "30702389-5c67-4438-9ea0-2351c8de0f1d"
-      },
-      "spotify": {
-        "id": "6dVIqQ8qmQ5GBnJ9shOYGE",
-        "release": "30702389-5c67-4438-9ea0-2351c8de0f1d"
-      }
-    },
-    {
-      "song_name": "Sigur Rós – ( )",
-      "release_group": "950a650b-1e8d-3097-92af-9f7686bba4f1",
-      "apple": {
-        "id": "",
-        "release": "cad20c73-6189-46b9-a8e7-27d4232cf050"
-      },
-      "spotify": {
-        "id": "3FR8CV7OSyZDnxneavnh8t",
-        "release": "cad20c73-6189-46b9-a8e7-27d4232cf050"
-      }
-    },
-    {
-      "song_name": "Massive Attack - Mezzanine",
-      "release_group": "6f9f6899-c0d3-311d-ae87-a10ae6bc53a9",
-      "apple": {
-        "id": "",
-        "release": "ad224474-e534-43d0-a6af-4959d063a460"
-      },
-      "spotify": {
-        "id": "49MNmJhZQewjt06rpwp6QR",
-        "release": "ad224474-e534-43d0-a6af-4959d063a460"
-      }
-    },
-    {
-      "song_name": "Kids See Ghosts – Kids See Ghosts",
-      "release_group": "3346a9d9-031e-49e2-84b0-3734d790d7e5",
-      "apple": {
-        "id": "",
-        "release": "6e8842be-fe00-4f18-adb4-d4025204b722"
-      },
-      "spotify": {
-        "id": "6pwuKxMUkNg673KETsXPUV",
-        "release": "6e8842be-fe00-4f18-adb4-d4025204b722"
-      }
-    },
-    {
-      "song_name": "Jai Paul - Leak 04-13 (Bait Ones)",
-      "release_group": "72ed67a1-893e-4daf-a78e-b1fe2c6a7905",
-      "apple": {
-        "id": "",
-        "release": "06a78a7e-23b1-42b1-a1ed-7e64a461e06a"
-      },
-      "spotify": {
-        "id": "4bCsLPQuCdQQBQOLs5MuNr",
-        "release": "06a78a7e-23b1-42b1-a1ed-7e64a461e06a"
-      }
-    },
-    {
-      "song_name": "Charli XCX - BRAT",
-      "release_group": "e0fdb431-0109-420d-8a37-f99eaeb4d671",
-      "apple": {
-        "id": "",
-        "release": "ab55ac76-eee5-4f89-ac14-7bb9aa837bc8"
-      },
-      "spotify": {
-        "id": "2lIZef4lzdvZkiiCzvPKj7",
-        "release": "ab55ac76-eee5-4f89-ac14-7bb9aa837bc8"
-      }
-    },
-    {
-      "song_name": "Bon Iver - 22, A Million",
-      "release_group": "f0e8f425-a941-48df-b5d7-2ceeaaf77c71",
-      "apple": {
-        "id": "",
-        "release": "0e150c77-c420-4482-98a3-1efadc7f96f3"
-      },
-      "spotify": {
-        "id": "4bJCKmpKgti10f3ltz6LLl",
-        "release": "0e150c77-c420-4482-98a3-1efadc7f96f3"
-      }
-    },
-    {
-      "song_name": "Miles Davis - Shades of Blue",
-      "release_group": "ce569c5b-b67b-3e0c-b4c0-04d916d13891",
-      "apple": {
-        "id": "",
-        "release": "895569db-bd07-48eb-a96e-4fa7c9530147"
-      },
-      "spotify": {
-        "id": "6jRvDpOc9oi3sjQuoPK7if",
-        "release": "895569db-bd07-48eb-a96e-4fa7c9530147"
-      }
-    },
-    {
-      "song_name": "Danger Mouse & Black Thought - Cheat Codes",
-      "release_group": "3d4b56c0-0abf-4bea-a12e-99def53e306f",
-      "apple": {
-        "id": "",
-        "release": [
-          "0449086e-94a7-4b53-857a-7f75f503ce52",
-          "c5d4707d-5d9f-4bce-82a6-02dbd1d67981"
-        ]
-      },
-      "spotify": {
-        "id": "4TPi1tGDVXCdQOjn4NSRaB",
-        "release": [
-          "0449086e-94a7-4b53-857a-7f75f503ce52",
-          "c5d4707d-5d9f-4bce-82a6-02dbd1d67981"
-        ]
-      }
-    },
-    {
-      "song_name": "Nirvana - Nevermind",
-      "release_group": "1b022e01-4da6-387b-8658-8678046e4cef",
-      "apple": {
-        "id": "",
-        "release": [
-          "08283094-dd62-4bd7-8884-0d072d19c8e6",
-          "380a1953-31fd-4603-b156-31b220f0049e"
-        ]
-      },
-      "spotify": {
-        "id": "2guirTSEqLizK7j9i1MTTZ",
-        "release": [
-          "08283094-dd62-4bd7-8884-0d072d19c8e6",
-          "380a1953-31fd-4603-b156-31b220f0049e"
-        ]
-      }
-    },
-    {
-      "song_name": "Radiohead - Kid A",
-      "release_group": "e75c0549-ad55-39e3-8025-c72c5d4a3c5d",
-      "apple": {
-        "id": "",
-        "release": "0e8a1994-f0a7-481d-9be2-6c2f80e14de5"
-      },
-      "spotify": {
-        "id": "6GjwtEZcfenmOf6l18N7T7",
-        "release": "0e8a1994-f0a7-481d-9be2-6c2f80e14de5"
-      }
-    },
-    {
-      "song_name": "Kendrick Lamar - good kid, m.A.A.d city",
-      "release_group": "499c19c8-0dab-4824-884b-6191d145e95b",
-      "apple": {
-        "id": "",
-        "release": "2d85edaa-83b4-4fef-b6b0-23084e972930"
-      },
-      "spotify": {
-        "id": "0E47vczx9XVds1Lr2Y8rze",
-        "release": "2d85edaa-83b4-4fef-b6b0-23084e972930"
-      }
-    },
-    {
-      "song_name": "Pink Floyd - The Dark Side of the Moon",
-      "release_group": "f5093c06-23e3-404f-aeaa-40f72885ee3a",
-      "apple": {
-        "id": "",
-        "release": [
-          "2f481f2f-e24a-4b36-8076-4564030f59b5",
-          "bdd366fd-67be-4dfe-a7fb-00a216eaa3ed",
-          "82e70b1b-5165-4d04-9951-959b707bdb39",
-          "1ef3dff6-8c99-454f-8ade-abdc52301233"
-        ]
-      },
-      "spotify": {
-        "id": "4LH4d3cOWNNsVw41Gqt2kv",
-        "release": [
-          "2f481f2f-e24a-4b36-8076-4564030f59b5",
-          "bdd366fd-67be-4dfe-a7fb-00a216eaa3ed",
-          "82e70b1b-5165-4d04-9951-959b707bdb39",
-          "1ef3dff6-8c99-454f-8ade-abdc52301233"
-        ]
-      }
-    },
-    {
-      "song_name": "Miles Davis - Kind Of Blue",
-      "release_group": "8e8a594f-2175-38c7-a871-abb68ec363e7",
-      "apple": {
-        "id": "",
-        "release": "4c8af71f-5746-4981-92d7-0d6c64db1155"
-      },
-      "spotify": {
-        "id": "1weenld61qoidwYuZ1GESA",
-        "release": "4c8af71f-5746-4981-92d7-0d6c64db1155"
-      }
-    },
-    {
-      "song_name": "Led Zeppelin - Led Zeppelin IV (Remaster)",
-      "release_group": "2e61da88-39e9-3473-81d2-c964cb394952",
-      "apple": {
-        "id": "",
-        "release": "5a17beb8-d7d7-4680-baa8-d6517aca1c68"
-      },
-      "spotify": {
-        "id": "5EyIDBAqhnlkAHqvPRwdbX",
-        "release": "5a17beb8-d7d7-4680-baa8-d6517aca1c68"
-      }
-    },
-    {
-      "song_name": "Fleetwood Mac - Rumors",
-      "release_group": "416bb5e5-c7d1-3977-8fd7-7c9daf6c2be6",
-      "apple": {
-        "id": "",
-        "release": "7ba2862e-9431-4368-8fc7-9eb3e7fcf42e"
-      },
-      "spotify": {
-        "id": "1bt6q2SruMsBtcerNVtpZB",
-        "release": "7ba2862e-9431-4368-8fc7-9eb3e7fcf42e"
-      }
-    },
-    {
-      "song_name": "The Strokes - Is This It",
-      "release_group": "efea26d1-a016-30f6-b8e2-bc8c02336b0a",
-      "apple": {
-        "id": "",
-        "release": [
-          "5fd728bf-f69a-4c45-b68a-4fb30898bb00",
-          "79979449-adcb-4a63-8a0b-35ab99563670"
-        ]
-      },
-      "spotify": {
-        "id": "2k8KgmDp9oHrmu0MIj4XDE",
-        "release": [
-          "5fd728bf-f69a-4c45-b68a-4fb30898bb00",
-          "79979449-adcb-4a63-8a0b-35ab99563670"
-        ]
-      }
-    },
-    {
-      "song_name": "Neutral Milk Hotel - In the Aeroplane Over the Sea",
-      "release_group": "8f310800-045b-3e12-8268-50b3d33a2267",
-      "apple": {
-        "id": "",
-        "release": [
-          "fe0183b9-7526-4ad5-8483-dae3dfdb3d30",
-          "c2983d45-85a4-45b2-805e-1bf9269415ec"
-        ]
-      },
-      "spotify": {
-        "id": "17q5eeNk3HAjX1gzQnkTX7",
-        "release": [
-          "fe0183b9-7526-4ad5-8483-dae3dfdb3d30",
-          "c2983d45-85a4-45b2-805e-1bf9269415ec"
-        ]
-      }
-    },
-    {
-      "song_name": "The Velvet Underground, Nico - The Velvet Underground & Nico",
-      "release_group": "5cbd9d7b-597a-3c5e-bfd1-c2b364215560",
-      "apple": {
-        "id": "",
-        "release": [
-          "2b645963-cc81-4d88-aa70-84015487933b",
-          "05a69e7d-95cc-4778-9647-24af79c84b53"
-        ]
-      },
-      "spotify": {
-        "id": "4xwx0x7k6c5VuThz5qVqmV",
-        "release": [
-          "2b645963-cc81-4d88-aa70-84015487933b",
-          "05a69e7d-95cc-4778-9647-24af79c84b53"
-        ]
-      }
-    },
-    {
-      "song_name": "Tool - Anima",
-      "release_group": "ef1e8130-dd5f-336a-85fa-4936a47342bd",
-      "apple": {
-        "id": "",
-        "release": "bb6bd783-6a88-40c6-9abf-ee1c80b3f753"
-      },
-      "spotify": {
-        "id": "6yWMN087PgSimbcVmHLEwG",
-        "release": "bb6bd783-6a88-40c6-9abf-ee1c80b3f753"
-      }
-    },
-    {
-      "song_name": "Nine Inch Nails - The Downward Spiral",
-      "release_group": "7c4cab8d-dead-3870-b501-93c90fd0a580",
-      "apple": {
-        "id": "",
-        "release": [
-          "4680b5be-177d-42a2-b4c0-35d5453b8148",
-          "4356bcd3-a41d-4071-998e-ad1a44308a99",
-          "c71c4836-3a35-4a97-a206-ee9ca976871c"
-        ]
-      },
-      "spotify": {
-        "id": "7a7arAXDE0BiaMgHLhdjGF",
-        "release": [
-          "4680b5be-177d-42a2-b4c0-35d5453b8148",
-          "4356bcd3-a41d-4071-998e-ad1a44308a99",
-          "c71c4836-3a35-4a97-a206-ee9ca976871c"
-        ]
-      }
-    },
-    {
-      "song_name": "Weezer - Weezer (Blue Album)",
-      "release_group": "c7b245c9-8099-32ea-af95-893acedde2cf",
-      "apple": {
-        "id": "",
-        "release": [
-          "73698ebd-069e-4bed-9fd6-9b196be45e0d",
-          "e8414dbf-c343-4e06-80c7-393f1c680254"
-        ]
-      },
-      "spotify": {
-        "id": "1xpGyKyV26uPstk1Elgp9Q",
-        "release": [
-          "73698ebd-069e-4bed-9fd6-9b196be45e0d",
-          "e8414dbf-c343-4e06-80c7-393f1c680254"
-        ]
-      }
-    },
-    {
-      "song_name": "Metallica - Metallica (The Black Album)",
-      "release_group": "e8f70201-8899-3f0c-9e07-5d6495bc8046",
-      "apple": {
-        "id": "",
-        "release": [
-          "db448a83-cc4b-45c7-abdd-8524ed9969e5",
-          "6d4cecbb-d460-48e5-b0dc-0d385486757f"
-        ]
-      },
-      "spotify": {
-        "id": "55fq75UfkYbGMq4CncCtOH",
-        "release": [
-          "db448a83-cc4b-45c7-abdd-8524ed9969e5",
-          "6d4cecbb-d460-48e5-b0dc-0d385486757f"
-        ]
-      }
-    },
-    {
-      "song_name": "Rage Against The Machine - Rage Against The Machine",
-      "release_group": "1305859b-8937-397f-9c33-39f62eb672fb",
-      "apple": {
-        "id": "",
-        "release": "389a60bf-e586-4dc3-b995-fe196c5cf0f7"
-      },
-      "spotify": {
-        "id": "4LaRYkT4oy47wEuQgkLBul",
-        "release": "389a60bf-e586-4dc3-b995-fe196c5cf0f7"
-      }
-    },
-    {
-      "song_name": "blink-182 - blink-182",
-      "release_group": "04e0cb66-e8ee-38b9-863d-b4f21dee887d",
-      "apple": {
-        "id": "",
-        "release": [
-          "47e66554-23e2-4668-be85-b8fc73e11985",
-          "82a826af-4816-402f-9d91-cb174018b053"
-        ]
-      },
-      "spotify": {
-        "id": "4hBTxv4QRPePXCFcEI7Vjp",
-        "release": [
-          "47e66554-23e2-4668-be85-b8fc73e11985",
-          "82a826af-4816-402f-9d91-cb174018b053"
-        ]
-      }
-    },
-    {
-      "song_name": "Mos Def - Black on Both Sides",
-      "release_group": "d6658b47-463a-390e-9417-99c818aea004",
-      "apple": {
-        "id": "",
-        "release": "b33ddceb-2c7e-4fc5-a17a-42f0dc332ba9"
-      },
-      "spotify": {
-        "id": "5gK2l2LgWY0BA4p9uy27z6",
-        "release": "b33ddceb-2c7e-4fc5-a17a-42f0dc332ba9"
-      }
-    },
-    {
-      "song_name": "Yusuf / Cat Stevens - Tea For The Tillerman",
-      "release_group": "418678e7-2807-3bed-a305-11b4181e533e",
-      "apple": {
-        "id": "",
-        "release": [
-          "e85224b5-15e6-48e6-8b43-0cd6c017a9e2",
-          "73faa43c-52ea-43b7-b971-3de46e137f88"
-        ]
-      },
-      "spotify": {
-        "id": "44VxbAytHpVi3Rq8hRhild",
-        "release": [
-          "e85224b5-15e6-48e6-8b43-0cd6c017a9e2",
-          "73faa43c-52ea-43b7-b971-3de46e137f88"
-        ]
-      }
-    },
-    {
-      "song_name": "Puff Daddy & The Family / P. Diddy / Diddy - No Way Out",
-      "release_group": "107b1fb0-8ec9-374c-8eda-e250b086b969",
-      "apple": {
-        "id": "",
-        "release": "5f0330c7-8465-45ed-a0e8-f3840bda7313"
-      },
-      "spotify": {
-        "id": "4OGaOZUHLhSeiicZB909aL",
-        "release": "5f0330c7-8465-45ed-a0e8-f3840bda7313"
-      }
-    },
-    {
-      "song_name": "AJJ / Andrew Jackson Jihad - People Who Can Eat People Are the Luckiest People in the World",
-      "release_group": "676033ea-5ba2-3b8c-95d4-8679cdbc0249",
-      "apple": {
-        "id": "",
-        "release": [
-          "17c22b69-196f-4583-a216-828ffcba5a23",
-          "55dd6c67-968e-45d7-8d55-5345f65a27ae"
-        ]
-      },
-      "spotify": {
-        "id": "7GD68eErLeQn0TCJQ6hjOz",
-        "release": [
-          "17c22b69-196f-4583-a216-828ffcba5a23",
-          "55dd6c67-968e-45d7-8d55-5345f65a27ae"
-        ]
-      }
-    },
-    {
-      "song_name": "Electric Callboy / Eskimo Callboy - Bury Me in Vegas",
-      "release_group": "019d7063-0717-4ee0-beb6-bd3f31e36ce7",
-      "apple": {
-        "id": "",
-        "release": "d8a1d016-3fb0-4f91-91a9-a047a1f7267e"
-      },
-      "spotify": {
-        "id": "43lJMcv5MQcFGJvEtfTDdn",
-        "release": "d8a1d016-3fb0-4f91-91a9-a047a1f7267e"
-      }
-    },
-    {
-      "song_name": "The 1975 - I like it when you sleep, for you are so beautiful yet so unaware of it",
-      "release_group": "c1125856-5eaa-4e76-9f63-2fd1f72281a6",
-      "apple": {
-        "id": "",
-        "release": [
-          "0756add3-d83f-4cde-b4a4-3a3e626bb0f7",
-          "f1f0bb28-12d5-4abe-a73a-993b27edcb94",
-          "00dcdc68-80fd-4628-b3f2-c0b023e76898",
-          "2cee0392-0ffe-4c75-a889-6a7ef7013c63"
-        ]
-      },
-      "spotify": {
-        "id": "1JFmNyVPdBF1ECvv4fhpW4",
-        "release": [
-          "0756add3-d83f-4cde-b4a4-3a3e626bb0f7",
-          "f1f0bb28-12d5-4abe-a73a-993b27edcb94",
-          "00dcdc68-80fd-4628-b3f2-c0b023e76898",
-          "2cee0392-0ffe-4c75-a889-6a7ef7013c63"
-        ]
-      }
-    },
-    {
-      "song_name": "Talk Talk - Spirit of Eden",
-      "release_group": "fd29e2cd-9bd7-32c6-adf9-ce80ab1cadfc",
-      "apple": {
-        "id": "",
-        "release": "b7272de5-810e-44ee-89a1-681c6c483b15"
-      },
-      "spotify": {
-        "id": "4YXo7p7aubyVIbNLoVlBp9",
-        "release": "b7272de5-810e-44ee-89a1-681c6c483b15"
-      }
-    },
-    {
-      "song_name": "Jay Z & Kanye West - Watch The Throne",
-      "release_group": "a96597aa-93b4-4e14-9e6e-03892ab24979",
-      "apple": {
-        "id": "",
-        "release": "90cc3f69-3b7e-437b-bc33-099369d8dcaf"
-      },
-      "spotify": {
-        "id": "0OcMap99vLEeGkBCfCwRwS",
-        "release": "90cc3f69-3b7e-437b-bc33-099369d8dcaf"
-      }
-    },
-    {
-      "song_name": "Madvillain - Madvillainy",
-      "release_group": "ab570ccb-b06b-3746-8147-4903163ba895",
-      "apple": {
-        "id": "",
-        "release": [
-          "b88edf3d-7a88-4d1e-b51b-50022fde5708",
-          "264702af-dd10-46b5-83ef-7419552de193"
-        ]
-      },
-      "spotify": {
-        "id": "19bQiwEKhXUBJWY6oV3KZk",
-        "release": [
-          "b88edf3d-7a88-4d1e-b51b-50022fde5708",
-          "264702af-dd10-46b5-83ef-7419552de193"
-        ]
-      }
-    },
-    {
-      "song_name": "Burial - Untrue",
-      "release_group": "fddedc4f-7a2e-3d7d-9ec5-1705c416f3f4",
-      "apple": {
-        "id": "",
-        "release": [
-          "d84892a9-0b1d-3694-a2a1-f19ddb7d0c53",
-          "3b78aca5-18da-4183-a5dc-51626d39e8ff"
-        ]
-      },
-      "spotify": {
-        "id": "1iRPiEYHIX2zpF8lkW54SK",
-        "release": [
-          "d84892a9-0b1d-3694-a2a1-f19ddb7d0c53",
-          "3b78aca5-18da-4183-a5dc-51626d39e8ff"
-        ]
-      }
-    },
-    {
-      "song_name": "Boards of Canada - Music Has the Right to Children",
-      "release_group": "17d74d52-c92b-3b8d-9f87-218ab2d1c4a0",
-      "apple": {
-        "id": "",
-        "release": [
-          "1a8207d9-75fa-44d7-9a83-04801b0619f3",
-          "aa9286ad-59a3-4bd5-9cc0-545ae394720f"
-        ]
-      },
-      "spotify": {
-        "id": "6LZiNXaDvhzvnXUubVOmNU",
-        "release": [
-          "1a8207d9-75fa-44d7-9a83-04801b0619f3",
-          "aa9286ad-59a3-4bd5-9cc0-545ae394720f"
-        ]
-      }
-    },
-    {
-      "song_name": "Sufjan Stevens - Illinois",
-      "release_group": "1fb75447-c513-38c4-ad8f-1bfc441aa74c",
-      "apple": {
-        "id": "",
-        "release": "2f6d6830-e03c-4709-86ce-c0a2eb9e8c31"
-      },
-      "spotify": {
-        "id": "1pOl0KEC1iQnA6F0XxV4To",
-        "release": "2f6d6830-e03c-4709-86ce-c0a2eb9e8c31"
-      }
-    },
-    {
-      "song_name": "Can - Tago Mago",
-      "release_group": "13d08c0e-14e2-30b2-9ad7-5f501761a8ea",
-      "apple": {
-        "id": "",
-        "release": [
-          "af823681-7f88-451e-96d2-2aa26585f6f3",
-          "19d8b6a2-51ed-4ed9-a9ce-d201e501e65d"
-        ]
-      },
-      "spotify": {
-        "id": "1txmvzex0gtGwbqQCcXEtt",
-        "release": [
-          "af823681-7f88-451e-96d2-2aa26585f6f3",
-          "19d8b6a2-51ed-4ed9-a9ce-d201e501e65d"
-        ]
-      }
-    },
-    {
-      "song_name": "ESPRIT 空想 - 200% Electronica",
-      "release_group": "7b456549-c339-4eaa-ae56-e67ae63acac4",
-      "apple": {
-        "id": "",
-        "release": [
-          "69ffb11b-ebbb-45ae-8c95-1e1c08b39761",
-          "0ae1f6b6-b970-4e73-97c4-6cb8d4b97128"
-        ]
-      },
-      "spotify": {
-        "id": "6WgSCcRfaXuBVfM2TpV0Kl",
-        "release": [
-          "69ffb11b-ebbb-45ae-8c95-1e1c08b39761",
-          "0ae1f6b6-b970-4e73-97c4-6cb8d4b97128"
-        ]
-      }
-    }
-  ],
-  "deluxe_albums": [
-    {
-      "song_name": "Kendrick Lamar - good kid, m.A.A.d city (Deluxe)",
-      "release_group": [
-        "499c19c8-0dab-4824-884b-6191d145e95b",
-        "712928ae-a147-4c62-b597-12e14accaba3"
-      ],
-      "apple": {
-        "id": "",
-        "release": "42b400fb-800b-49f3-88b4-be1fb8524220"
-      },
-      "spotify": {
-        "id": "3DGQ1iZ9XKUQxAUWjfC34w",
-        "release": "42b400fb-800b-49f3-88b4-be1fb8524220"
-      }
-    },
-    {
-      "song_name": "Lana Del Rey - Born To Die - The Paradise Edition",
-      "release_group": "4b16a1bc-8644-48ae-9b3e-8ae36aa30cfc",
-      "apple": {
-        "id": "",
-        "release": "fd363ac5-5db0-471d-9968-652b7538830a"
-      },
-      "spotify": {
-        "id": "5PW8nAtvf2HV8RYZFd4IrX",
-        "release": "fd363ac5-5db0-471d-9968-652b7538830a"
-      }
-    },
-    {
-      "song_name": "Radiohead - OK Computer OKNOTOK 1997 2017",
-      "release_group": "b1392450-e666-3926-a536-22c65f834433",
-      "apple": {
-        "id": "",
-        "release": [
-          "d7881c68-914a-4da3-8a7d-be89f0201307",
-          "a1ed87aa-2079-4e42-bbeb-6309b3b68674",
-          "8e2b5322-f9a6-4ab7-b3f4-f65e7ddbc9e4"
-        ]
-      },
-      "spotify": {
-        "id": "0tzfI6NFJqcJkWb23R3lRZ",
-        "release": [
-          "d7881c68-914a-4da3-8a7d-be89f0201307",
-          "a1ed87aa-2079-4e42-bbeb-6309b3b68674",
-          "8e2b5322-f9a6-4ab7-b3f4-f65e7ddbc9e4"
-        ]
-      }
-    },
-    {
-      "song_name": "Daft Punk - Random Access Memories (10th Anniversary Edition)",
-      "release_group": "aa997ea0-2936-40bd-884d-3af8a0e064dc",
-      "apple": {
-        "id": "",
-        "release": "e65fcfb0-02dc-407c-ab28-8168dafcb999"
-      },
-      "spotify": {
-        "id": "4mAhdh996uW5SnnFKXUmC0",
-        "release": "e65fcfb0-02dc-407c-ab28-8168dafcb999"
-      }
-    },
-    {
-      "song_name": "Caroline Polachek - Desire, I Want to Turn Into You: Everasking Edition",
-      "release_group": "20bbd8b3-35fa-4a29-9a94-13f4f01bf9ca",
-      "apple": {
-        "id": "",
-        "release": "287ee0be-0e75-4d59-bc04-51c5140a790d"
-      },
-      "spotify": {
-        "id": "25ktFe8igqIwv9aRbkdnTS",
-        "release": "287ee0be-0e75-4d59-bc04-51c5140a790d"
-      }
-    },
-    {
-      "song_name": "Imogen Heap - Speak for Yourself (Deluxe Edition)",
-      "release_group": "a100260d-0576-372f-a07b-4b22db1a77e2",
-      "apple": {
-        "id": "",
-        "release": "f29ea105-ff73-4d44-9ab6-9980b646e5a3"
-      },
-      "spotify": {
-        "id": "5DuihGAcuJdwyktx3EmncM",
-        "release": "f29ea105-ff73-4d44-9ab6-9980b646e5a3"
-      }
-    },
-    {
-      "song_name": "Filter - Title of Record (Expanded Edition)",
-      "release_group": "8671a7a0-20b5-3634-8932-7d362d9075f1",
-      "apple": {
-        "id": "",
-        "release": "b3d61156-27ba-45c1-aa5a-ad465a302230"
-      },
-      "spotify": {
-        "id": "5oxUuHFJpJOouSzXqlnhyU",
-        "release": "b3d61156-27ba-45c1-aa5a-ad465a302230"
-      }
-    },
-    {
-      "song_name": "Kesha - Animal + Canibal (15th Anniversary)",
-      "release_group": "e90dc06b-40a0-4b71-a6b8-c5ed0fdd8c65",
-      "apple": {
-        "id": "",
-        "release": "cbbad773-22b4-4c57-8813-950b24d38e70"
-      },
-      "spotify": {
-        "id": "4cPVR1DcBZr2ANNvQ25Sjp",
-        "release": "cbbad773-22b4-4c57-8813-950b24d38e70"
-      }
-    }
-  ],
-  "singles": [
-    {
-      "song_name": "Radiohead - Creep",
-      "release_group": "c5bc370b-95c2-3634-bb89-51bb2dce97c3",
-      "apple": {
-        "id": "",
-        "release": "d167d2cd-e579-4b09-a40e-68e833def38b"
-      },
-      "spotify": {
-        "id": "3RQlNKc08ikcuFmbg0luEw",
-        "release": "d167d2cd-e579-4b09-a40e-68e833def38b"
-      }
-    },
-    {
-      "song_name": "Joy Division - Love Will Tear Us Apart",
-      "release_group": "d4e6c019-a6df-38fb-b6aa-7861d71b5543",
-      "apple": {
-        "id": "",
-        "release": "55d3f975-dcc7-4af8-9b08-b0d3c73494f0"
-      },
-      "spotify": {
-        "id": "0u0CJa9zwFbGSU8JWQYS5G",
-        "release": "55d3f975-dcc7-4af8-9b08-b0d3c73494f0"
-      }
-    },
-    {
-      "song_name": "underscores - Do It",
-      "release_group": "2dcc1ba9-1772-48c8-b429-2f6428a433d1",
-      "apple": {
-        "id": "",
-        "release": "ab1a3f85-e0ea-470a-af5c-175447ae774c"
-      },
-      "spotify": {
-        "id": "3q2koL9KwKQxUue4hn8oWg",
-        "release": "ab1a3f85-e0ea-470a-af5c-175447ae774c"
-      }
-    },
-    {
-      "song_name": "berryblue - Uh Oh (Single)",
-      "release_group": "fba30ca6-4791-4a8f-88f4-0c0bae8abd0c",
-      "apple": {
-        "id": "",
-        "release": "e612ed9d-1762-432b-956d-06eb09879e88"
-      },
-      "spotify": {
-        "id": "2apFraO1saHGTdEKLv0uw7",
-        "release": "e612ed9d-1762-432b-956d-06eb09879e88"
-      }
-    },
-    {
-      "song_name": "Jane Remover - Magic I Want U",
-      "release_group": "31962320-9bdf-4391-8d21-63325350e601",
-      "apple": {
-        "id": "",
-        "release": "63e06452-a6d0-4f79-9afc-21848c730a3f"
-      },
-      "spotify": {
-        "id": "7vL60ZRnAY1KU4Az0CenAb",
-        "release": "63e06452-a6d0-4f79-9afc-21848c730a3f"
-      }
-    },
-    {
-      "song_name": "Lorde - Take Me to the River",
-      "release_group": "727a6823-d53e-4f72-952f-f1b5db242650",
-      "apple": {
-        "id": "",
-        "release": "27413a76-f0ce-4199-a099-7c99f0fe9e1d"
-      },
-      "spotify": {
-        "id": "2uZazZt5CXCpf5KPzSzh2V",
-        "release": "27413a76-f0ce-4199-a099-7c99f0fe9e1d"
-      }
-    },
-    {
-      "song_name": "Coco & Clair Clair - Aggy",
-      "release_group": "4e116cd6-87a1-4a66-9ade-73924ff5b6b6",
-      "apple": {
-        "id": "",
-        "release": "af72e588-ceb3-4234-9057-fed2db7b5f1a"
-      },
-      "spotify": {
-        "id": "2TyrytZI5dx2qjDSPSlPe2",
-        "release": "af72e588-ceb3-4234-9057-fed2db7b5f1a"
-      }
-    },
-    {
-      "song_name": "Porter Robinson - Kitsune Maison Freestyle",
-      "release_group": "5eb4a485-3397-48f5-a50a-727c70863243",
-      "apple": {
-        "id": "",
-        "release": "59c664ab-ae72-4eb8-a808-3e788430c881"
-      },
-      "spotify": {
-        "id": "05V4a8c5tR8gh77eXdX1LE",
-        "release": "59c664ab-ae72-4eb8-a808-3e788430c881"
-      }
-    },
-    {
-      "song_name": "Chevelle - Jim Jones (Cowards, Pt. 2)",
-      "release_group": "f031b0f9-501e-4506-ba79-c13f59604427",
-      "apple": {
-        "id": "",
-        "release": "a90d2a4d-c8f1-46ee-8c25-1644aa3050e7"
-      },
-      "spotify": {
-        "id": "3M6SromTDbSsAQDaPCgR08",
-        "release": "a90d2a4d-c8f1-46ee-8c25-1644aa3050e7"
-      }
-    },
-    {
-      "song_name": "The Sundays - Summertime",
-      "release_group": "2001d5e1-5b5c-3227-87bd-8df710afe70f",
-      "apple": {
-        "id": "",
-        "release": "3fc75d6f-459a-4d06-8de6-f24b990a24ed"
-      },
-      "spotify": {
-        "id": "3wY7rPaHSYzevlheZc8F7P",
-        "release": "3fc75d6f-459a-4d06-8de6-f24b990a24ed"
-      }
-    },
-    {
-      "song_name": "Boston - God Rest Ye Metal Gentlemen 2013",
-      "release_group": "11a41aed-d146-477f-9292-5212c1785a07",
-      "apple": {
-        "id": "",
-        "release": "aa0093ca-3709-4313-a422-5d9b0639100b"
-      },
-      "spotify": {
-        "id": "1HbDTEm9BhaImvEMmRVwsN",
-        "release": "aa0093ca-3709-4313-a422-5d9b0639100b"
-      }
-    },
-    {
-      "song_name": "The Radio Department - You Fear the Wrong Thing Baby",
-      "release_group": "e5f77ffd-858f-4307-8dd5-62d15230f8c0",
-      "apple": {
-        "id": "",
-        "release": "f50148eb-86cc-4388-8b2d-358859c2b046"
-      },
-      "spotify": {
-        "id": "1AkhVFkQZzZrTzhGVrzQ5V",
-        "release": "f50148eb-86cc-4388-8b2d-358859c2b046"
-      }
-    },
-    {
-      "song_name": "Radiohead - Chase the Tear",
-      "release_group": "a87ef716-4659-4ecb-8941-16fb73c1f21f",
-      "apple": {
-        "id": "",
-        "release": [
-          "d45da67a-e3c5-3c6d-985e-03d421cfd624",
-          "2fa59afe-b6a4-4f60-a311-4cf11b393e25"
-        ]
-      },
-      "spotify": {
-        "id": "7ofIuqyYYYTu1MbgDJgef4",
-        "release": [
-          "d45da67a-e3c5-3c6d-985e-03d421cfd624",
-          "2fa59afe-b6a4-4f60-a311-4cf11b393e25"
-        ]
-      }
-    },
-    {
-      "song_name": "Radiohead - Kisses (remixes)",
-      "release_group": "975595a8-a01c-4e6a-aa39-9dfc267a7cb8",
-      "apple": {
-        "id": "",
-        "release": "318f59fe-dabf-4023-9817-25cb30769777"
-      },
-      "spotify": {
-        "id": "5ZpOCQJKfPqeiIj2F3CKL2",
-        "release": "318f59fe-dabf-4023-9817-25cb30769777"
-      }
-    },
-    {
-      "song_name": "Aisan Glow - Weatherglow",
-      "release_group": "f07cc083-c3cb-4600-bf2e-37c6e79192cf",
-      "apple": {
-        "id": "",
-        "release": [
-          "84e296e5-963a-4625-9eee-94ee47d819a8",
-          "4d661968-4f73-4bfd-97b5-3bb1978c1891"
-        ]
-      },
-      "spotify": {
-        "id": "4mb8lqO8mGfzGnmRbmyOSP",
-        "release": [
-          "84e296e5-963a-4625-9eee-94ee47d819a8",
-          "4d661968-4f73-4bfd-97b5-3bb1978c1891"
-        ]
-      }
-    },
-    {
-      "song_name": "Ninijirachi - Fuck My Computer (Frost Children Remix)",
-      "release_group": "26c57f1b-0ad4-489c-86f0-e446c3cddeb0",
-      "apple": {
-        "id": "",
-        "release": "c3a36dad-b6b2-43c9-98bf-570993545cf6"
-      },
-      "spotify": {
-        "id": "3mkVo55KYmJAxy21rPssZ4",
-        "release": "c3a36dad-b6b2-43c9-98bf-570993545cf6"
-      }
-    },
-    {
-      "song_name": "Alice Deejay - Hitmix",
-      "release_group": "70d38eaf-6d99-41bc-a96d-aa40f1b9af52",
-      "apple": {
-        "id": "",
-        "release": "8bd9fe5c-85a0-40b0-91b3-24ff2d89b328"
-      },
-      "spotify": {
-        "id": "3dZgkOBwYbA7b5AoQUNN1P",
-        "release": "8bd9fe5c-85a0-40b0-91b3-24ff2d89b328"
-      }
-    },
-    {
-      "song_name": "That Kid - Spencer Needs a Ladder",
-      "release_group": "1018b6a0-e0c7-484b-8495-48563645a823",
-      "apple": {
-        "id": "",
-        "release": "a0a97dd8-90bd-4612-a737-9e77f34b06bb"
-      },
-      "spotify": {
-        "id": "2NzfmCURODIHigaOhXhwEr",
-        "release": "a0a97dd8-90bd-4612-a737-9e77f34b06bb"
-      }
-    },
-    {
-      "song_name": "That Kid - Dial Tone",
-      "release_group": "2ef72a6f-7020-4f21-b531-555d1be46a8b",
-      "apple": {
-        "id": "",
-        "release": "cd6cd6bb-7093-4553-aab0-46dabc764850"
-      },
-      "spotify": {
-        "id": "2ulrx76RxcL2JEVXh1igZI",
-        "release": "cd6cd6bb-7093-4553-aab0-46dabc764850"
-      }
-    },
-    {
-      "song_name": "George Clanton - Aurora Summer (ESPRIT 空想 Remix)",
-      "release_group": "93e99e92-fbea-4ace-902c-de8d55b4532b",
-      "apple": {
-        "id": "",
-        "release": "20eb3a12-0024-4871-beb2-d6a7a16a1045"
-      },
-      "spotify": {
-        "id": "4kxusJC28RcSKpWfHgD4eK",
-        "release": "20eb3a12-0024-4871-beb2-d6a7a16a1045"
-      }
-    }
-  ],
-  "eps": [
-    {
-      "song_name": "Radiohead - My Iron Lung",
-      "release_group": "99445a2b-578a-321e-851e-c6539bfbbd7f",
-      "apple": {
-        "id": "",
-        "release": "bc9ceb91-2af5-4659-a7e2-7cf61b3ecd8b"
-      },
-      "spotify": {
-        "id": "4GqinDAWUcJ20wfCaie6f8",
-        "release": "bc9ceb91-2af5-4659-a7e2-7cf61b3ecd8b"
-      }
-    },
-    {
-      "song_name": "Pixies - Come On Pilgrim",
-      "release_group": "2a251d31-9958-35f1-b2b1-a64d5541715d",
-      "apple": {
-        "id": "",
-        "release": "83042107-9f2d-4ea0-950d-4e424b50ef1d"
-      },
-      "spotify": {
-        "id": "79CvxovoFgGNuAMvQp9wul",
-        "release": "83042107-9f2d-4ea0-950d-4e424b50ef1d"
-      }
-    },
-    {
-      "song_name": "Burial - Kindred",
-      "release_group": "1c288979-ce2f-4e4b-90e4-845908cf7ffc",
-      "apple": {
-        "id": "",
-        "release": "2b19f713-fd86-480f-aa71-84ca6f90f86d"
-      },
-      "spotify": {
-        "id": "1sioWGJ5khckhIzKklgH6t",
-        "release": "2b19f713-fd86-480f-aa71-84ca6f90f86d"
-      }
-    },
-    {
-      "song_name": "Boards of Canada - In a Beautiful Place Out in the Country",
-      "release_group": "c73833e3-384c-36fd-97a2-762a858dbff4",
-      "apple": {
-        "id": "",
-        "release": "c5121f79-d6a3-4a07-876f-180f8bfe76d8"
-      },
-      "spotify": {
-        "id": "2U2WNneO3RdYEASjRI2OZx",
-        "release": "c5121f79-d6a3-4a07-876f-180f8bfe76d8"
-      }
-    },
-    {
-      "song_name": "Clarence Clarity - SAVE THYSELF EP",
-      "release_group": "e69c72a9-c142-4066-abcf-2d37dcc3b8fb",
-      "apple": {
-        "id": "",
-        "release": "87cc75db-2d32-4fb4-a32b-40dc0d3cf2bc"
-      },
-      "spotify": {
-        "id": "7zBESW7HGouSlQzJS9WRFR",
-        "release": "87cc75db-2d32-4fb4-a32b-40dc0d3cf2bc"
-      }
-    },
-    {
-      "song_name": "LSD and the Search for God - Heaven Is a Place",
-      "release_group": "a8ca0c28-c615-4d9c-bd55-8d746083e1f9",
-      "apple": {
-        "id": "",
-        "release": "f9dfc42b-36f5-42c3-a58a-101dd9b594d2"
-      },
-      "spotify": {
-        "id": "3M7JUl1DZ3xtAt057LmTwD",
-        "release": "f9dfc42b-36f5-42c3-a58a-101dd9b594d2"
-      }
-    },
-    {
-      "song_name": "LSD and the Search for God - LSD and the Search for God",
-      "release_group": "d5a4b729-16ea-3643-a789-f163d6b6ff61",
-      "apple": {
-        "id": "",
-        "release": "5324005e-0525-4b15-b097-c10f51a5a967"
-      },
-      "spotify": {
-        "id": "3CooFtn84cBTR3rmfkda5v",
-        "release": "5324005e-0525-4b15-b097-c10f51a5a967"
-      }
-    },
-    {
-      "song_name": "Frost Children - Soul Kiss",
-      "release_group": "599f9199-1d02-46e7-bf80-51b2c6e2d431",
-      "apple": {
-        "id": "",
-        "release": [
-          "2d2ec217-6665-41de-8651-769d5f5d58a4",
-          "eb4269b8-2938-41b8-972c-a4f3432fc975",
-          "dde0114d-bc67-4b23-9416-18fb402881f2",
-          "f8c60df0-574c-4f3e-a5be-7d4b050e5ae1",
-          "af14da2c-e6d3-408c-9328-3d8ad16a2095"
-        ]
-      },
-      "spotify": {
-        "id": "5XN1l3D1COrcHZ6PbGXHEJ",
-        "release": [
-          "2d2ec217-6665-41de-8651-769d5f5d58a4",
-          "eb4269b8-2938-41b8-972c-a4f3432fc975",
-          "dde0114d-bc67-4b23-9416-18fb402881f2",
-          "f8c60df0-574c-4f3e-a5be-7d4b050e5ae1",
-          "af14da2c-e6d3-408c-9328-3d8ad16a2095"
-        ]
-      }
-    },
-    {
-      "song_name": "Femtanyl - REACTOR",
-      "release_group": "70c819ae-ba6c-4b3b-9603-fa0b44ff64a9",
-      "apple": {
-        "id": "",
-        "release": [
-          "6a885ca0-142a-4eb6-bbaf-430d146f5c92",
-          "2784a353-2c04-4bc2-93cb-c25390556cd1"
-        ]
-      },
-      "spotify": {
-        "id": "0EuXXwAyrzBp9FFicvBfsp",
-        "release": [
-          "6a885ca0-142a-4eb6-bbaf-430d146f5c92",
-          "2784a353-2c04-4bc2-93cb-c25390556cd1"
-        ]
-      }
-    },
-    {
-      "song_name": "Snow Strippers - Night Killaz Vol. 2",
-      "release_group": "ecb94809-2cb1-476e-ae29-35062fdf239e",
-      "apple": {
-        "id": "",
-        "release": "2fdb640b-b355-4bc2-b71b-792e3ea36d46"
-      },
-      "spotify": {
-        "id": "4oxh61KL99ewB5vvYpXaiX",
-        "release": "2fdb640b-b355-4bc2-b71b-792e3ea36d46"
-      }
-    },
-    {
-      "song_name": "Mitski - Mitski on Audiotree Live",
-      "release_group": "6c536920-f6a2-41f5-b0d0-bbbf5d1c0d98",
-      "apple": {
-        "id": "",
-        "release": "e9af235a-def8-49cf-8240-9ca2bf0c2827"
-      },
-      "spotify": {
-        "id": "5lbEsVQlcvV5tT8KBllPdh",
-        "release": "e9af235a-def8-49cf-8240-9ca2bf0c2827"
-      }
-    },
-    {
-      "song_name": "Aerosmith - I Don't Want To Miss A Thing EP",
-      "release_group": "55fca8e9-74ee-352a-97a4-82fe299d3826",
-      "apple": {
-        "id": "",
-        "release": "f42232ce-69fc-4768-8235-aa3ccaf2b5ab"
-      },
-      "spotify": {
-        "id": "3fk5Yk62Lekng4NQ89980F",
-        "release": "f42232ce-69fc-4768-8235-aa3ccaf2b5ab"
-      }
-    },
-    {
-      "song_name": "Aspartame - Inevitably...Hesitation",
-      "release_group": "6ea1d1e5-a292-4282-b9d4-3eec18239b5f",
-      "apple": {
-        "id": "",
-        "release": "bd4d4600-b773-49e3-801f-14de8329e4b3"
-      },
-      "spotify": {
-        "id": "3nCowSpb8Ilc3NYrIqZH5k",
-        "release": "bd4d4600-b773-49e3-801f-14de8329e4b3"
-      }
-    },
-    {
-      "song_name": "Purity Filter - neo organic bioform",
-      "release_group": "cbf611e7-4155-4273-9f72-9b0c06d3270b",
-      "apple": {
-        "id": "",
-        "release": "9ac8be8f-b84c-4ba4-bc1b-d1760ce8d8b2"
-      },
-      "spotify": {
-        "id": "5vasloOV1T5IcaTkhrHHTU",
-        "release": "9ac8be8f-b84c-4ba4-bc1b-d1760ce8d8b2"
-      }
-    },
-    {
-      "song_name": "Machine Girl - SUPER FREQ",
-      "release_group": "f350fb67-4203-4348-b8ff-b0699f2f2eb7",
-      "apple": {
-        "id": "",
-        "release": "5155413f-f357-4daf-a562-65f4150c74ed"
-      },
-      "spotify": {
-        "id": "4fpeEq1qtV52td9M7WcKrp",
-        "release": "5155413f-f357-4daf-a562-65f4150c74ed"
-      }
-    },
-    {
-      "song_name": "Loathe - Loathe | Audiotree From Nothing",
-      "release_group": "62be7821-f4ce-455b-8d0f-83598ee8ff19",
-      "apple": {
-        "id": "",
-        "release": "5ec64060-b0ce-4bdb-bd46-ef3c46a6237d"
-      },
-      "spotify": {
-        "id": "63OMWvD8KjpOMdRmHZBQ1D",
-        "release": "5ec64060-b0ce-4bdb-bd46-ef3c46a6237d"
-      }
-    },
-    {
-      "song_name": "berryblue - GOT LIKE ME",
-      "release_group": "4a7c99ca-0635-4b6a-a4b1-e334ef809196",
-      "apple": {
-        "id": "",
-        "release": "0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
-      },
-      "spotify": {
-        "id": "2PQ1xBtvsvq68nJoOtUA2R",
-        "release": "0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
-      }
-    },
-    {
-      "song_name": "Title Fight - Spring Songs",
-      "release_group": "09a068f3-5d87-46eb-b919-be18641917df",
-      "apple": {
-        "id": "",
-        "release": [
-          "9db29abb-e0db-4ac4-beb6-5e64c421f63b",
-          "7a4dac06-2827-494c-9129-63d43b907edc"
-        ]
-      },
-      "spotify": {
-        "id": "4cLYG7fp8Z7OyzlSEV6HED",
-        "release": [
-          "9db29abb-e0db-4ac4-beb6-5e64c421f63b",
-          "7a4dac06-2827-494c-9129-63d43b907edc"
-        ]
-      }
-    },
-    {
-      "song_name": "GnB Chili - Basement Popstar",
-      "release_group": "f8f397d6-7d85-4af6-a088-25c5458debbe",
-      "apple": {
-        "id": "",
-        "release": "01d9d418-1177-4ed5-b0a9-fd168f5e9616"
-      },
-      "spotify": {
-        "id": "3g6BGhwBDj0uRYIWV35iQ0",
-        "release": "01d9d418-1177-4ed5-b0a9-fd168f5e9616"
-      }
-    },
-    {
-      "song_name": "Kesha - BOY CRAZY.(SMASH REMIXES)",
-      "release_group": "4d41db23-f8d8-4acd-9a4c-2082b59d0981",
-      "apple": {
-        "id": "",
-        "release": "71f307eb-2315-4094-8f37-f8d7e52dab56"
-      },
-      "spotify": {
-        "id": "0YdxI1nWj9oy7jDK8R9TPC",
-        "release": "71f307eb-2315-4094-8f37-f8d7e52dab56"
-      }
-    }
-  ]
+    "one": [
+        {
+            "song_name": "Magdalena Bay - Mercurial World",
+            "release_group": "fda72ebb-16e5-4a19-8be5-8e41906e3c86",
+            "apple": {
+                "id": "1570541671",
+                "release": "e24b8995-129d-4174-b3b5-a95297bd79fc"
+            },
+            "spotify": {
+                "id": "1ERrUvG31thFCxdwWUoJrY",
+                "release": "e24b8995-129d-4174-b3b5-a95297bd79fc"
+            }
+        }
+    ],
+    "albums": [
+        {
+            "song_name": "JPEGMAFIA & Danny Brown - SCARING THE HOES",
+            "release_group": "6bb871f4-08ec-4a70-9fb3-c1c2b481e090",
+            "apple": {
+                "id": "1676166971",
+                "release": "578567d7-0e53-4d57-b7eb-78b2821858ba"
+            },
+            "spotify": {
+                "id": "3u20OXh03DjCUzbf8XcGTq",
+                "release": "56d7440e-dba2-413d-9d11-6a14d80d4f94"
+            }
+        },
+        {
+            "song_name": "M.I.A. - /\\/\\ /\\ Y /\\",
+            "release_group": "78e297b2-f72c-4bc9-929e-da64f5a4619a",
+            "apple": {
+                "id": "1544491734",
+                "release": "2e0b79e5-7ece-4899-9f90-732fda5bbfec"
+            },
+            "spotify": {
+                "id": "7BIbGgOmGMhLscZqowMSDV",
+                "release": "5f24a203-f56c-4996-b91b-78ed2d1f4f37"
+            }
+        },
+        {
+            "song_name": "Cocteau Twins - Heaven or Las Vegas",
+            "release_group": "12fab6b9-4eaf-33b0-963e-cae03ac332fe",
+            "apple": {
+                "id": "258198881",
+                "release": [
+                    "a2661deb-a790-4bfb-b6b9-c57e1cb65baf",
+                    "151d2e60-8dad-4934-a8a3-6cccbd2f5d31"
+                ]
+            },
+            "spotify": {
+                "id": "5lEphbceIgaK1XxWeSrC9E",
+                "release": [
+                    "a2661deb-a790-4bfb-b6b9-c57e1cb65baf",
+                    "151d2e60-8dad-4934-a8a3-6cccbd2f5d31"
+                ]
+            }
+        },
+        {
+            "song_name": "Imogen Heap - Speak for Yourself",
+            "release_group": "a100260d-0576-372f-a07b-4b22db1a77e2",
+            "apple": {
+                "id": "1785686643",
+                "release": "9e66f00f-7a29-4023-a2f3-1ada20fca013"
+            },
+            "spotify": {
+                "id": "4Is0raRF9P6wWFZjXO6P9K",
+                "release": "e76a46a6-8ee5-40d2-8966-cdbed42250c9"
+            }
+        },
+        {
+            "song_name": "Clarence Clarity - NO NOW",
+            "release_group": "6a1f1391-463f-48ad-a4f1-783f1b8f0fd7",
+            "apple": {
+                "id": "946631538",
+                "release": "8ff56617-a9a5-4079-a3fb-27487d24d298"
+            },
+            "spotify": {
+                "id": "2u5TtrM2q61VepuKI8lHdu",
+                "release": "8ff56617-a9a5-4079-a3fb-27487d24d298"
+            }
+        },
+        {
+            "song_name": "Magdalena Bay - Mercurial World",
+            "release_group": "fda72ebb-16e5-4a19-8be5-8e41906e3c86",
+            "apple": {
+                "id": "1570541671",
+                "release": "e24b8995-129d-4174-b3b5-a95297bd79fc"
+            },
+            "spotify": {
+                "id": "1ERrUvG31thFCxdwWUoJrY",
+                "release": "e24b8995-129d-4174-b3b5-a95297bd79fc"
+            }
+        },
+        {
+            "song_name": "goreshit - stankface",
+            "release_group": "a2f999f9-207f-44d9-9719-d6cc0ca6d370",
+            "apple": {
+                "id": "",
+                "release": "fa725360-f461-4ab8-8236-33c10a0b68a7"
+            },
+            "spotify": {
+                "id": "6HhZOg2vJaXQxlWKbtcnvO",
+                "release": "fa725360-f461-4ab8-8236-33c10a0b68a7"
+            }
+        },
+        {
+            "song_name": "Candelabro - Deseo, Carne y Voluntad",
+            "release_group": "1c25ea45-9e71-44f9-b58a-4380fa6b4b52",
+            "apple": {
+                "id": "1842902072",
+                "release": "f1f97dd1-d4fd-48f3-80e9-4fdfbc99d511"
+            },
+            "spotify": {
+                "id": "4XqjkJmo5IHFQEOm8PsGut",
+                "release": "f1f97dd1-d4fd-48f3-80e9-4fdfbc99d511"
+            }
+        },
+        {
+            "song_name": "Barrie - Barbara",
+            "release_group": "723bba96-706c-432f-92d3-4c6532f06f24",
+            "apple": {
+                "id": "1589853108",
+                "release": "6780f551-7963-4c01-805b-d2593ac4b5e3"
+            },
+            "spotify": {
+                "id": "5eieb3BvJUgPIzE5VkdyWL",
+                "release": "6780f551-7963-4c01-805b-d2593ac4b5e3"
+            }
+        },
+        {
+            "song_name": "weed420 - amor de encava",
+            "release_group": "f8089164-f464-47fe-b2fd-bfe67e4c07cd",
+            "apple": {
+                "id": "1801293983",
+                "release": "765bfd74-5531-46a4-9e10-c075b316e46d"
+            },
+            "spotify": {
+                "id": "2i3zldfKOB2cpiY5S1g0HO",
+                "release": "765bfd74-5531-46a4-9e10-c075b316e46d"
+            }
+        },
+        {
+            "song_name": "Daft Punk - Discovery",
+            "release_group": "48117b90-a16e-34ca-a514-19c702df1158",
+            "apple": {
+                "id": "697194953",
+                "release": "6cd30d99-4923-4d5e-8e51-9d87506976f1"
+            },
+            "spotify": {
+                "id": "2noRn2Aes5aoNVsU6iWThc",
+                "release": "6cd30d99-4923-4d5e-8e51-9d87506976f1"
+            }
+        },
+        {
+            "song_name": "Weezer - Weezer (Green Album)",
+            "release_group": "923d5ba6-7eee-3bce-bcb2-c913b2bd69d4",
+            "apple": {
+                "id": "1440868131",
+                "release": "9111abad-6d93-467e-95fa-9d583886398f"
+            },
+            "spotify": {
+                "id": "2OBSz5Nlto0Q5CtYPzPY7c",
+                "release": "9111abad-6d93-467e-95fa-9d583886398f"
+            }
+        },
+        {
+            "song_name": "The Beatles - The Beatles",
+            "release_group": "055be730-dcad-31bf-b550-45ba9c202aa3",
+            "apple": {
+                "id": "1441133180",
+                "release": "df3a1cec-5ee0-4aa8-afb2-fe92423f9432"
+            },
+            "spotify": {
+                "id": "1klALx0u4AavZNEvC4LrTL",
+                "release": "df3a1cec-5ee0-4aa8-afb2-fe92423f9432"
+            }
+        },
+        {
+            "song_name": "Bjork - Post",
+            "release_group": "b2a6e057-087d-3ae5-a6e5-7f5fa39808ff",
+            "apple": {
+                "id": "300205609",
+                "release": "e5abf212-58b3-4119-a5d5-d2509d56158a"
+            },
+            "spotify": {
+                "id": "2Ul7B1LEHxXzYubtkTMENs",
+                "release": "e5abf212-58b3-4119-a5d5-d2509d56158a"
+            }
+        },
+        {
+            "song_name": "Kanye West - The Life Of Pablo",
+            "release_group": "8c18657a-6338-490d-a952-897663596b96",
+            "apple": {
+                "id": "1443063578",
+                "release": "03f03619-385a-4ed9-9974-cdcdf6404cf5"
+            },
+            "spotify": {
+                "id": "7gsWAHLeT0w7es6FofOXk1",
+                "release": "03f03619-385a-4ed9-9974-cdcdf6404cf5"
+            }
+        },
+        {
+            "song_name": "Radiohead - OK Computer",
+            "release_group": "b1392450-e666-3926-a536-22c65f834433",
+            "apple": {
+                "id": "1097861387",
+                "release": "30702389-5c67-4438-9ea0-2351c8de0f1d"
+            },
+            "spotify": {
+                "id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+                "release": "30702389-5c67-4438-9ea0-2351c8de0f1d"
+            }
+        },
+        {
+            "song_name": "Sigur Rós – ( )",
+            "release_group": "950a650b-1e8d-3097-92af-9f7686bba4f1",
+            "apple": {
+                "id": "https://music.apple.com/us/album/1448737462",
+                "release": "cad20c73-6189-46b9-a8e7-27d4232cf050"
+            },
+            "spotify": {
+                "id": "3FR8CV7OSyZDnxneavnh8t",
+                "release": "cad20c73-6189-46b9-a8e7-27d4232cf050"
+            }
+        },
+        {
+            "song_name": "Massive Attack - Mezzanine",
+            "release_group": "6f9f6899-c0d3-311d-ae87-a10ae6bc53a9",
+            "apple": {
+                "id": "724466069",
+                "release": "ad224474-e534-43d0-a6af-4959d063a460"
+            },
+            "spotify": {
+                "id": "49MNmJhZQewjt06rpwp6QR",
+                "release": "ad224474-e534-43d0-a6af-4959d063a460"
+            }
+        },
+        {
+            "song_name": "Kids See Ghosts – Kids See Ghosts",
+            "release_group": "3346a9d9-031e-49e2-84b0-3734d790d7e5",
+            "apple": {
+                "id": "1396710872",
+                "release": "6e8842be-fe00-4f18-adb4-d4025204b722"
+            },
+            "spotify": {
+                "id": "6pwuKxMUkNg673KETsXPUV",
+                "release": "6e8842be-fe00-4f18-adb4-d4025204b722"
+            }
+        },
+        {
+            "song_name": "Jai Paul - Leak 04-13 (Bait Ones)",
+            "release_group": "72ed67a1-893e-4daf-a78e-b1fe2c6a7905",
+            "apple": {
+                "id": "1465710066",
+                "release": "06a78a7e-23b1-42b1-a1ed-7e64a461e06a"
+            },
+            "spotify": {
+                "id": "4bCsLPQuCdQQBQOLs5MuNr",
+                "release": "06a78a7e-23b1-42b1-a1ed-7e64a461e06a"
+            }
+        },
+        {
+            "song_name": "Charli XCX - BRAT",
+            "release_group": "e0fdb431-0109-420d-8a37-f99eaeb4d671",
+            "apple": {
+                "id": "1739079974",
+                "release": "ab55ac76-eee5-4f89-ac14-7bb9aa837bc8"
+            },
+            "spotify": {
+                "id": "2lIZef4lzdvZkiiCzvPKj7",
+                "release": "ab55ac76-eee5-4f89-ac14-7bb9aa837bc8"
+            }
+        },
+        {
+            "song_name": "Bon Iver - 22, A Million",
+            "release_group": "f0e8f425-a941-48df-b5d7-2ceeaaf77c71",
+            "apple": {
+                "id": "1141107722",
+                "release": "0e150c77-c420-4482-98a3-1efadc7f96f3"
+            },
+            "spotify": {
+                "id": "4bJCKmpKgti10f3ltz6LLl",
+                "release": "0e150c77-c420-4482-98a3-1efadc7f96f3"
+            }
+        },
+        {
+            "song_name": "Madlib - Shades of Blue",
+            "release_group": "ce569c5b-b67b-3e0c-b4c0-04d916d13891",
+            "apple": {
+                "id": "1444093548",
+                "release": "895569db-bd07-48eb-a96e-4fa7c9530147"
+            },
+            "spotify": {
+                "id": "6jRvDpOc9oi3sjQuoPK7if",
+                "release": "895569db-bd07-48eb-a96e-4fa7c9530147"
+            }
+        },
+        {
+            "song_name": "Danger Mouse & Black Thought - Cheat Codes",
+            "release_group": "3d4b56c0-0abf-4bea-a12e-99def53e306f",
+            "apple": {
+                "id": "1617484323",
+                "release": [
+                    "0449086e-94a7-4b53-857a-7f75f503ce52",
+                    "c5d4707d-5d9f-4bce-82a6-02dbd1d67981"
+                ]
+            },
+            "spotify": {
+                "id": "4TPi1tGDVXCdQOjn4NSRaB",
+                "release": [
+                    "0449086e-94a7-4b53-857a-7f75f503ce52",
+                    "c5d4707d-5d9f-4bce-82a6-02dbd1d67981"
+                ]
+            }
+        },
+        {
+            "song_name": "Nirvana - Nevermind",
+            "release_group": "1b022e01-4da6-387b-8658-8678046e4cef",
+            "apple": {
+                "id": "1440783617",
+                "release": [
+                    "08283094-dd62-4bd7-8884-0d072d19c8e6",
+                    "380a1953-31fd-4603-b156-31b220f0049e"
+                ]
+            },
+            "spotify": {
+                "id": "2guirTSEqLizK7j9i1MTTZ",
+                "release": [
+                    "08283094-dd62-4bd7-8884-0d072d19c8e6",
+                    "380a1953-31fd-4603-b156-31b220f0049e"
+                ]
+            }
+        },
+        {
+            "song_name": "Radiohead - Kid A",
+            "release_group": "e75c0549-ad55-39e3-8025-c72c5d4a3c5d",
+            "apple": {
+                "id": "",
+                "release": "0e8a1994-f0a7-481d-9be2-6c2f80e14de5"
+            },
+            "spotify": {
+                "id": "6GjwtEZcfenmOf6l18N7T7",
+                "release": "0e8a1994-f0a7-481d-9be2-6c2f80e14de5"
+            }
+        },
+        {
+            "song_name": "Kendrick Lamar - good kid, m.A.A.d city",
+            "release_group": "499c19c8-0dab-4824-884b-6191d145e95b",
+            "apple": {
+                "id": "",
+                "release": "2d85edaa-83b4-4fef-b6b0-23084e972930"
+            },
+            "spotify": {
+                "id": "0E47vczx9XVds1Lr2Y8rze",
+                "release": "2d85edaa-83b4-4fef-b6b0-23084e972930"
+            }
+        },
+        {
+            "song_name": "Pink Floyd - The Dark Side of the Moon",
+            "release_group": "f5093c06-23e3-404f-aeaa-40f72885ee3a",
+            "apple": {
+                "id": "",
+                "release": [
+                    "2f481f2f-e24a-4b36-8076-4564030f59b5",
+                    "bdd366fd-67be-4dfe-a7fb-00a216eaa3ed",
+                    "82e70b1b-5165-4d04-9951-959b707bdb39",
+                    "1ef3dff6-8c99-454f-8ade-abdc52301233"
+                ]
+            },
+            "spotify": {
+                "id": "4LH4d3cOWNNsVw41Gqt2kv",
+                "release": [
+                    "2f481f2f-e24a-4b36-8076-4564030f59b5",
+                    "bdd366fd-67be-4dfe-a7fb-00a216eaa3ed",
+                    "82e70b1b-5165-4d04-9951-959b707bdb39",
+                    "1ef3dff6-8c99-454f-8ade-abdc52301233"
+                ]
+            }
+        },
+        {
+            "song_name": "Miles Davis - Kind Of Blue",
+            "release_group": "8e8a594f-2175-38c7-a871-abb68ec363e7",
+            "apple": {
+                "id": "",
+                "release": "4c8af71f-5746-4981-92d7-0d6c64db1155"
+            },
+            "spotify": {
+                "id": "1weenld61qoidwYuZ1GESA",
+                "release": "4c8af71f-5746-4981-92d7-0d6c64db1155"
+            }
+        },
+        {
+            "song_name": "Led Zeppelin - Led Zeppelin IV (Remaster)",
+            "release_group": "2e61da88-39e9-3473-81d2-c964cb394952",
+            "apple": {
+                "id": "",
+                "release": "5a17beb8-d7d7-4680-baa8-d6517aca1c68"
+            },
+            "spotify": {
+                "id": "5EyIDBAqhnlkAHqvPRwdbX",
+                "release": "5a17beb8-d7d7-4680-baa8-d6517aca1c68"
+            }
+        },
+        {
+            "song_name": "Fleetwood Mac - Rumors",
+            "release_group": "416bb5e5-c7d1-3977-8fd7-7c9daf6c2be6",
+            "apple": {
+                "id": "",
+                "release": "7ba2862e-9431-4368-8fc7-9eb3e7fcf42e"
+            },
+            "spotify": {
+                "id": "1bt6q2SruMsBtcerNVtpZB",
+                "release": "7ba2862e-9431-4368-8fc7-9eb3e7fcf42e"
+            }
+        },
+        {
+            "song_name": "The Strokes - Is This It",
+            "release_group": "efea26d1-a016-30f6-b8e2-bc8c02336b0a",
+            "apple": {
+                "id": "",
+                "release": [
+                    "5fd728bf-f69a-4c45-b68a-4fb30898bb00",
+                    "79979449-adcb-4a63-8a0b-35ab99563670"
+                ]
+            },
+            "spotify": {
+                "id": "2k8KgmDp9oHrmu0MIj4XDE",
+                "release": [
+                    "5fd728bf-f69a-4c45-b68a-4fb30898bb00",
+                    "79979449-adcb-4a63-8a0b-35ab99563670"
+                ]
+            }
+        },
+        {
+            "song_name": "Neutral Milk Hotel - In the Aeroplane Over the Sea",
+            "release_group": "8f310800-045b-3e12-8268-50b3d33a2267",
+            "apple": {
+                "id": "",
+                "release": [
+                    "fe0183b9-7526-4ad5-8483-dae3dfdb3d30",
+                    "c2983d45-85a4-45b2-805e-1bf9269415ec"
+                ]
+            },
+            "spotify": {
+                "id": "17q5eeNk3HAjX1gzQnkTX7",
+                "release": [
+                    "fe0183b9-7526-4ad5-8483-dae3dfdb3d30",
+                    "c2983d45-85a4-45b2-805e-1bf9269415ec"
+                ]
+            }
+        },
+        {
+            "song_name": "The Velvet Underground, Nico - The Velvet Underground & Nico",
+            "release_group": "5cbd9d7b-597a-3c5e-bfd1-c2b364215560",
+            "apple": {
+                "id": "",
+                "release": [
+                    "2b645963-cc81-4d88-aa70-84015487933b",
+                    "05a69e7d-95cc-4778-9647-24af79c84b53"
+                ]
+            },
+            "spotify": {
+                "id": "4xwx0x7k6c5VuThz5qVqmV",
+                "release": [
+                    "2b645963-cc81-4d88-aa70-84015487933b",
+                    "05a69e7d-95cc-4778-9647-24af79c84b53"
+                ]
+            }
+        },
+        {
+            "song_name": "Tool - Anima",
+            "release_group": "ef1e8130-dd5f-336a-85fa-4936a47342bd",
+            "apple": {
+                "id": "",
+                "release": "bb6bd783-6a88-40c6-9abf-ee1c80b3f753"
+            },
+            "spotify": {
+                "id": "6yWMN087PgSimbcVmHLEwG",
+                "release": "bb6bd783-6a88-40c6-9abf-ee1c80b3f753"
+            }
+        },
+        {
+            "song_name": "Nine Inch Nails - The Downward Spiral",
+            "release_group": "7c4cab8d-dead-3870-b501-93c90fd0a580",
+            "apple": {
+                "id": "",
+                "release": [
+                    "4680b5be-177d-42a2-b4c0-35d5453b8148",
+                    "4356bcd3-a41d-4071-998e-ad1a44308a99",
+                    "c71c4836-3a35-4a97-a206-ee9ca976871c"
+                ]
+            },
+            "spotify": {
+                "id": "7a7arAXDE0BiaMgHLhdjGF",
+                "release": [
+                    "4680b5be-177d-42a2-b4c0-35d5453b8148",
+                    "4356bcd3-a41d-4071-998e-ad1a44308a99",
+                    "c71c4836-3a35-4a97-a206-ee9ca976871c"
+                ]
+            }
+        },
+        {
+            "song_name": "Weezer - Weezer (Blue Album)",
+            "release_group": "c7b245c9-8099-32ea-af95-893acedde2cf",
+            "apple": {
+                "id": "",
+                "release": [
+                    "73698ebd-069e-4bed-9fd6-9b196be45e0d",
+                    "e8414dbf-c343-4e06-80c7-393f1c680254"
+                ]
+            },
+            "spotify": {
+                "id": "1xpGyKyV26uPstk1Elgp9Q",
+                "release": [
+                    "73698ebd-069e-4bed-9fd6-9b196be45e0d",
+                    "e8414dbf-c343-4e06-80c7-393f1c680254"
+                ]
+            }
+        },
+        {
+            "song_name": "Metallica - Metallica (The Black Album)",
+            "release_group": "e8f70201-8899-3f0c-9e07-5d6495bc8046",
+            "apple": {
+                "id": "",
+                "release": [
+                    "db448a83-cc4b-45c7-abdd-8524ed9969e5",
+                    "6d4cecbb-d460-48e5-b0dc-0d385486757f"
+                ]
+            },
+            "spotify": {
+                "id": "55fq75UfkYbGMq4CncCtOH",
+                "release": [
+                    "db448a83-cc4b-45c7-abdd-8524ed9969e5",
+                    "6d4cecbb-d460-48e5-b0dc-0d385486757f"
+                ]
+            }
+        },
+        {
+            "song_name": "Rage Against The Machine - Rage Against The Machine",
+            "release_group": "1305859b-8937-397f-9c33-39f62eb672fb",
+            "apple": {
+                "id": "",
+                "release": "389a60bf-e586-4dc3-b995-fe196c5cf0f7"
+            },
+            "spotify": {
+                "id": "4LaRYkT4oy47wEuQgkLBul",
+                "release": "389a60bf-e586-4dc3-b995-fe196c5cf0f7"
+            }
+        },
+        {
+            "song_name": "blink-182 - blink-182",
+            "release_group": "04e0cb66-e8ee-38b9-863d-b4f21dee887d",
+            "apple": {
+                "id": "",
+                "release": [
+                    "47e66554-23e2-4668-be85-b8fc73e11985",
+                    "82a826af-4816-402f-9d91-cb174018b053"
+                ]
+            },
+            "spotify": {
+                "id": "4hBTxv4QRPePXCFcEI7Vjp",
+                "release": [
+                    "47e66554-23e2-4668-be85-b8fc73e11985",
+                    "82a826af-4816-402f-9d91-cb174018b053"
+                ]
+            }
+        },
+        {
+            "song_name": "Mos Def - Black on Both Sides",
+            "release_group": "d6658b47-463a-390e-9417-99c818aea004",
+            "apple": {
+                "id": "",
+                "release": "b33ddceb-2c7e-4fc5-a17a-42f0dc332ba9"
+            },
+            "spotify": {
+                "id": "5gK2l2LgWY0BA4p9uy27z6",
+                "release": "b33ddceb-2c7e-4fc5-a17a-42f0dc332ba9"
+            }
+        },
+        {
+            "song_name": "Yusuf / Cat Stevens - Tea For The Tillerman",
+            "release_group": "418678e7-2807-3bed-a305-11b4181e533e",
+            "apple": {
+                "id": "",
+                "release": [
+                    "e85224b5-15e6-48e6-8b43-0cd6c017a9e2",
+                    "73faa43c-52ea-43b7-b971-3de46e137f88"
+                ]
+            },
+            "spotify": {
+                "id": "44VxbAytHpVi3Rq8hRhild",
+                "release": [
+                    "e85224b5-15e6-48e6-8b43-0cd6c017a9e2",
+                    "73faa43c-52ea-43b7-b971-3de46e137f88"
+                ]
+            }
+        },
+        {
+            "song_name": "Puff Daddy & The Family / P. Diddy / Diddy - No Way Out",
+            "release_group": "107b1fb0-8ec9-374c-8eda-e250b086b969",
+            "apple": {
+                "id": "",
+                "release": "5f0330c7-8465-45ed-a0e8-f3840bda7313"
+            },
+            "spotify": {
+                "id": "4OGaOZUHLhSeiicZB909aL",
+                "release": "5f0330c7-8465-45ed-a0e8-f3840bda7313"
+            }
+        },
+        {
+            "song_name": "AJJ / Andrew Jackson Jihad - People Who Can Eat People Are the Luckiest People in the World",
+            "release_group": "676033ea-5ba2-3b8c-95d4-8679cdbc0249",
+            "apple": {
+                "id": "",
+                "release": [
+                    "17c22b69-196f-4583-a216-828ffcba5a23",
+                    "55dd6c67-968e-45d7-8d55-5345f65a27ae"
+                ]
+            },
+            "spotify": {
+                "id": "7GD68eErLeQn0TCJQ6hjOz",
+                "release": [
+                    "17c22b69-196f-4583-a216-828ffcba5a23",
+                    "55dd6c67-968e-45d7-8d55-5345f65a27ae"
+                ]
+            }
+        },
+        {
+            "song_name": "Electric Callboy / Eskimo Callboy - Bury Me in Vegas",
+            "release_group": "019d7063-0717-4ee0-beb6-bd3f31e36ce7",
+            "apple": {
+                "id": "",
+                "release": "d8a1d016-3fb0-4f91-91a9-a047a1f7267e"
+            },
+            "spotify": {
+                "id": "43lJMcv5MQcFGJvEtfTDdn",
+                "release": "d8a1d016-3fb0-4f91-91a9-a047a1f7267e"
+            }
+        },
+        {
+            "song_name": "The 1975 - I like it when you sleep, for you are so beautiful yet so unaware of it",
+            "release_group": "c1125856-5eaa-4e76-9f63-2fd1f72281a6",
+            "apple": {
+                "id": "",
+                "release": [
+                    "0756add3-d83f-4cde-b4a4-3a3e626bb0f7",
+                    "f1f0bb28-12d5-4abe-a73a-993b27edcb94",
+                    "00dcdc68-80fd-4628-b3f2-c0b023e76898",
+                    "2cee0392-0ffe-4c75-a889-6a7ef7013c63"
+                ]
+            },
+            "spotify": {
+                "id": "1JFmNyVPdBF1ECvv4fhpW4",
+                "release": [
+                    "0756add3-d83f-4cde-b4a4-3a3e626bb0f7",
+                    "f1f0bb28-12d5-4abe-a73a-993b27edcb94",
+                    "00dcdc68-80fd-4628-b3f2-c0b023e76898",
+                    "2cee0392-0ffe-4c75-a889-6a7ef7013c63"
+                ]
+            }
+        },
+        {
+            "song_name": "Talk Talk - Spirit of Eden",
+            "release_group": "fd29e2cd-9bd7-32c6-adf9-ce80ab1cadfc",
+            "apple": {
+                "id": "",
+                "release": "b7272de5-810e-44ee-89a1-681c6c483b15"
+            },
+            "spotify": {
+                "id": "4YXo7p7aubyVIbNLoVlBp9",
+                "release": "b7272de5-810e-44ee-89a1-681c6c483b15"
+            }
+        },
+        {
+            "song_name": "Jay Z & Kanye West - Watch The Throne",
+            "release_group": "a96597aa-93b4-4e14-9e6e-03892ab24979",
+            "apple": {
+                "id": "",
+                "release": "90cc3f69-3b7e-437b-bc33-099369d8dcaf"
+            },
+            "spotify": {
+                "id": "0OcMap99vLEeGkBCfCwRwS",
+                "release": "90cc3f69-3b7e-437b-bc33-099369d8dcaf"
+            }
+        },
+        {
+            "song_name": "Madvillain - Madvillainy",
+            "release_group": "ab570ccb-b06b-3746-8147-4903163ba895",
+            "apple": {
+                "id": "",
+                "release": [
+                    "b88edf3d-7a88-4d1e-b51b-50022fde5708",
+                    "264702af-dd10-46b5-83ef-7419552de193"
+                ]
+            },
+            "spotify": {
+                "id": "19bQiwEKhXUBJWY6oV3KZk",
+                "release": [
+                    "b88edf3d-7a88-4d1e-b51b-50022fde5708",
+                    "264702af-dd10-46b5-83ef-7419552de193"
+                ]
+            }
+        },
+        {
+            "song_name": "Burial - Untrue",
+            "release_group": "fddedc4f-7a2e-3d7d-9ec5-1705c416f3f4",
+            "apple": {
+                "id": "",
+                "release": [
+                    "d84892a9-0b1d-3694-a2a1-f19ddb7d0c53",
+                    "3b78aca5-18da-4183-a5dc-51626d39e8ff"
+                ]
+            },
+            "spotify": {
+                "id": "1iRPiEYHIX2zpF8lkW54SK",
+                "release": [
+                    "d84892a9-0b1d-3694-a2a1-f19ddb7d0c53",
+                    "3b78aca5-18da-4183-a5dc-51626d39e8ff"
+                ]
+            }
+        },
+        {
+            "song_name": "Boards of Canada - Music Has the Right to Children",
+            "release_group": "17d74d52-c92b-3b8d-9f87-218ab2d1c4a0",
+            "apple": {
+                "id": "",
+                "release": [
+                    "1a8207d9-75fa-44d7-9a83-04801b0619f3",
+                    "aa9286ad-59a3-4bd5-9cc0-545ae394720f"
+                ]
+            },
+            "spotify": {
+                "id": "6LZiNXaDvhzvnXUubVOmNU",
+                "release": [
+                    "1a8207d9-75fa-44d7-9a83-04801b0619f3",
+                    "aa9286ad-59a3-4bd5-9cc0-545ae394720f"
+                ]
+            }
+        },
+        {
+            "song_name": "Sufjan Stevens - Illinois",
+            "release_group": "1fb75447-c513-38c4-ad8f-1bfc441aa74c",
+            "apple": {
+                "id": "",
+                "release": "2f6d6830-e03c-4709-86ce-c0a2eb9e8c31"
+            },
+            "spotify": {
+                "id": "1pOl0KEC1iQnA6F0XxV4To",
+                "release": "2f6d6830-e03c-4709-86ce-c0a2eb9e8c31"
+            }
+        },
+        {
+            "song_name": "Can - Tago Mago",
+            "release_group": "13d08c0e-14e2-30b2-9ad7-5f501761a8ea",
+            "apple": {
+                "id": "",
+                "release": [
+                    "af823681-7f88-451e-96d2-2aa26585f6f3",
+                    "19d8b6a2-51ed-4ed9-a9ce-d201e501e65d"
+                ]
+            },
+            "spotify": {
+                "id": "1txmvzex0gtGwbqQCcXEtt",
+                "release": [
+                    "af823681-7f88-451e-96d2-2aa26585f6f3",
+                    "19d8b6a2-51ed-4ed9-a9ce-d201e501e65d"
+                ]
+            }
+        },
+        {
+            "song_name": "ESPRIT 空想 - 200% Electronica",
+            "release_group": "7b456549-c339-4eaa-ae56-e67ae63acac4",
+            "apple": {
+                "id": "",
+                "release": [
+                    "69ffb11b-ebbb-45ae-8c95-1e1c08b39761",
+                    "0ae1f6b6-b970-4e73-97c4-6cb8d4b97128"
+                ]
+            },
+            "spotify": {
+                "id": "6WgSCcRfaXuBVfM2TpV0Kl",
+                "release": [
+                    "69ffb11b-ebbb-45ae-8c95-1e1c08b39761",
+                    "0ae1f6b6-b970-4e73-97c4-6cb8d4b97128"
+                ]
+            }
+        }
+    ],
+    "deluxe_albums": [
+        {
+            "song_name": "Kendrick Lamar - good kid, m.A.A.d city (Deluxe)",
+            "release_group": [
+                "499c19c8-0dab-4824-884b-6191d145e95b",
+                "712928ae-a147-4c62-b597-12e14accaba3"
+            ],
+            "apple": {
+                "id": "",
+                "release": "42b400fb-800b-49f3-88b4-be1fb8524220"
+            },
+            "spotify": {
+                "id": "3DGQ1iZ9XKUQxAUWjfC34w",
+                "release": "42b400fb-800b-49f3-88b4-be1fb8524220"
+            }
+        },
+        {
+            "song_name": "Lana Del Rey - Born To Die - The Paradise Edition",
+            "release_group": "4b16a1bc-8644-48ae-9b3e-8ae36aa30cfc",
+            "apple": {
+                "id": "",
+                "release": "fd363ac5-5db0-471d-9968-652b7538830a"
+            },
+            "spotify": {
+                "id": "5PW8nAtvf2HV8RYZFd4IrX",
+                "release": "fd363ac5-5db0-471d-9968-652b7538830a"
+            }
+        },
+        {
+            "song_name": "Radiohead - OK Computer OKNOTOK 1997 2017",
+            "release_group": "b1392450-e666-3926-a536-22c65f834433",
+            "apple": {
+                "id": "",
+                "release": [
+                    "d7881c68-914a-4da3-8a7d-be89f0201307",
+                    "a1ed87aa-2079-4e42-bbeb-6309b3b68674",
+                    "8e2b5322-f9a6-4ab7-b3f4-f65e7ddbc9e4"
+                ]
+            },
+            "spotify": {
+                "id": "0tzfI6NFJqcJkWb23R3lRZ",
+                "release": [
+                    "d7881c68-914a-4da3-8a7d-be89f0201307",
+                    "a1ed87aa-2079-4e42-bbeb-6309b3b68674",
+                    "8e2b5322-f9a6-4ab7-b3f4-f65e7ddbc9e4"
+                ]
+            }
+        },
+        {
+            "song_name": "Daft Punk - Random Access Memories (10th Anniversary Edition)",
+            "release_group": "aa997ea0-2936-40bd-884d-3af8a0e064dc",
+            "apple": {
+                "id": "",
+                "release": "e65fcfb0-02dc-407c-ab28-8168dafcb999"
+            },
+            "spotify": {
+                "id": "4mAhdh996uW5SnnFKXUmC0",
+                "release": "e65fcfb0-02dc-407c-ab28-8168dafcb999"
+            }
+        },
+        {
+            "song_name": "Caroline Polachek - Desire, I Want to Turn Into You: Everasking Edition",
+            "release_group": "20bbd8b3-35fa-4a29-9a94-13f4f01bf9ca",
+            "apple": {
+                "id": "",
+                "release": "287ee0be-0e75-4d59-bc04-51c5140a790d"
+            },
+            "spotify": {
+                "id": "25ktFe8igqIwv9aRbkdnTS",
+                "release": "287ee0be-0e75-4d59-bc04-51c5140a790d"
+            }
+        },
+        {
+            "song_name": "Imogen Heap - Speak for Yourself (Deluxe Edition)",
+            "release_group": "a100260d-0576-372f-a07b-4b22db1a77e2",
+            "apple": {
+                "id": "",
+                "release": "f29ea105-ff73-4d44-9ab6-9980b646e5a3"
+            },
+            "spotify": {
+                "id": "5DuihGAcuJdwyktx3EmncM",
+                "release": "f29ea105-ff73-4d44-9ab6-9980b646e5a3"
+            }
+        },
+        {
+            "song_name": "Filter - Title of Record (Expanded Edition)",
+            "release_group": "8671a7a0-20b5-3634-8932-7d362d9075f1",
+            "apple": {
+                "id": "",
+                "release": "b3d61156-27ba-45c1-aa5a-ad465a302230"
+            },
+            "spotify": {
+                "id": "5oxUuHFJpJOouSzXqlnhyU",
+                "release": "b3d61156-27ba-45c1-aa5a-ad465a302230"
+            }
+        },
+        {
+            "song_name": "Kesha - Animal + Canibal (15th Anniversary)",
+            "release_group": "e90dc06b-40a0-4b71-a6b8-c5ed0fdd8c65",
+            "apple": {
+                "id": "",
+                "release": "cbbad773-22b4-4c57-8813-950b24d38e70"
+            },
+            "spotify": {
+                "id": "4cPVR1DcBZr2ANNvQ25Sjp",
+                "release": "cbbad773-22b4-4c57-8813-950b24d38e70"
+            }
+        }
+    ],
+    "singles": [
+        {
+            "song_name": "Radiohead - Creep",
+            "release_group": "c5bc370b-95c2-3634-bb89-51bb2dce97c3",
+            "apple": {
+                "id": "",
+                "release": "d167d2cd-e579-4b09-a40e-68e833def38b"
+            },
+            "spotify": {
+                "id": "3RQlNKc08ikcuFmbg0luEw",
+                "release": "d167d2cd-e579-4b09-a40e-68e833def38b"
+            }
+        },
+        {
+            "song_name": "Joy Division - Love Will Tear Us Apart",
+            "release_group": "d4e6c019-a6df-38fb-b6aa-7861d71b5543",
+            "apple": {
+                "id": "",
+                "release": "55d3f975-dcc7-4af8-9b08-b0d3c73494f0"
+            },
+            "spotify": {
+                "id": "0u0CJa9zwFbGSU8JWQYS5G",
+                "release": "55d3f975-dcc7-4af8-9b08-b0d3c73494f0"
+            }
+        },
+        {
+            "song_name": "underscores - Do It",
+            "release_group": "2dcc1ba9-1772-48c8-b429-2f6428a433d1",
+            "apple": {
+                "id": "",
+                "release": "ab1a3f85-e0ea-470a-af5c-175447ae774c"
+            },
+            "spotify": {
+                "id": "3q2koL9KwKQxUue4hn8oWg",
+                "release": "ab1a3f85-e0ea-470a-af5c-175447ae774c"
+            }
+        },
+        {
+            "song_name": "berryblue - Uh Oh (Single)",
+            "release_group": "fba30ca6-4791-4a8f-88f4-0c0bae8abd0c",
+            "apple": {
+                "id": "",
+                "release": "e612ed9d-1762-432b-956d-06eb09879e88"
+            },
+            "spotify": {
+                "id": "2apFraO1saHGTdEKLv0uw7",
+                "release": "e612ed9d-1762-432b-956d-06eb09879e88"
+            }
+        },
+        {
+            "song_name": "Jane Remover - Magic I Want U",
+            "release_group": "31962320-9bdf-4391-8d21-63325350e601",
+            "apple": {
+                "id": "",
+                "release": "63e06452-a6d0-4f79-9afc-21848c730a3f"
+            },
+            "spotify": {
+                "id": "7vL60ZRnAY1KU4Az0CenAb",
+                "release": "63e06452-a6d0-4f79-9afc-21848c730a3f"
+            }
+        },
+        {
+            "song_name": "Lorde - Take Me to the River",
+            "release_group": "727a6823-d53e-4f72-952f-f1b5db242650",
+            "apple": {
+                "id": "",
+                "release": "27413a76-f0ce-4199-a099-7c99f0fe9e1d"
+            },
+            "spotify": {
+                "id": "2uZazZt5CXCpf5KPzSzh2V",
+                "release": "27413a76-f0ce-4199-a099-7c99f0fe9e1d"
+            }
+        },
+        {
+            "song_name": "Coco & Clair Clair - Aggy",
+            "release_group": "4e116cd6-87a1-4a66-9ade-73924ff5b6b6",
+            "apple": {
+                "id": "",
+                "release": "af72e588-ceb3-4234-9057-fed2db7b5f1a"
+            },
+            "spotify": {
+                "id": "2TyrytZI5dx2qjDSPSlPe2",
+                "release": "af72e588-ceb3-4234-9057-fed2db7b5f1a"
+            }
+        },
+        {
+            "song_name": "Porter Robinson - Kitsune Maison Freestyle",
+            "release_group": "5eb4a485-3397-48f5-a50a-727c70863243",
+            "apple": {
+                "id": "",
+                "release": "59c664ab-ae72-4eb8-a808-3e788430c881"
+            },
+            "spotify": {
+                "id": "05V4a8c5tR8gh77eXdX1LE",
+                "release": "59c664ab-ae72-4eb8-a808-3e788430c881"
+            }
+        },
+        {
+            "song_name": "Chevelle - Jim Jones (Cowards, Pt. 2)",
+            "release_group": "f031b0f9-501e-4506-ba79-c13f59604427",
+            "apple": {
+                "id": "",
+                "release": "a90d2a4d-c8f1-46ee-8c25-1644aa3050e7"
+            },
+            "spotify": {
+                "id": "3M6SromTDbSsAQDaPCgR08",
+                "release": "a90d2a4d-c8f1-46ee-8c25-1644aa3050e7"
+            }
+        },
+        {
+            "song_name": "The Sundays - Summertime",
+            "release_group": "2001d5e1-5b5c-3227-87bd-8df710afe70f",
+            "apple": {
+                "id": "",
+                "release": "3fc75d6f-459a-4d06-8de6-f24b990a24ed"
+            },
+            "spotify": {
+                "id": "3wY7rPaHSYzevlheZc8F7P",
+                "release": "3fc75d6f-459a-4d06-8de6-f24b990a24ed"
+            }
+        },
+        {
+            "song_name": "Boston - God Rest Ye Metal Gentlemen 2013",
+            "release_group": "11a41aed-d146-477f-9292-5212c1785a07",
+            "apple": {
+                "id": "",
+                "release": "aa0093ca-3709-4313-a422-5d9b0639100b"
+            },
+            "spotify": {
+                "id": "1HbDTEm9BhaImvEMmRVwsN",
+                "release": "aa0093ca-3709-4313-a422-5d9b0639100b"
+            }
+        },
+        {
+            "song_name": "The Radio Department - You Fear the Wrong Thing Baby",
+            "release_group": "e5f77ffd-858f-4307-8dd5-62d15230f8c0",
+            "apple": {
+                "id": "",
+                "release": "f50148eb-86cc-4388-8b2d-358859c2b046"
+            },
+            "spotify": {
+                "id": "1AkhVFkQZzZrTzhGVrzQ5V",
+                "release": "f50148eb-86cc-4388-8b2d-358859c2b046"
+            }
+        },
+        {
+            "song_name": "Radiohead - Chase the Tear",
+            "release_group": "a87ef716-4659-4ecb-8941-16fb73c1f21f",
+            "apple": {
+                "id": "",
+                "release": [
+                    "d45da67a-e3c5-3c6d-985e-03d421cfd624",
+                    "2fa59afe-b6a4-4f60-a311-4cf11b393e25"
+                ]
+            },
+            "spotify": {
+                "id": "7ofIuqyYYYTu1MbgDJgef4",
+                "release": [
+                    "d45da67a-e3c5-3c6d-985e-03d421cfd624",
+                    "2fa59afe-b6a4-4f60-a311-4cf11b393e25"
+                ]
+            }
+        },
+        {
+            "song_name": "Radiohead - Kisses (remixes)",
+            "release_group": "975595a8-a01c-4e6a-aa39-9dfc267a7cb8",
+            "apple": {
+                "id": "",
+                "release": "318f59fe-dabf-4023-9817-25cb30769777"
+            },
+            "spotify": {
+                "id": "5ZpOCQJKfPqeiIj2F3CKL2",
+                "release": "318f59fe-dabf-4023-9817-25cb30769777"
+            }
+        },
+        {
+            "song_name": "Aisan Glow - Weatherglow",
+            "release_group": "f07cc083-c3cb-4600-bf2e-37c6e79192cf",
+            "apple": {
+                "id": "",
+                "release": [
+                    "84e296e5-963a-4625-9eee-94ee47d819a8",
+                    "4d661968-4f73-4bfd-97b5-3bb1978c1891"
+                ]
+            },
+            "spotify": {
+                "id": "4mb8lqO8mGfzGnmRbmyOSP",
+                "release": [
+                    "84e296e5-963a-4625-9eee-94ee47d819a8",
+                    "4d661968-4f73-4bfd-97b5-3bb1978c1891"
+                ]
+            }
+        },
+        {
+            "song_name": "Ninijirachi - Fuck My Computer (Frost Children Remix)",
+            "release_group": "26c57f1b-0ad4-489c-86f0-e446c3cddeb0",
+            "apple": {
+                "id": "",
+                "release": "c3a36dad-b6b2-43c9-98bf-570993545cf6"
+            },
+            "spotify": {
+                "id": "3mkVo55KYmJAxy21rPssZ4",
+                "release": "c3a36dad-b6b2-43c9-98bf-570993545cf6"
+            }
+        },
+        {
+            "song_name": "Alice Deejay - Hitmix",
+            "release_group": "70d38eaf-6d99-41bc-a96d-aa40f1b9af52",
+            "apple": {
+                "id": "",
+                "release": "8bd9fe5c-85a0-40b0-91b3-24ff2d89b328"
+            },
+            "spotify": {
+                "id": "3dZgkOBwYbA7b5AoQUNN1P",
+                "release": "8bd9fe5c-85a0-40b0-91b3-24ff2d89b328"
+            }
+        },
+        {
+            "song_name": "That Kid - Spencer Needs a Ladder",
+            "release_group": "1018b6a0-e0c7-484b-8495-48563645a823",
+            "apple": {
+                "id": "",
+                "release": "a0a97dd8-90bd-4612-a737-9e77f34b06bb"
+            },
+            "spotify": {
+                "id": "2NzfmCURODIHigaOhXhwEr",
+                "release": "a0a97dd8-90bd-4612-a737-9e77f34b06bb"
+            }
+        },
+        {
+            "song_name": "That Kid - Dial Tone",
+            "release_group": "2ef72a6f-7020-4f21-b531-555d1be46a8b",
+            "apple": {
+                "id": "",
+                "release": "cd6cd6bb-7093-4553-aab0-46dabc764850"
+            },
+            "spotify": {
+                "id": "2ulrx76RxcL2JEVXh1igZI",
+                "release": "cd6cd6bb-7093-4553-aab0-46dabc764850"
+            }
+        },
+        {
+            "song_name": "George Clanton - Aurora Summer (ESPRIT 空想 Remix)",
+            "release_group": "93e99e92-fbea-4ace-902c-de8d55b4532b",
+            "apple": {
+                "id": "",
+                "release": "20eb3a12-0024-4871-beb2-d6a7a16a1045"
+            },
+            "spotify": {
+                "id": "4kxusJC28RcSKpWfHgD4eK",
+                "release": "20eb3a12-0024-4871-beb2-d6a7a16a1045"
+            }
+        }
+    ],
+    "eps": [
+        {
+            "song_name": "Radiohead - My Iron Lung",
+            "release_group": "99445a2b-578a-321e-851e-c6539bfbbd7f",
+            "apple": {
+                "id": "",
+                "release": "bc9ceb91-2af5-4659-a7e2-7cf61b3ecd8b"
+            },
+            "spotify": {
+                "id": "4GqinDAWUcJ20wfCaie6f8",
+                "release": "bc9ceb91-2af5-4659-a7e2-7cf61b3ecd8b"
+            }
+        },
+        {
+            "song_name": "Pixies - Come On Pilgrim",
+            "release_group": "2a251d31-9958-35f1-b2b1-a64d5541715d",
+            "apple": {
+                "id": "",
+                "release": "83042107-9f2d-4ea0-950d-4e424b50ef1d"
+            },
+            "spotify": {
+                "id": "79CvxovoFgGNuAMvQp9wul",
+                "release": "83042107-9f2d-4ea0-950d-4e424b50ef1d"
+            }
+        },
+        {
+            "song_name": "Burial - Kindred",
+            "release_group": "1c288979-ce2f-4e4b-90e4-845908cf7ffc",
+            "apple": {
+                "id": "",
+                "release": "2b19f713-fd86-480f-aa71-84ca6f90f86d"
+            },
+            "spotify": {
+                "id": "1sioWGJ5khckhIzKklgH6t",
+                "release": "2b19f713-fd86-480f-aa71-84ca6f90f86d"
+            }
+        },
+        {
+            "song_name": "Boards of Canada - In a Beautiful Place Out in the Country",
+            "release_group": "c73833e3-384c-36fd-97a2-762a858dbff4",
+            "apple": {
+                "id": "",
+                "release": "c5121f79-d6a3-4a07-876f-180f8bfe76d8"
+            },
+            "spotify": {
+                "id": "2U2WNneO3RdYEASjRI2OZx",
+                "release": "c5121f79-d6a3-4a07-876f-180f8bfe76d8"
+            }
+        },
+        {
+            "song_name": "Clarence Clarity - SAVE THYSELF EP",
+            "release_group": "e69c72a9-c142-4066-abcf-2d37dcc3b8fb",
+            "apple": {
+                "id": "",
+                "release": "87cc75db-2d32-4fb4-a32b-40dc0d3cf2bc"
+            },
+            "spotify": {
+                "id": "7zBESW7HGouSlQzJS9WRFR",
+                "release": "87cc75db-2d32-4fb4-a32b-40dc0d3cf2bc"
+            }
+        },
+        {
+            "song_name": "LSD and the Search for God - Heaven Is a Place",
+            "release_group": "a8ca0c28-c615-4d9c-bd55-8d746083e1f9",
+            "apple": {
+                "id": "",
+                "release": "f9dfc42b-36f5-42c3-a58a-101dd9b594d2"
+            },
+            "spotify": {
+                "id": "3M7JUl1DZ3xtAt057LmTwD",
+                "release": "f9dfc42b-36f5-42c3-a58a-101dd9b594d2"
+            }
+        },
+        {
+            "song_name": "LSD and the Search for God - LSD and the Search for God",
+            "release_group": "d5a4b729-16ea-3643-a789-f163d6b6ff61",
+            "apple": {
+                "id": "",
+                "release": "5324005e-0525-4b15-b097-c10f51a5a967"
+            },
+            "spotify": {
+                "id": "3CooFtn84cBTR3rmfkda5v",
+                "release": "5324005e-0525-4b15-b097-c10f51a5a967"
+            }
+        },
+        {
+            "song_name": "Frost Children - Soul Kiss",
+            "release_group": "599f9199-1d02-46e7-bf80-51b2c6e2d431",
+            "apple": {
+                "id": "",
+                "release": [
+                    "2d2ec217-6665-41de-8651-769d5f5d58a4",
+                    "eb4269b8-2938-41b8-972c-a4f3432fc975",
+                    "dde0114d-bc67-4b23-9416-18fb402881f2",
+                    "f8c60df0-574c-4f3e-a5be-7d4b050e5ae1",
+                    "af14da2c-e6d3-408c-9328-3d8ad16a2095"
+                ]
+            },
+            "spotify": {
+                "id": "5XN1l3D1COrcHZ6PbGXHEJ",
+                "release": [
+                    "2d2ec217-6665-41de-8651-769d5f5d58a4",
+                    "eb4269b8-2938-41b8-972c-a4f3432fc975",
+                    "dde0114d-bc67-4b23-9416-18fb402881f2",
+                    "f8c60df0-574c-4f3e-a5be-7d4b050e5ae1",
+                    "af14da2c-e6d3-408c-9328-3d8ad16a2095"
+                ]
+            }
+        },
+        {
+            "song_name": "Femtanyl - REACTOR",
+            "release_group": "70c819ae-ba6c-4b3b-9603-fa0b44ff64a9",
+            "apple": {
+                "id": "",
+                "release": [
+                    "6a885ca0-142a-4eb6-bbaf-430d146f5c92",
+                    "2784a353-2c04-4bc2-93cb-c25390556cd1"
+                ]
+            },
+            "spotify": {
+                "id": "0EuXXwAyrzBp9FFicvBfsp",
+                "release": [
+                    "6a885ca0-142a-4eb6-bbaf-430d146f5c92",
+                    "2784a353-2c04-4bc2-93cb-c25390556cd1"
+                ]
+            }
+        },
+        {
+            "song_name": "Snow Strippers - Night Killaz Vol. 2",
+            "release_group": "ecb94809-2cb1-476e-ae29-35062fdf239e",
+            "apple": {
+                "id": "",
+                "release": "2fdb640b-b355-4bc2-b71b-792e3ea36d46"
+            },
+            "spotify": {
+                "id": "4oxh61KL99ewB5vvYpXaiX",
+                "release": "2fdb640b-b355-4bc2-b71b-792e3ea36d46"
+            }
+        },
+        {
+            "song_name": "Mitski - Mitski on Audiotree Live",
+            "release_group": "6c536920-f6a2-41f5-b0d0-bbbf5d1c0d98",
+            "apple": {
+                "id": "",
+                "release": "e9af235a-def8-49cf-8240-9ca2bf0c2827"
+            },
+            "spotify": {
+                "id": "5lbEsVQlcvV5tT8KBllPdh",
+                "release": "e9af235a-def8-49cf-8240-9ca2bf0c2827"
+            }
+        },
+        {
+            "song_name": "Aerosmith - I Don't Want To Miss A Thing EP",
+            "release_group": "55fca8e9-74ee-352a-97a4-82fe299d3826",
+            "apple": {
+                "id": "",
+                "release": "f42232ce-69fc-4768-8235-aa3ccaf2b5ab"
+            },
+            "spotify": {
+                "id": "3fk5Yk62Lekng4NQ89980F",
+                "release": "f42232ce-69fc-4768-8235-aa3ccaf2b5ab"
+            }
+        },
+        {
+            "song_name": "Aspartame - Inevitably...Hesitation",
+            "release_group": "6ea1d1e5-a292-4282-b9d4-3eec18239b5f",
+            "apple": {
+                "id": "",
+                "release": "bd4d4600-b773-49e3-801f-14de8329e4b3"
+            },
+            "spotify": {
+                "id": "3nCowSpb8Ilc3NYrIqZH5k",
+                "release": "bd4d4600-b773-49e3-801f-14de8329e4b3"
+            }
+        },
+        {
+            "song_name": "Purity Filter - neo organic bioform",
+            "release_group": "cbf611e7-4155-4273-9f72-9b0c06d3270b",
+            "apple": {
+                "id": "",
+                "release": "9ac8be8f-b84c-4ba4-bc1b-d1760ce8d8b2"
+            },
+            "spotify": {
+                "id": "5vasloOV1T5IcaTkhrHHTU",
+                "release": "9ac8be8f-b84c-4ba4-bc1b-d1760ce8d8b2"
+            }
+        },
+        {
+            "song_name": "Machine Girl - SUPER FREQ",
+            "release_group": "f350fb67-4203-4348-b8ff-b0699f2f2eb7",
+            "apple": {
+                "id": "",
+                "release": "5155413f-f357-4daf-a562-65f4150c74ed"
+            },
+            "spotify": {
+                "id": "4fpeEq1qtV52td9M7WcKrp",
+                "release": "5155413f-f357-4daf-a562-65f4150c74ed"
+            }
+        },
+        {
+            "song_name": "Loathe - Loathe | Audiotree From Nothing",
+            "release_group": "62be7821-f4ce-455b-8d0f-83598ee8ff19",
+            "apple": {
+                "id": "",
+                "release": "5ec64060-b0ce-4bdb-bd46-ef3c46a6237d"
+            },
+            "spotify": {
+                "id": "63OMWvD8KjpOMdRmHZBQ1D",
+                "release": "5ec64060-b0ce-4bdb-bd46-ef3c46a6237d"
+            }
+        },
+        {
+            "song_name": "berryblue - GOT LIKE ME",
+            "release_group": "4a7c99ca-0635-4b6a-a4b1-e334ef809196",
+            "apple": {
+                "id": "",
+                "release": "0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
+            },
+            "spotify": {
+                "id": "2PQ1xBtvsvq68nJoOtUA2R",
+                "release": "0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
+            }
+        },
+        {
+            "song_name": "Title Fight - Spring Songs",
+            "release_group": "09a068f3-5d87-46eb-b919-be18641917df",
+            "apple": {
+                "id": "",
+                "release": [
+                    "9db29abb-e0db-4ac4-beb6-5e64c421f63b",
+                    "7a4dac06-2827-494c-9129-63d43b907edc"
+                ]
+            },
+            "spotify": {
+                "id": "4cLYG7fp8Z7OyzlSEV6HED",
+                "release": [
+                    "9db29abb-e0db-4ac4-beb6-5e64c421f63b",
+                    "7a4dac06-2827-494c-9129-63d43b907edc"
+                ]
+            }
+        },
+        {
+            "song_name": "GnB Chili - Basement Popstar",
+            "release_group": "f8f397d6-7d85-4af6-a088-25c5458debbe",
+            "apple": {
+                "id": "",
+                "release": "01d9d418-1177-4ed5-b0a9-fd168f5e9616"
+            },
+            "spotify": {
+                "id": "3g6BGhwBDj0uRYIWV35iQ0",
+                "release": "01d9d418-1177-4ed5-b0a9-fd168f5e9616"
+            }
+        },
+        {
+            "song_name": "Kesha - BOY CRAZY.(SMASH REMIXES)",
+            "release_group": "4d41db23-f8d8-4acd-9a4c-2082b59d0981",
+            "apple": {
+                "id": "",
+                "release": "71f307eb-2315-4094-8f37-f8d7e52dab56"
+            },
+            "spotify": {
+                "id": "0YdxI1nWj9oy7jDK8R9TPC",
+                "release": "71f307eb-2315-4094-8f37-f8d7e52dab56"
+            }
+        }
+    ]
 }
