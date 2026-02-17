@@ -798,8 +798,8 @@
                 "712928ae-a147-4c62-b597-12e14accaba3"
             ],
             "apple": {
-                "id": "",
-                "release": "42b400fb-800b-49f3-88b4-be1fb8524220"
+                "id": "1471264092",
+                "release": "712928ae-a147-4c62-b597-12e14accaba3"
             },
             "spotify": {
                 "id": "3DGQ1iZ9XKUQxAUWjfC34w",
@@ -810,8 +810,8 @@
             "song_name": "Lana Del Rey - Born To Die - The Paradise Edition",
             "release_group": "4b16a1bc-8644-48ae-9b3e-8ae36aa30cfc",
             "apple": {
-                "id": "",
-                "release": "fd363ac5-5db0-471d-9968-652b7538830a"
+                "id": "1442452465",
+                "release": "a53bc168-f7cd-4b86-88b0-02b5b54bb7ba"
             },
             "spotify": {
                 "id": "5PW8nAtvf2HV8RYZFd4IrX",
@@ -822,7 +822,7 @@
             "song_name": "Radiohead - OK Computer OKNOTOK 1997 2017",
             "release_group": "b1392450-e666-3926-a536-22c65f834433",
             "apple": {
-                "id": "",
+                "id": "1239489060",
                 "release": [
                     "d7881c68-914a-4da3-8a7d-be89f0201307",
                     "a1ed87aa-2079-4e42-bbeb-6309b3b68674",
@@ -842,7 +842,7 @@
             "song_name": "Daft Punk - Random Access Memories (10th Anniversary Edition)",
             "release_group": "aa997ea0-2936-40bd-884d-3af8a0e064dc",
             "apple": {
-                "id": "",
+                "id": "1673536063",
                 "release": "e65fcfb0-02dc-407c-ab28-8168dafcb999"
             },
             "spotify": {
@@ -854,7 +854,7 @@
             "song_name": "Caroline Polachek - Desire, I Want to Turn Into You: Everasking Edition",
             "release_group": "20bbd8b3-35fa-4a29-9a94-13f4f01bf9ca",
             "apple": {
-                "id": "",
+                "id": "1732294271",
                 "release": "287ee0be-0e75-4d59-bc04-51c5140a790d"
             },
             "spotify": {
@@ -866,7 +866,7 @@
             "song_name": "Imogen Heap - Speak for Yourself (Deluxe Edition)",
             "release_group": "a100260d-0576-372f-a07b-4b22db1a77e2",
             "apple": {
-                "id": "",
+                "id": "1785655348",
                 "release": "f29ea105-ff73-4d44-9ab6-9980b646e5a3"
             },
             "spotify": {
@@ -878,7 +878,7 @@
             "song_name": "Filter - Title of Record (Expanded Edition)",
             "release_group": "8671a7a0-20b5-3634-8932-7d362d9075f1",
             "apple": {
-                "id": "",
+                "id": "1576785973",
                 "release": "b3d61156-27ba-45c1-aa5a-ad465a302230"
             },
             "spotify": {
@@ -890,7 +890,7 @@
             "song_name": "Kesha - Animal + Canibal (15th Anniversary)",
             "release_group": "e90dc06b-40a0-4b71-a6b8-c5ed0fdd8c65",
             "apple": {
-                "id": "",
+                "id": "1852627146",
                 "release": "cbbad773-22b4-4c57-8813-950b24d38e70"
             },
             "spotify": {
@@ -904,7 +904,7 @@
             "song_name": "Radiohead - Creep",
             "release_group": "c5bc370b-95c2-3634-bb89-51bb2dce97c3",
             "apple": {
-                "id": "",
+                "id": "1679849414",
                 "release": "d167d2cd-e579-4b09-a40e-68e833def38b"
             },
             "spotify": {
@@ -928,7 +928,7 @@
             "song_name": "underscores - Do It",
             "release_group": "2dcc1ba9-1772-48c8-b429-2f6428a433d1",
             "apple": {
-                "id": "",
+                "id": "1846415812",
                 "release": "ab1a3f85-e0ea-470a-af5c-175447ae774c"
             },
             "spotify": {
@@ -940,7 +940,7 @@
             "song_name": "berryblue - Uh Oh (Single)",
             "release_group": "fba30ca6-4791-4a8f-88f4-0c0bae8abd0c",
             "apple": {
-                "id": "",
+                "id": "1789245260",
                 "release": "e612ed9d-1762-432b-956d-06eb09879e88"
             },
             "spotify": {
