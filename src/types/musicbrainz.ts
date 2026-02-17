@@ -1,5 +1,3 @@
-import * as log from "../utils/logger.ts"
-
 import type { Recording, ReleaseMetadata, CoverArt } from "../types/common.ts";
 
 type QueryParam = {
@@ -133,9 +131,6 @@ export function assertRelationRelease(
     }
 
     if (value.country !== undefined) {
-        log.debug(`Release.country: ${value.country}\n
-                    ${JSON.stringify(value, null, 2)}`);
-
         assert(
             typeof value.country === "string" ||
             value.country === null,

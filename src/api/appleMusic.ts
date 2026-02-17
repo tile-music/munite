@@ -60,6 +60,9 @@ async function getAppleMusicAlbum(
     });
 
     if (!res.ok) {
+        log.error(`Failed to fetch Apple Music album: ${res.status}\n
+            request: ${url}`);
+        await res.body?.cancel();
         if (res.status === 404) {
             throw new Error(`Apple Music album not found: ${album_id}`);
         } else if (res.status === 400) {

@@ -5,7 +5,10 @@
             "release_group": "fda72ebb-16e5-4a19-8be5-8e41906e3c86",
             "apple": {
                 "id": "1570541671",
-                "release": "e24b8995-129d-4174-b3b5-a95297bd79fc"
+                "release": [
+                    "e24b8995-129d-4174-b3b5-a95297bd79fc",
+                    "df3a1cec-5ee0-4aa8-afb2-fe92423f9432"
+                ]
             },
             "spotify": {
                 "id": "1ERrUvG31thFCxdwWUoJrY",
@@ -169,7 +172,7 @@
             "release_group": "055be730-dcad-31bf-b550-45ba9c202aa3",
             "apple": {
                 "id": "1441133180",
-                "release": "df3a1cec-5ee0-4aa8-afb2-fe92423f9432"
+                "release": "74fd3224-105a-4f78-a55f-a156956739fe"
             },
             "spotify": {
                 "id": "1klALx0u4AavZNEvC4LrTL",
@@ -216,7 +219,7 @@
             "song_name": "Sigur Rós – ( )",
             "release_group": "950a650b-1e8d-3097-92af-9f7686bba4f1",
             "apple": {
-                "id": "https://music.apple.com/us/album/1448737462",
+                "id": "1448737462",
                 "release": "cad20c73-6189-46b9-a8e7-27d4232cf050"
             },
             "spotify": {
@@ -289,7 +292,7 @@
             "release_group": "ce569c5b-b67b-3e0c-b4c0-04d916d13891",
             "apple": {
                 "id": "1444093548",
-                "release": "895569db-bd07-48eb-a96e-4fa7c9530147"
+                "release": "9699e8f3-69d9-41dc-962d-398a4d542127"
             },
             "spotify": {
                 "id": "6jRvDpOc9oi3sjQuoPK7if",
@@ -336,7 +339,7 @@
             "song_name": "Radiohead - Kid A",
             "release_group": "e75c0549-ad55-39e3-8025-c72c5d4a3c5d",
             "apple": {
-                "id": "",
+                "id": "1097862870",
                 "release": "0e8a1994-f0a7-481d-9be2-6c2f80e14de5"
             },
             "spotify": {
@@ -348,7 +351,7 @@
             "song_name": "Kendrick Lamar - good kid, m.A.A.d city",
             "release_group": "499c19c8-0dab-4824-884b-6191d145e95b",
             "apple": {
-                "id": "",
+                "id": "1471263898",
                 "release": "2d85edaa-83b4-4fef-b6b0-23084e972930"
             },
             "spotify": {
@@ -360,7 +363,7 @@
             "song_name": "Pink Floyd - The Dark Side of the Moon",
             "release_group": "f5093c06-23e3-404f-aeaa-40f72885ee3a",
             "apple": {
-                "id": "",
+                "id": "1065973699",
                 "release": [
                     "2f481f2f-e24a-4b36-8076-4564030f59b5",
                     "bdd366fd-67be-4dfe-a7fb-00a216eaa3ed",
@@ -382,7 +385,7 @@
             "song_name": "Miles Davis - Kind Of Blue",
             "release_group": "8e8a594f-2175-38c7-a871-abb68ec363e7",
             "apple": {
-                "id": "",
+                "id": "268443092",
                 "release": "4c8af71f-5746-4981-92d7-0d6c64db1155"
             },
             "spotify": {
@@ -394,7 +397,7 @@
             "song_name": "Led Zeppelin - Led Zeppelin IV (Remaster)",
             "release_group": "2e61da88-39e9-3473-81d2-c964cb394952",
             "apple": {
-                "id": "",
+                "id": "580708175",
                 "release": "5a17beb8-d7d7-4680-baa8-d6517aca1c68"
             },
             "spotify": {
@@ -406,7 +409,7 @@
             "song_name": "Fleetwood Mac - Rumors",
             "release_group": "416bb5e5-c7d1-3977-8fd7-7c9daf6c2be6",
             "apple": {
-                "id": "",
+                "id": "594061854",
                 "release": "7ba2862e-9431-4368-8fc7-9eb3e7fcf42e"
             },
             "spotify": {
@@ -418,7 +421,7 @@
             "song_name": "The Strokes - Is This It",
             "release_group": "efea26d1-a016-30f6-b8e2-bc8c02336b0a",
             "apple": {
-                "id": "",
+                "id": "266376953",
                 "release": [
                     "5fd728bf-f69a-4c45-b68a-4fb30898bb00",
                     "79979449-adcb-4a63-8a0b-35ab99563670"
@@ -436,7 +439,7 @@
             "song_name": "Neutral Milk Hotel - In the Aeroplane Over the Sea",
             "release_group": "8f310800-045b-3e12-8268-50b3d33a2267",
             "apple": {
-                "id": "",
+                "id": "1839077554",
                 "release": [
                     "fe0183b9-7526-4ad5-8483-dae3dfdb3d30",
                     "c2983d45-85a4-45b2-805e-1bf9269415ec"
@@ -454,7 +457,7 @@
             "song_name": "The Velvet Underground, Nico - The Velvet Underground & Nico",
             "release_group": "5cbd9d7b-597a-3c5e-bfd1-c2b364215560",
             "apple": {
-                "id": "",
+                "id": "1440851613",
                 "release": [
                     "2b645963-cc81-4d88-aa70-84015487933b",
                     "05a69e7d-95cc-4778-9647-24af79c84b53"
@@ -469,10 +472,10 @@
             }
         },
         {
-            "song_name": "Tool - Anima",
+            "song_name": "Tool - Ænima",
             "release_group": "ef1e8130-dd5f-336a-85fa-4936a47342bd",
             "apple": {
-                "id": "",
+                "id": "1474185335",
                 "release": "bb6bd783-6a88-40c6-9abf-ee1c80b3f753"
             },
             "spotify": {
@@ -484,7 +487,7 @@
             "song_name": "Nine Inch Nails - The Downward Spiral",
             "release_group": "7c4cab8d-dead-3870-b501-93c90fd0a580",
             "apple": {
-                "id": "",
+                "id": "1440837096",
                 "release": [
                     "4680b5be-177d-42a2-b4c0-35d5453b8148",
                     "4356bcd3-a41d-4071-998e-ad1a44308a99",
@@ -522,7 +525,7 @@
             "song_name": "Metallica - Metallica (The Black Album)",
             "release_group": "e8f70201-8899-3f0c-9e07-5d6495bc8046",
             "apple": {
-                "id": "",
+                "id": "1572046434",
                 "release": [
                     "db448a83-cc4b-45c7-abdd-8524ed9969e5",
                     "6d4cecbb-d460-48e5-b0dc-0d385486757f"
@@ -540,7 +543,7 @@
             "song_name": "Rage Against The Machine - Rage Against The Machine",
             "release_group": "1305859b-8937-397f-9c33-39f62eb672fb",
             "apple": {
-                "id": "",
+                "id": "191450810",
                 "release": "389a60bf-e586-4dc3-b995-fe196c5cf0f7"
             },
             "spotify": {
@@ -552,7 +555,7 @@
             "song_name": "blink-182 - blink-182",
             "release_group": "04e0cb66-e8ee-38b9-863d-b4f21dee887d",
             "apple": {
-                "id": "",
+                "id": "1442997224",
                 "release": [
                     "47e66554-23e2-4668-be85-b8fc73e11985",
                     "82a826af-4816-402f-9d91-cb174018b053"
@@ -570,7 +573,7 @@
             "song_name": "Mos Def - Black on Both Sides",
             "release_group": "d6658b47-463a-390e-9417-99c818aea004",
             "apple": {
-                "id": "",
+                "id": "1444213589",
                 "release": "b33ddceb-2c7e-4fc5-a17a-42f0dc332ba9"
             },
             "spotify": {
@@ -582,7 +585,7 @@
             "song_name": "Yusuf / Cat Stevens - Tea For The Tillerman",
             "release_group": "418678e7-2807-3bed-a305-11b4181e533e",
             "apple": {
-                "id": "",
+                "id": "1513608539",
                 "release": [
                     "e85224b5-15e6-48e6-8b43-0cd6c017a9e2",
                     "73faa43c-52ea-43b7-b971-3de46e137f88"
@@ -600,7 +603,7 @@
             "song_name": "Puff Daddy & The Family / P. Diddy / Diddy - No Way Out",
             "release_group": "107b1fb0-8ec9-374c-8eda-e250b086b969",
             "apple": {
-                "id": "",
+                "id": "906589010",
                 "release": "5f0330c7-8465-45ed-a0e8-f3840bda7313"
             },
             "spotify": {
@@ -612,7 +615,7 @@
             "song_name": "AJJ / Andrew Jackson Jihad - People Who Can Eat People Are the Luckiest People in the World",
             "release_group": "676033ea-5ba2-3b8c-95d4-8679cdbc0249",
             "apple": {
-                "id": "",
+                "id": "1743475218",
                 "release": [
                     "17c22b69-196f-4583-a216-828ffcba5a23",
                     "55dd6c67-968e-45d7-8d55-5345f65a27ae"
@@ -630,7 +633,7 @@
             "song_name": "Electric Callboy / Eskimo Callboy - Bury Me in Vegas",
             "release_group": "019d7063-0717-4ee0-beb6-bd3f31e36ce7",
             "apple": {
-                "id": "",
+                "id": "500815484",
                 "release": "d8a1d016-3fb0-4f91-91a9-a047a1f7267e"
             },
             "spotify": {
@@ -642,7 +645,7 @@
             "song_name": "The 1975 - I like it when you sleep, for you are so beautiful yet so unaware of it",
             "release_group": "c1125856-5eaa-4e76-9f63-2fd1f72281a6",
             "apple": {
-                "id": "",
+                "id": "1440832181",
                 "release": [
                     "0756add3-d83f-4cde-b4a4-3a3e626bb0f7",
                     "f1f0bb28-12d5-4abe-a73a-993b27edcb94",
@@ -664,7 +667,7 @@
             "song_name": "Talk Talk - Spirit of Eden",
             "release_group": "fd29e2cd-9bd7-32c6-adf9-ce80ab1cadfc",
             "apple": {
-                "id": "",
+                "id": "701395363",
                 "release": "b7272de5-810e-44ee-89a1-681c6c483b15"
             },
             "spotify": {
@@ -676,7 +679,7 @@
             "song_name": "Jay Z & Kanye West - Watch The Throne",
             "release_group": "a96597aa-93b4-4e14-9e6e-03892ab24979",
             "apple": {
-                "id": "",
+                "id": "1440848092",
                 "release": "90cc3f69-3b7e-437b-bc33-099369d8dcaf"
             },
             "spotify": {
@@ -688,7 +691,7 @@
             "song_name": "Madvillain - Madvillainy",
             "release_group": "ab570ccb-b06b-3746-8147-4903163ba895",
             "apple": {
-                "id": "",
+                "id": "887699504",
                 "release": [
                     "b88edf3d-7a88-4d1e-b51b-50022fde5708",
                     "264702af-dd10-46b5-83ef-7419552de193"
@@ -706,7 +709,7 @@
             "song_name": "Burial - Untrue",
             "release_group": "fddedc4f-7a2e-3d7d-9ec5-1705c416f3f4",
             "apple": {
-                "id": "",
+                "id": "893175779",
                 "release": [
                     "d84892a9-0b1d-3694-a2a1-f19ddb7d0c53",
                     "3b78aca5-18da-4183-a5dc-51626d39e8ff"
@@ -724,7 +727,7 @@
             "song_name": "Boards of Canada - Music Has the Right to Children",
             "release_group": "17d74d52-c92b-3b8d-9f87-218ab2d1c4a0",
             "apple": {
-                "id": "",
+                "id": "281116024",
                 "release": [
                     "1a8207d9-75fa-44d7-9a83-04801b0619f3",
                     "aa9286ad-59a3-4bd5-9cc0-545ae394720f"
@@ -742,7 +745,7 @@
             "song_name": "Sufjan Stevens - Illinois",
             "release_group": "1fb75447-c513-38c4-ad8f-1bfc441aa74c",
             "apple": {
-                "id": "",
+                "id": "328074546",
                 "release": "2f6d6830-e03c-4709-86ce-c0a2eb9e8c31"
             },
             "spotify": {
@@ -754,7 +757,7 @@
             "song_name": "Can - Tago Mago",
             "release_group": "13d08c0e-14e2-30b2-9ad7-5f501761a8ea",
             "apple": {
-                "id": "",
+                "id": "967464923",
                 "release": [
                     "af823681-7f88-451e-96d2-2aa26585f6f3",
                     "19d8b6a2-51ed-4ed9-a9ce-d201e501e65d"
@@ -772,7 +775,7 @@
             "song_name": "ESPRIT 空想 - 200% Electronica",
             "release_group": "7b456549-c339-4eaa-ae56-e67ae63acac4",
             "apple": {
-                "id": "",
+                "id": "1455022347",
                 "release": [
                     "69ffb11b-ebbb-45ae-8c95-1e1c08b39761",
                     "0ae1f6b6-b970-4e73-97c4-6cb8d4b97128"
