@@ -952,7 +952,7 @@
             "song_name": "Jane Remover - Magic I Want U",
             "release_group": "31962320-9bdf-4391-8d21-63325350e601",
             "apple": {
-                "id": "",
+                "id": "1850728740",
                 "release": "63e06452-a6d0-4f79-9afc-21848c730a3f"
             },
             "spotify": {
@@ -964,7 +964,7 @@
             "song_name": "Lorde - Take Me to the River",
             "release_group": "727a6823-d53e-4f72-952f-f1b5db242650",
             "apple": {
-                "id": "",
+                "id": "1734501622",
                 "release": "27413a76-f0ce-4199-a099-7c99f0fe9e1d"
             },
             "spotify": {
@@ -988,7 +988,7 @@
             "song_name": "Porter Robinson - Kitsune Maison Freestyle",
             "release_group": "5eb4a485-3397-48f5-a50a-727c70863243",
             "apple": {
-                "id": "",
+                "id": "1755415497",
                 "release": "59c664ab-ae72-4eb8-a808-3e788430c881"
             },
             "spotify": {
@@ -1012,7 +1012,7 @@
             "song_name": "The Sundays - Summertime",
             "release_group": "2001d5e1-5b5c-3227-87bd-8df710afe70f",
             "apple": {
-                "id": "",
+                "id": "https://music.apple.com/us/album/summertime-ep/1776923466",
                 "release": "3fc75d6f-459a-4d06-8de6-f24b990a24ed"
             },
             "spotify": {
@@ -1024,7 +1024,7 @@
             "song_name": "Boston - God Rest Ye Metal Gentlemen 2013",
             "release_group": "11a41aed-d146-477f-9292-5212c1785a07",
             "apple": {
-                "id": "",
+                "id": "778803023",
                 "release": "aa0093ca-3709-4313-a422-5d9b0639100b"
             },
             "spotify": {
@@ -1036,7 +1036,7 @@
             "song_name": "The Radio Department - You Fear the Wrong Thing Baby",
             "release_group": "e5f77ffd-858f-4307-8dd5-62d15230f8c0",
             "apple": {
-                "id": "",
+                "id": "1640742176",
                 "release": "f50148eb-86cc-4388-8b2d-358859c2b046"
             },
             "spotify": {
@@ -1045,10 +1045,10 @@
             }
         },
         {
-            "song_name": "Radiohead - Chase the Tear",
+            "song_name": "Portishead - Chase the Tear",
             "release_group": "a87ef716-4659-4ecb-8941-16fb73c1f21f",
             "apple": {
-                "id": "",
+                "id": "372120434",
                 "release": [
                     "d45da67a-e3c5-3c6d-985e-03d421cfd624",
                     "2fa59afe-b6a4-4f60-a311-4cf11b393e25"
@@ -1063,10 +1063,10 @@
             }
         },
         {
-            "song_name": "Radiohead - Kisses (remixes)",
+            "song_name": "Slowdive - Kisses (remixes)",
             "release_group": "975595a8-a01c-4e6a-aa39-9dfc267a7cb8",
             "apple": {
-                "id": "",
+                "id": "1768826273",
                 "release": "318f59fe-dabf-4023-9817-25cb30769777"
             },
             "spotify": {
@@ -1078,7 +1078,7 @@
             "song_name": "Aisan Glow - Weatherglow",
             "release_group": "f07cc083-c3cb-4600-bf2e-37c6e79192cf",
             "apple": {
-                "id": "",
+                "id": "1615276489",
                 "release": [
                     "84e296e5-963a-4625-9eee-94ee47d819a8",
                     "4d661968-4f73-4bfd-97b5-3bb1978c1891"
@@ -1096,7 +1096,7 @@
             "song_name": "Ninijirachi - Fuck My Computer (Frost Children Remix)",
             "release_group": "26c57f1b-0ad4-489c-86f0-e446c3cddeb0",
             "apple": {
-                "id": "",
+                "id": "1850597358",
                 "release": "c3a36dad-b6b2-43c9-98bf-570993545cf6"
             },
             "spotify": {
@@ -1108,7 +1108,7 @@
             "song_name": "Alice Deejay - Hitmix",
             "release_group": "70d38eaf-6d99-41bc-a96d-aa40f1b9af52",
             "apple": {
-                "id": "",
+                "id": "1631123213",
                 "release": "8bd9fe5c-85a0-40b0-91b3-24ff2d89b328"
             },
             "spotify": {
@@ -1120,7 +1120,7 @@
             "song_name": "That Kid - Spencer Needs a Ladder",
             "release_group": "1018b6a0-e0c7-484b-8495-48563645a823",
             "apple": {
-                "id": "",
+                "id": "1821627439",
                 "release": "a0a97dd8-90bd-4612-a737-9e77f34b06bb"
             },
             "spotify": {
@@ -1132,7 +1132,7 @@
             "song_name": "That Kid - Dial Tone",
             "release_group": "2ef72a6f-7020-4f21-b531-555d1be46a8b",
             "apple": {
-                "id": "",
+                "id": "1435872409",
                 "release": "cd6cd6bb-7093-4553-aab0-46dabc764850"
             },
             "spotify": {
@@ -1144,7 +1144,7 @@
             "song_name": "George Clanton - Aurora Summer (ESPRIT 空想 Remix)",
             "release_group": "93e99e92-fbea-4ace-902c-de8d55b4532b",
             "apple": {
-                "id": "",
+                "id": "1635627019",
                 "release": "20eb3a12-0024-4871-beb2-d6a7a16a1045"
             },
             "spotify": {
@@ -1158,7 +1158,7 @@
             "song_name": "Radiohead - My Iron Lung",
             "release_group": "99445a2b-578a-321e-851e-c6539bfbbd7f",
             "apple": {
-                "id": "",
+                "id": "1112408006",
                 "release": "bc9ceb91-2af5-4659-a7e2-7cf61b3ecd8b"
             },
             "spotify": {
