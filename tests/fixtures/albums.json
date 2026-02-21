@@ -905,7 +905,7 @@
             "release_group": "c5bc370b-95c2-3634-bb89-51bb2dce97c3",
             "apple": {
                 "id": "1679849414",
-                "release": "d167d2cd-e579-4b09-a40e-68e833def38b"
+                "release": "3572d5bf-5a08-47b6-be39-143e8586c420"
             },
             "spotify": {
                 "id": "3RQlNKc08ikcuFmbg0luEw",
@@ -916,7 +916,7 @@
             "song_name": "Joy Division - Love Will Tear Us Apart",
             "release_group": "d4e6c019-a6df-38fb-b6aa-7861d71b5543",
             "apple": {
-                "id": "",
+                "id": "1511732884",
                 "release": "55d3f975-dcc7-4af8-9b08-b0d3c73494f0"
             },
             "spotify": {
@@ -1012,7 +1012,7 @@
             "song_name": "The Sundays - Summertime",
             "release_group": "2001d5e1-5b5c-3227-87bd-8df710afe70f",
             "apple": {
-                "id": "https://music.apple.com/us/album/summertime-ep/1776923466",
+                "id": "1776923466",
                 "release": "3fc75d6f-459a-4d06-8de6-f24b990a24ed"
             },
             "spotify": {
@@ -1170,7 +1170,7 @@
             "song_name": "Pixies - Come On Pilgrim",
             "release_group": "2a251d31-9958-35f1-b2b1-a64d5541715d",
             "apple": {
-                "id": "",
+                "id": "266192033",
                 "release": "83042107-9f2d-4ea0-950d-4e424b50ef1d"
             },
             "spotify": {
@@ -1182,7 +1182,7 @@
             "song_name": "Burial - Kindred",
             "release_group": "1c288979-ce2f-4e4b-90e4-845908cf7ffc",
             "apple": {
-                "id": "",
+                "id": "892543151",
                 "release": "2b19f713-fd86-480f-aa71-84ca6f90f86d"
             },
             "spotify": {
