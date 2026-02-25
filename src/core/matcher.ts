@@ -1,5 +1,3 @@
-import { initializeSpotifyQueue } from "../api/spotify.ts";
-import { initializeAppleMusicQueue } from "../api/apple-music.ts";
 import {
     initializeMusicBrainzQueue,
     filterMusicBrainzResponse,
@@ -38,12 +36,6 @@ export async function init(config: MuniteConfig) {
 
     initializeMusicBrainzQueue(
         Number(config.max_musicbrainz_requests_per_second),
-    );
-    await initializeSpotifyQueue(
-        Number(config.max_spotify_requests_per_second),
-    );
-    await initializeAppleMusicQueue(
-        Number(config.max_spotify_requests_per_second),
     );
 
     log.setLogLevel((config.log_level as LogLevel) || "info");

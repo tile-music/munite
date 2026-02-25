@@ -76,7 +76,7 @@ async function getReleaseByUrl(
 
     if (response.status === 404) {
         log.debug("MusicBrainz URL not found (404)");
-        await response.body?.cancel();
+        await response.body?.cancel()
         return null;
     }
 

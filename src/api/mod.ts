@@ -1,33 +1,30 @@
 import type { FilterResponse } from "../types/musicbrainz.ts";
+import type { SpotifyAlbum } from "../types/spotify.ts";
 import type { AppleMusicAlbum } from "../types/apple-music.ts";
-import {log} from "../utils/logger.ts"
 
-
-type SpotifyMetadata = any;
-
+import { matchSpotifyAlbum } from "./spotify.ts";
+import { matchAppleMusicAlbum } from "./apple-music.ts";
 
 async function matchAlbum(
     service: "spotify",
-    id: string,
-    metadata?: SpotifyMetadata,
+    metadata: SpotifyAlbum,
 ): Promise<FilterResponse>;
 async function matchAlbum(
     service: "apple-music",
-    id: string,
-    metadata?: AppleMusicAlbum,
+    metadata: AppleMusicAlbum,
 ): Promise<FilterResponse>;
 async function matchAlbum(
     service: string,
-    id: string,
-    metadata?: unknown,
+    metadata: unknown,
 ): Promise<FilterResponse> {
     switch (service) {
         case "spotify":
-
-
+            return await matchSpotifyAlbum(metadata as SpotifyAlbum);
+        case "apple-music":
+            return await matchAppleMusicAlbum(metadata as AppleMusicAlbum);
+        default:
+            throw new Error(`Unsupported service: ${service}`);
     }
-
 }
-
 
 export { matchAlbum };
