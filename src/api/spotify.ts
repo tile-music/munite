@@ -85,7 +85,7 @@ async function testAccessToken() {
 }
 
 async function getSpotifyAlbum(
-    album_id: string,
+    album: SpotifyAlbum,
 ): Promise<ReleaseSearchMetadata> {
     const album_url = `https://api.spotify.com/v1/albums/${album_id}`;
 
@@ -104,12 +104,10 @@ async function getSpotifyAlbum(
         throw new Error(`Failed to fetch Spotify album: ${album_res.status}`);
     }
 
-    const spotify_album: SpotifyAlbum = await album_res.json();
 
     /* paginate using tracks.href! */
-    const tracks: SpotifyAlbum["tracks"]["items"] = [];
-    let url: string | null = spotify_album.tracks.href;
 
+    let url: string | null = album.tracks.href;
     while (url) {
         const res = await spotify_queue!.enqueue(url, {
             headers: {
@@ -130,13 +128,13 @@ async function getSpotifyAlbum(
     }
 
     return {
-        stripped_album_title: stripString(spotify_album.name),
-        stripped_artists: spotify_album.artists.map((artist) =>
+        stripped_album_title: stripString(album.name),
+        stripped_artists: album.artists.map((artist) =>
             stripString(artist.name),
         ),
-        url: spotify_album.external_urls.spotify,
-        release_date: spotify_album.release_date ?? null,
-        tracks: tracks.map((track) => ({
+        url: album.external_urls.spotify,
+        release_date: album.release_date ?? null,
+        tracks: album.tracks.map((track) => ({
             name: stripString(track.name),
             duration_ms: track.duration_ms,
             url: track.external_urls.spotify,

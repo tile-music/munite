@@ -1,7 +1,10 @@
-import { FilterResponse } from "../types/musicbrainz.ts";
+import type { FilterResponse } from "../types/musicbrainz.ts";
+import type { AppleMusicAlbum } from "../types/apple-music.ts";
+import {log} from "../utils/logger.ts"
+
 
 type SpotifyMetadata = any;
-type AppleMusicMetadata = any;
+
 
 async function matchAlbum(
     service: "spotify",
@@ -11,13 +14,18 @@ async function matchAlbum(
 async function matchAlbum(
     service: "apple-music",
     id: string,
-    metadata?: AppleMusicMetadata,
+    metadata?: AppleMusicAlbum,
 ): Promise<FilterResponse>;
 async function matchAlbum(
     service: string,
     id: string,
     metadata?: unknown,
 ): Promise<FilterResponse> {
+    switch (service) {
+        case "spotify":
+
+
+    }
 
 }
 

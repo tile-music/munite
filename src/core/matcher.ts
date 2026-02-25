@@ -1,5 +1,5 @@
 import { initializeSpotifyQueue } from "../api/spotify.ts";
-import { initializeAppleMusicQueue } from "../api/appleMusic.ts";
+import { initializeAppleMusicQueue } from "../api/apple-music.ts";
 import {
     initializeMusicBrainzQueue,
     filterMusicBrainzResponse,
