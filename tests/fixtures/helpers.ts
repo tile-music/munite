@@ -1,6 +1,22 @@
 import type { AppleMusicAlbum } from "../../src/types/apple-music.ts";
 import type { SpotifyAlbum } from "../../src/types/spotify.ts";
 
+import { createQueue } from "../../src/utils/queue.ts";
+
+const max_spotify_reqs = parseInt(
+    Deno.env.get("MAX_SPOTIFY_REQUESTS_PER_SECOND") || "100",
+);
+const max_am_reqs = parseInt(
+    Deno.env.get("MAX_APPLE_MUSIC_REQUESTS_PER_SECOND") || "100",
+);
+
+export const spotifyQueue = createQueue();
+export const appleMusicQueue = createQueue();
+
+setInterval(() => spotifyQueue.process(), 1000 / max_spotify_reqs);
+
+setInterval(() => appleMusicQueue.process(), 1000 / max_am_reqs);
+
 export async function fetchAppleAlbum(
     album_id: string,
     developer_token: string,
@@ -8,10 +24,8 @@ export async function fetchAppleAlbum(
 ): Promise<AppleMusicAlbum> {
     const url = `https://api.music.apple.com/v1/catalog/${storefront}/albums/${album_id}`;
 
-    const res = await fetch(url, {
-        headers: {
-            Authorization: `Bearer ${developer_token}`,
-        },
+    const res = await appleMusicQueue.enqueue(url, {
+        headers: { Authorization: `Bearer ${developer_token}` },
     });
 
     if (!res.ok) {
@@ -60,9 +74,7 @@ async function getSpotifyAccessToken(
     });
 
     if (!res.ok) {
-        throw new Error(
-            `Failed to obtain Spotify access token: ${res.status}`,
-        );
+        throw new Error(`Failed to obtain Spotify access token: ${res.status}`);
     }
 
     const json = await res.json();
@@ -93,17 +105,12 @@ export async function fetchSpotifyAlbum(
         );
     }
 
-    const access_token = await getSpotifyAccessToken(
-        client_id,
-        client_secret,
-    );
+    const access_token = await getSpotifyAccessToken(client_id, client_secret);
 
     const album_url = `https://api.spotify.com/v1/albums/${album_id}`;
 
-    const album_res = await fetch(album_url, {
-        headers: {
-            Authorization: `Bearer ${access_token}`,
-        },
+    const album_res = await spotifyQueue.enqueue(album_url, {
+        headers: { Authorization: `Bearer ${access_token}` },
     });
 
     if (!album_res.ok) {
@@ -113,9 +120,7 @@ export async function fetchSpotifyAlbum(
         if (album_res.status === 400) {
             throw new Error(`Invalid Spotify album ID: ${album_id}`);
         }
-        throw new Error(
-            `Failed to fetch Spotify album: ${album_res.status}`,
-        );
+        throw new Error(`Failed to fetch Spotify album: ${album_res.status}`);
     }
 
     const spotify_album: SpotifyAlbum = await album_res.json();
@@ -125,10 +130,8 @@ export async function fetchSpotifyAlbum(
     let url: string | null = spotify_album.tracks.href;
 
     while (url) {
-        const res = await fetch(url, {
-            headers: {
-                Authorization: `Bearer ${access_token}`,
-            },
+        const res = await spotifyQueue.enqueue(url, {
+            headers: { Authorization: `Bearer ${access_token}` },
         });
 
         if (!res.ok) {

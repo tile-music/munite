@@ -14,12 +14,7 @@ function verifyConfig(config: MuniteConfig) {
     const requiredFields: Array<keyof MuniteConfig> = [
         "musicbrainz_api_url",
         "max_musicbrainz_requests_per_second",
-        "spotify_client_id",
-        "spotify_client_secret",
-        "max_spotify_requests_per_second",
         "query_release",
-        "apple_music_developer_token",
-        "apple_music_storefront"
     ];
 
     for (const fieldName of requiredFields) {

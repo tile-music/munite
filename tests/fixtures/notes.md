@@ -12,3 +12,6 @@
     * remastered
 * The Beatles - The Beatles
     * switched for release without cover image :(
+* Burial - kindred
+    * matches to vinyl ep
+*

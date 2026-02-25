@@ -1,18 +1,15 @@
 {
     "one": [
         {
-            "song_name": "Magdalena Bay - Mercurial World",
-            "release_group": "fda72ebb-16e5-4a19-8be5-8e41906e3c86",
+            "song_name": "JPEGMAFIA & Danny Brown - SCARING THE HOES",
+            "release_group": "6bb871f4-08ec-4a70-9fb3-c1c2b481e090",
             "apple": {
-                "id": "1570541671",
-                "release": [
-                    "e24b8995-129d-4174-b3b5-a95297bd79fc",
-                    "df3a1cec-5ee0-4aa8-afb2-fe92423f9432"
-                ]
+                "id": "1676166971",
+                "release": "578567d7-0e53-4d57-b7eb-78b2821858ba"
             },
             "spotify": {
-                "id": "1ERrUvG31thFCxdwWUoJrY",
-                "release": "e24b8995-129d-4174-b3b5-a95297bd79fc"
+                "id": "3u20OXh03DjCUzbf8XcGTq",
+                "release": "56d7440e-dba2-413d-9d11-6a14d80d4f94"
             }
         }
     ],
@@ -929,7 +926,7 @@
             "release_group": "2dcc1ba9-1772-48c8-b429-2f6428a433d1",
             "apple": {
                 "id": "1846415812",
-                "release": "ab1a3f85-e0ea-470a-af5c-175447ae774c"
+                "release": "14a6203a-f273-4d3d-ad98-bfba57e50674"
             },
             "spotify": {
                 "id": "3q2koL9KwKQxUue4hn8oWg",
@@ -989,7 +986,7 @@
             "release_group": "5eb4a485-3397-48f5-a50a-727c70863243",
             "apple": {
                 "id": "1755415497",
-                "release": "59c664ab-ae72-4eb8-a808-3e788430c881"
+                "release": "2b31444a-de63-4fb9-ba74-76327d94da0c"
             },
             "spotify": {
                 "id": "05V4a8c5tR8gh77eXdX1LE",
@@ -1345,7 +1342,7 @@
             "release_group": "f350fb67-4203-4348-b8ff-b0699f2f2eb7",
             "apple": {
                 "id": "1737438010",
-                "release": "5155413f-f357-4daf-a562-65f4150c74ed"
+                "release": "a28679ca-45cb-4b37-b51f-2c4d86923533"
             },
             "spotify": {
                 "id": "4fpeEq1qtV52td9M7WcKrp",
@@ -1369,11 +1366,11 @@
             "release_group": "4a7c99ca-0635-4b6a-a4b1-e334ef809196",
             "apple": {
                 "id": "1704275821",
-                "release": "0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
+                "release": "c0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
             },
             "spotify": {
                 "id": "2PQ1xBtvsvq68nJoOtUA2R",
-                "release": "0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
+                "release": "c0a6e5cb-fd2e-4195-8bdd-0639fb6235d3"
             }
         },
         {
