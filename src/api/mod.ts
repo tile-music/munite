@@ -5,26 +5,21 @@ import type { AppleMusicAlbum } from "../types/apple-music.ts";
 import { matchSpotifyAlbum } from "./spotify.ts";
 import { matchAppleMusicAlbum } from "./apple-music.ts";
 
-async function matchAlbum(
-    service: "spotify",
-    metadata: SpotifyAlbum,
-): Promise<FilterResponse>;
-async function matchAlbum(
-    service: "apple-music",
-    metadata: AppleMusicAlbum,
-): Promise<FilterResponse>;
-async function matchAlbum(
-    service: string,
-    metadata: unknown,
+const matchers = {
+    spotify: matchSpotifyAlbum,
+    "apple-music": matchAppleMusicAlbum,
+};
+
+type ServiceMap = {
+    spotify: SpotifyAlbum;
+    "apple-music": AppleMusicAlbum;
+};
+
+async function matchAlbum<T extends keyof ServiceMap>(
+    service: T,
+    metadata: ServiceMap[T],
 ): Promise<FilterResponse> {
-    switch (service) {
-        case "spotify":
-            return await matchSpotifyAlbum(metadata as SpotifyAlbum);
-        case "apple-music":
-            return await matchAppleMusicAlbum(metadata as AppleMusicAlbum);
-        default:
-            throw new Error(`Unsupported service: ${service}`);
-    }
+    return await matchers[service](metadata as never);
 }
 
 export { matchAlbum };

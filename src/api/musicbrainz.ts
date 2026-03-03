@@ -151,9 +151,8 @@ function buildParamsForStage(
 export function initializeMusicBrainzQueue(req_per_sec: number) {
     if (music_brainz_queue) return;
 
-    music_brainz_queue = createQueue();
-    const interval = 1000 / req_per_sec;
-    setInterval(music_brainz_queue!.process, interval);
+    music_brainz_queue = createQueue(req_per_sec);
+
     log.info("Initialized MusicBrainz queue");
 }
 
