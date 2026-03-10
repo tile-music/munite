@@ -1,7 +1,4 @@
-import { createQueue } from "../utils/queue.ts";
-import * as log from "../utils/logger.ts";
 import { matchAlbum } from "../core/matcher.ts";
-import { getConfig } from "../core/config.ts";
 import { stripString } from "../utils/stripString.ts";
 
 import type { Queue } from "../types/queue.ts";

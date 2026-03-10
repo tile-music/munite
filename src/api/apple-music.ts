@@ -1,7 +1,4 @@
-import { createQueue } from "../utils/queue.ts";
-import * as log from "../utils/logger.ts";
 import { matchAlbum } from "../core/matcher.ts";
-import { getConfig } from "../core/config.ts";
 
 import { stripString } from "../utils/stripString.ts";
 
@@ -20,7 +17,7 @@ async function parseAppleMusicRequest(
 
     const tracks: ReleaseSearchMetadata["tracks"] = [];
     if (!album.relationships || !album.relationships.tracks)
-        throw new Error("Apple Music album missing tracks");
+        throw new Error(`Apple Music album missing tracks ${JSON.stringify(album, null, 2)}`);
     const trackData = album.relationships.tracks;
 
 

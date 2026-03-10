@@ -23,6 +23,7 @@ export function createQueue(reqPerSec: number = 1): Queue {
 
             if (timeSinceLast < interval) {
                 await sleep(interval - timeSinceLast);
+
             }
 
             const req = items.shift();
