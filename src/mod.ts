@@ -1,6 +1,6 @@
-export { init } from "./core/matcher.ts";
-export { matchSpotifyAlbum } from "./api/spotify.ts";
-export type { MuniteConfig } from "./core/config.ts";
+export { init, } from "./core/matcher.ts";
+export { matchAlbum } from "./api/mod.ts";
+export { type MuniteConfig, setConfig, getConfig } from "./core/config.ts";
 export type { FilterResponse } from "./types/musicbrainz.ts";
 export {
     setLogLevel,

@@ -1,4 +1,3 @@
-import { initializeSpotifyQueue } from "../api/spotify.ts";
 import {
     initializeMusicBrainzQueue,
     filterMusicBrainzResponse,
@@ -15,9 +14,6 @@ function verifyConfig(config: MuniteConfig) {
     const requiredFields: Array<keyof MuniteConfig> = [
         "musicbrainz_api_url",
         "max_musicbrainz_requests_per_second",
-        "spotify_client_id",
-        "spotify_client_secret",
-        "max_spotify_requests_per_second",
         "query_release",
     ];
 
@@ -35,9 +31,6 @@ export async function init(config: MuniteConfig) {
 
     initializeMusicBrainzQueue(
         Number(config.max_musicbrainz_requests_per_second),
-    );
-    await initializeSpotifyQueue(
-        Number(config.max_spotify_requests_per_second),
     );
 
     log.setLogLevel((config.log_level as LogLevel) || "info");

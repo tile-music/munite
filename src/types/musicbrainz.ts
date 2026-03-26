@@ -1,9 +1,4 @@
-import * as log from "../utils/logger.ts";
-import {
-    Recording,
-    ReleaseMetadata,
-    CoverArt
-} from "../types/common.ts";
+import type { Recording, ReleaseMetadata, CoverArt } from "../types/common.ts";
 
 type QueryParam = {
     name: string;
@@ -82,35 +77,31 @@ type FilterResponse =
  * Types (exact API shape)
  * ========================= */
 
-type RelationRelease = {
+type UrlLookupResponse = {
     id: string;
-    title: string;
-    disambiguation?: string;
+    resource: string;
+    relations?: Relation[];
 };
 
-export type Relation = {
+type Relation = {
     type: string;
     "type-id": string;
     direction: string;
+    "target-type": string;
+    ended: boolean;
     release?: RelationRelease;
 };
 
-type RelationListItem = {
-    relations: Relation[];
-};
-
-type UrlItem = {
+type RelationRelease = {
     id: string;
-    score: number;
-    resource: string;
-    "relation-list": RelationListItem[];
+    title: string;
+    date?: string;
+    country?: string;
 };
 
-type AlbumUrlsResponse = {
-    created: string; // ISO date string
-    count: number;
-    offset: number;
-    urls: UrlItem[];
+type MusicBrainzErrorResponse = {
+    error: string;
+    help?: string;
 };
 
 function isObject(value: unknown): value is Record<string, unknown> {
@@ -131,17 +122,21 @@ export function assertRelationRelease(
     value: unknown,
 ): asserts value is RelationRelease {
     assert(isObject(value), "RelationRelease must be an object");
-    assert(typeof value.id === "string", "RelationRelease.id must be a string");
-    assert(
-        typeof value.title === "string",
-        "RelationRelease.title must be a string",
-    );
 
-    if ("disambiguation" in value && value.disambiguation !== undefined) {
+    assert(typeof value.id === "string", "Release.id must be a string");
+    assert(typeof value.title === "string", "Release.title must be a string");
+
+    if (value.date !== undefined) {
+        assert(typeof value.date === "string", "Release.date must be a string");
+    }
+
+    if (value.country !== undefined) {
         assert(
-            typeof value.disambiguation === "string",
-            "RelationRelease.disambiguation must be a string if present",
+            typeof value.country === "string" ||
+            value.country === null,
+            "Release.country must be a string or null",
         );
+
     }
 }
 
@@ -157,57 +152,93 @@ export function assertRelation(value: unknown): asserts value is Relation {
         typeof value.direction === "string",
         "Relation.direction must be a string",
     );
+    assert(
+        typeof value["target-type"] === "string",
+        "Relation.target-type must be a string",
+    );
+    assert(
+        typeof value.ended === "boolean",
+        "Relation.ended must be a boolean",
+    );
 
-    log.debug(`Relation.release: ${JSON.stringify(value.release)}`);
-    if ("release" in value && value.release !== undefined) {
+    if (value.release !== undefined) {
         assertRelationRelease(value.release);
     }
 }
+// export function assertRelationListItem(
+//     value: unknown,
+// ): asserts value is RelationListItem {
+//     assert(isObject(value), "RelationListItem must be an object");
+//     assert(Array.isArray(value.relations), "relations must be an array");
 
-export function assertRelationListItem(
+//     for (const relation of value.relations) {
+//         assertRelation(relation);
+//     }
+// }
+
+// export function assertUrlItem(value: unknown): asserts value is UrlItem {
+//     assert(isObject(value), "UrlItem must be an object");
+
+//     assert(typeof value.id === "string", "UrlItem.id must be a string");
+//     assert(typeof value.score === "number", "UrlItem.score must be a number");
+//     assert(
+//         typeof value.resource === "string",
+//         "UrlItem.resource must be a string",
+//     );
+
+//     log.debug(`UrlItem: ${JSON.stringify(value, null, 2)}`);
+
+//     log.debug(`UrlItem.relation-list: ${value["relation-list"]}`);
+
+//     assert(
+//         Array.isArray(value["relation-list"]),
+//         "UrlItem.relation-list must be an array",
+//     );
+
+//     for (const item of value["relation-list"]) {
+//         assertRelationListItem(item);
+//     }
+// }
+
+// export function assertAlbumUrlsResponse(
+//     value: unknown,
+// ): asserts value is AlbumUrlsResponse {
+//     assert(isObject(value), "AlbumUrlsResponse must be an object");
+
+//     assert(typeof value.created === "string", "created must be a string");
+//     assert(typeof value.count === "number", "count must be a number");
+//     assert(typeof value.offset === "number", "offset must be a number");
+
+//     assert(Array.isArray(value.urls), "urls must be an array");
+//     for (const url of value.urls) {
+//         assertUrlItem(url);
+//     }
+// }
+
+export function assertUrlLookupResponse(
     value: unknown,
-): asserts value is RelationListItem {
-    assert(isObject(value), "RelationListItem must be an object");
-    assert(Array.isArray(value.relations), "relations must be an array");
+): asserts value is UrlLookupResponse {
+    assert(isObject(value), "UrlLookupResponse must be an object");
 
-    for (const relation of value.relations) {
-        assertRelation(relation);
+    assert(typeof value.id === "string", "id must be a string");
+    assert(typeof value.resource === "string", "resource must be a string");
+
+    if (value.relations !== undefined) {
+        assert(Array.isArray(value.relations), "relations must be an array");
+
+        for (const rel of value.relations) {
+            assertRelation(rel);
+        }
     }
 }
 
-export function assertUrlItem(value: unknown): asserts value is UrlItem {
-    assert(isObject(value), "UrlItem must be an object");
-
-    assert(typeof value.id === "string", "UrlItem.id must be a string");
-    assert(typeof value.score === "number", "UrlItem.score must be a number");
-    assert(
-        typeof value.resource === "string",
-        "UrlItem.resource must be a string",
-    );
-
-    assert(
-        Array.isArray(value["relation-list"]),
-        "UrlItem.relation-list must be an array",
-    );
-
-    for (const item of value["relation-list"]) {
-        assertRelationListItem(item);
-    }
-}
-
-export function assertAlbumUrlsResponse(
+export function isMusicBrainzErrorResponse(
     value: unknown,
-): asserts value is AlbumUrlsResponse {
-    assert(isObject(value), "AlbumUrlsResponse must be an object");
-
-    assert(typeof value.created === "string", "created must be a string");
-    assert(typeof value.count === "number", "count must be a number");
-    assert(typeof value.offset === "number", "offset must be a number");
-
-    assert(Array.isArray(value.urls), "urls must be an array");
-    for (const url of value.urls) {
-        assertUrlItem(url);
-    }
+): value is MusicBrainzErrorResponse {
+    return (
+        isObject(value) &&
+        typeof value.error === "string"
+    );
 }
 
 export type {
@@ -216,8 +247,7 @@ export type {
     MinimalSearchRelease,
     MinimalRelease,
     FilterResponse,
-    AlbumUrlsResponse,
-    UrlItem,
+    UrlLookupResponse,
     Recording,
     CoverArt,
 };

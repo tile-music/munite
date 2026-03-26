@@ -3,13 +3,15 @@ import type { LogLevel } from "../types/logger.ts";
 export type MuniteConfig = {
     musicbrainz_api_url: string;
     max_musicbrainz_requests_per_second: number;
-    spotify_client_id: string;
-    spotify_client_secret: string;
-    max_spotify_requests_per_second: number;
+    spotify_client_id?: string;
+    spotify_client_secret?: string;
+    max_spotify_requests_per_second?: number;
     query_release: string;
     log_level?: LogLevel;
     preferred_region?: string;
     spotify_access_token?: string;
+    apple_music_developer_token?: string;
+    apple_music_storefront?: string; // e.g. "us"
     retry_count?: number;
 };
 
