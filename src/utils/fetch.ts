@@ -28,12 +28,12 @@ async function fetchRetry(
             const response = await fetch(...args);
 
             if (!response.ok) {
+                await response.body?.cancel();
                 if (isRetryableStatus(response.status)) {
                     throw new Error(
                         `Retryable HTTP error ${response.status} ${response.statusText}`,
                     );
                 }
-                await response.body?.cancel();
 
                 // Non-retryable HTTP error: return immediately
                 return response;

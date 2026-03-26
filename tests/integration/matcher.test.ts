@@ -89,10 +89,16 @@ for (const [category, category_tests] of Object.entries(albums)) {
                                 Deno.env.get("APPLE_MUSIC_DEV_TOKEN")!,
                                 Deno.env.get("PREFERED_REGION") ?? "US",
                             );
-                            musicbrainz_result = await matchAlbum("apple-music", metadata);
+                            musicbrainz_result = await matchAlbum(
+                                "apple-music",
+                                metadata,
+                            );
                         } else {
                             const metadata = await fetchSpotifyAlbum(id);
-                            musicbrainz_result = await matchAlbum("spotify", metadata);
+                            musicbrainz_result = await matchAlbum(
+                                "spotify",
+                                metadata,
+                            );
                         }
                         let status;
                         let success = 0;

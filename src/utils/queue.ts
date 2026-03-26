@@ -9,13 +9,34 @@ export function createQueue(reqPerSec: number = 1): Queue {
     let running = false;
     let lastExecution = 0;
 
-    async function sleep(ms: number) {
+    let idleResolver: (() => void) | null = null;
+    let idlePromise: Promise<void> | null = null;
+
+    function createIdlePromise() {
+        if (!idlePromise) {
+            idlePromise = new Promise((resolve) => {
+                idleResolver = resolve;
+            });
+        }
+    }
+
+    function resolveIdle() {
+        if (idleResolver) {
+            idleResolver();
+            idleResolver = null;
+            idlePromise = null;
+        }
+    }
+
+    function sleep(ms: number) {
         return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
     async function drain() {
         if (running) return;
+
         running = true;
+        createIdlePromise();
 
         while (items.length > 0) {
             const now = Date.now();
@@ -23,7 +44,6 @@ export function createQueue(reqPerSec: number = 1): Queue {
 
             if (timeSinceLast < interval) {
                 await sleep(interval - timeSinceLast);
-
             }
 
             const req = items.shift();
@@ -41,6 +61,7 @@ export function createQueue(reqPerSec: number = 1): Queue {
         }
 
         running = false;
+        resolveIdle();
     }
 
     function enqueue(
@@ -49,13 +70,18 @@ export function createQueue(reqPerSec: number = 1): Queue {
     ): Promise<Response> {
         return new Promise((resolve, reject) => {
             items.push({ url, options, resolve, reject });
-            drain(); // trigger processing
+            drain();
         });
+    }
+
+    function onIdle(): Promise<void> {
+        return idlePromise ?? Promise.resolve();
     }
 
     return {
         items,
-        process: drain, // kept for compatibility
+        process: drain,
         enqueue,
+        onIdle,
     };
 }

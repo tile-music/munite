@@ -10,9 +10,9 @@ import type { AppleMusicAlbum } from "../types/apple-music.ts";
    Apple Music Album Fetch
 ========================= */
 
-async function parseAppleMusicRequest(
+function parseAppleMusicRequest(
    album: AppleMusicAlbum
-): Promise<ReleaseSearchMetadata> {
+): ReleaseSearchMetadata {
     const attrs = album.attributes;
 
     const tracks: ReleaseSearchMetadata["tracks"] = [];
@@ -51,6 +51,6 @@ async function parseAppleMusicRequest(
 export async function matchAppleMusicAlbum(
     album: AppleMusicAlbum,
 ): Promise<FilterResponse> {
-    const metadata = await parseAppleMusicRequest(album);
-    return matchAlbum(metadata);
+    const metadata = parseAppleMusicRequest(album);
+    return await matchAlbum(metadata);
 }

@@ -9,6 +9,7 @@ type Queue = {
         url: string,
         options?: Parameters<typeof fetch>[1],
     ) => Promise<Response>;
+    onIdle: () => Promise<void>
 };
 
 /**

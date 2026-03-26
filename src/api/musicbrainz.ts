@@ -388,39 +388,6 @@ export async function filterMusicBrainzResponse(
     if (best_release.score <= 50) {
         log.debug(`Release score is low:
             ${JSON.stringify(best_release, null, 2)}`);
-        // const query_params = buildParamsForStage([
-        //     {
-        //     name: "release",
-        //     value: target_metadata.title
-        //     },
-        //     {
-        //         name: "artist",
-        //         value: target_metadata.artists.join(" AND ")
-        //     }
-        // ], 0, 0);
-
-        // const url = assembleMusicBrainzRequestURL("release/", query_params);
-        // const response = await music_brainz_queue.enqueue(url, {
-        //     headers: {
-        //         "User-Agent": "StreamBee/1.0 (mail@samranda.com)",
-        //     },
-        // });
-
-        // if (!response.ok) {
-        //     log.error(`MusicBrainz API error: ${response.status}`);
-        // } else {
-        //     const data: ReleasesSearchResponse = await response.json();
-        //         if (data.releases.length > 0) {
-        //             const fallback_result = await filterMusicBrainzResponse(data.releases, metadata);
-        //             if (
-        //                 fallback_result.status === "success" &&
-        //                 fallback_result.filter_score > best_release.score
-        //             ) {
-        //                 log.debug(`Fallback search yielded better score: ${fallback_result.filter_score} > ${best_release.score}`);
-        //                 return fallback_result;
-        //             }
-        //         }
-        // }
     }
 
     const ret: FilterResponse = {
